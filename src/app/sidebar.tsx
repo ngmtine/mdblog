@@ -1,5 +1,4 @@
 import fs from "fs";
-// const fsPromises = fs.promises;
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
@@ -21,12 +20,9 @@ const Sidebar = () => {
     );
 };
 
-const PostList = async () => {
+const PostList = () => {
     const postsDirectory = path.join(process.cwd(), "md");
     const fileNames = fs.readdirSync(postsDirectory);
-    // const fileNames = await fsPromises.readdir(postsDirectory); // 非同期版
-
-    const container: HTMLDivElement[] = [];
 
     // posts初期化
     const posts: Post[] = [];
