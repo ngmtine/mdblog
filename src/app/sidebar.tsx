@@ -12,8 +12,7 @@ const Sidebar = ({ children }) => {
 
     // children: PostList
     return (
-        // <div className="w-64 p-4 h-screen bg-gray-900 top-0 pt-20">
-        <div className="w-[260px] p-4 h-screen bg-gray-900 overflow-y-scroll overflow-x-hidden pt-20">
+        <div className="w-64 p-4 h-screen bg-gray-900 overflow-y-scroll overflow-x-hidden pt-20">
             {children}
             <div className="fixed bottom-0">
                 <HamburgerButton callback={toggleOpen}></HamburgerButton>
