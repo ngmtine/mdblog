@@ -4,6 +4,14 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 
+interface Post {
+    fileName: string;
+    slug: string;
+    title?: string;
+    date?: Date;
+    description?: string;
+}
+
 const Sidebar = () => {
     return (
         <div className="w-64 p-3 h-screen bg-gray-900 text-gray-300">
@@ -21,14 +29,13 @@ const PostList = async () => {
     const container: HTMLDivElement[] = [];
 
     // posts初期化
-    const posts = [];
+    const posts: Post[] = [];
     fileNames.forEach((fileName) => {
         const filePath = path.join(postsDirectory, fileName);
         const fileContents = fs.readFileSync(filePath, "utf8");
 
         // メタデータ取得
         const slug = fileName.replace(".md", "");
-        // const { metaData } = matter(fileContents);
         const { data } = matter(fileContents);
 
         // postsに追加
@@ -38,15 +45,15 @@ const PostList = async () => {
     // 日付でソート
     posts.sort((x, y) => x?.date - y?.date);
 
+    const postItems = posts.map((post) => (
+        <li key={post.slug}>
+            <Link href={`/posts/${post.slug}`}>{post?.title || post?.slug}</Link>
+        </li>
+    ));
+
     return (
         <div>
-            <ul>
-                {posts.map((post) => (
-                    <li key={post.slug}>
-                        <Link href={`/posts/${post.slug}`}>{post?.title || post?.slug}</Link>
-                    </li>
-                ))}
-            </ul>
+            <ul>{postItems}</ul>
         </div>
     );
 };
