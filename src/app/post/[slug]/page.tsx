@@ -4,7 +4,7 @@ import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 
-const BlogPost: React.FC = ({ params }) => {
+const PostPage: React.FC = ({ params }) => {
     const { slug } = params;
 
     // ファイル読み込み
@@ -22,4 +22,4 @@ const BlogPost: React.FC = ({ params }) => {
     );
 };
 
-export default BlogPost;
+export default PostPage;

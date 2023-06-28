@@ -1,18 +1,18 @@
-import BlogPost from "./post/[slug]/page";
+import PostPage from "./post/[slug]/page";
 import fetchPostList from "@/util/fetchPostList";
 
 const posts = fetchPostList().slice(0, 5);
 
-const postItems = posts.map((post) => {
+const RootPage = posts.map((post) => {
     return (
         <div key={post.slug}>
-            <BlogPost params={{ ...post }} />
+            <PostPage params={{ ...post }} />
         </div>
     );
 });
 
 export default function Home() {
-    return <div className="p-5 pt-20">{postItems}</div>;
+    return <div className="p-5 pt-20">{RootPage}</div>;
 }
 
 // pages.jsxが実際に表示されるページです。従来のPages Routerではpagesフォルダ内の.jsxファイルは全てページとして解釈されましたが、App Routerではpage.jsxのみがページとして解釈されます。

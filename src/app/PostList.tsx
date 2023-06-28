@@ -7,7 +7,7 @@ import Link from "next/link";
 const PostList = () => {
     const posts = fetchPostList();
 
-    const postItems = posts.map((post) => (
+    const RootPage = posts.map((post) => (
         <li key={post.slug}>
             <Link href={`/post/${post.slug}`}>{post?.title || post?.slug}</Link>
         </li>
@@ -15,7 +15,7 @@ const PostList = () => {
 
     return (
         <div>
-            <ul>{postItems}</ul>
+            <ul>{RootPage}</ul>
         </div>
     );
 };
