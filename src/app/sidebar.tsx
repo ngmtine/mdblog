@@ -43,7 +43,7 @@ const PostList = () => {
 
     const postItems = posts.map((post) => (
         <li key={post.slug}>
-            <Link href={`/posts/${post.slug}`}>{post?.title || post?.slug}</Link>
+            <Link href={`/post/${post.slug}`}>{post?.title || post?.slug}</Link>
         </li>
     ));
 
