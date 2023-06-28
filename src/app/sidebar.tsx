@@ -1,5 +1,6 @@
 import fetchPostList from "@/util/fetchPostList";
 import Link from "next/link";
+import HamburgerButton from "@/util/hamburgerButton";
 
 const Sidebar = () => {
     return (
@@ -10,6 +11,7 @@ const Sidebar = () => {
                 </Link>
             </div>
             <PostList></PostList>
+            <HamburgerButton></HamburgerButton>
         </div>
     );
 };
