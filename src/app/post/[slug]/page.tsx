@@ -4,8 +4,7 @@ import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 
-// const Page: React.FC = () => {
-const BlogPost = ({ params }) => {
+const BlogPost: React.FC = ({ params }) => {
     const { slug } = params;
 
     // ファイル読み込み
@@ -17,12 +16,10 @@ const BlogPost = ({ params }) => {
 
     return (
         <div>
-            <h1>{data.title}</h1>
+            <h1 className="text-xl">{data.title}</h1>
             <ReactMarkdown>{content}</ReactMarkdown>
         </div>
     );
-
-    // return <div>あああ！</div>;
 };
 
 export default BlogPost;
