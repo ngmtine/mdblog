@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="jp">
             <body className="flex">
-                <Sidebar></Sidebar>
+                <Sidebar />
                 {children}
             </body>
         </html>

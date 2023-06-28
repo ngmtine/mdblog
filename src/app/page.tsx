@@ -13,10 +13,9 @@ export default function Home() {
     });
 
     return (
-        <main>
-            <div>hello! it's main div!!</div>
+        <div className="bg-gray-800 text-gray-300 w-screen p-5">
             <div>{postItems}</div>
-        </main>
+        </div>
     );
 }
 
