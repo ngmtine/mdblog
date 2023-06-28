@@ -13,7 +13,7 @@ export default function Home() {
     });
 
     return (
-        <div className="bg-gray-800 text-gray-300 w-screen p-5">
+        <div className="p-5 pt-20">
             <div>{postItems}</div>
         </div>
     );

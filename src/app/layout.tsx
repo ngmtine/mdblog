@@ -1,5 +1,8 @@
 import "./globals.css";
+
+import Header from "./header";
 import Sidebar from "./sidebar";
+import PostList from "./PostList";
 
 // metadataについて
 // Pages Routerでは、ページのタイトルやmetaタグ情報はnext/headのHeadコンポーネントで設定していました。
@@ -33,16 +36,20 @@ export const metadata = {
 // </app直下のlayout>
 // 前述のとおり、下位階層のlayoutは、上位階層のlayoutにchildrenとして展開されます。
 
-import PostList from "./PostList";
-
+// children: Home
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="jp">
-            <body className="flex">
-                <Sidebar>
-                    <PostList></PostList>
-                </Sidebar>
-                {children}
+            <body className="bg-gray-800 text-gray-300">
+                <Header />
+                <div className="flex">
+                    <Sidebar>
+                        <PostList></PostList>
+                    </Sidebar>
+                    <div id="postWrapper" className="h-screen overflow-y-scroll">
+                        {children}
+                    </div>
+                </div>
             </body>
         </html>
     );

@@ -1,10 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import HamburgerButton from "@/util/hamburgerButton";
-
-const blogTitle = "真・フランス料理紹介ブログ";
 
 const Sidebar = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,13 +10,10 @@ const Sidebar = ({ children }) => {
         console.log(isOpen);
     };
 
+    // children: PostList
     return (
-        <div className="w-80 p-5 h-screen bg-gray-900 text-gray-300 relative">
-            <div className="pb-5">
-                <Link href={"/"} className="text-xl font-semibold mb-5">
-                    {blogTitle}
-                </Link>
-            </div>
+        // <div className="w-64 p-4 h-screen bg-gray-900 top-0 pt-20">
+        <div className="w-[260px] p-4 h-screen bg-gray-900 overflow-y-scroll overflow-x-hidden pt-20">
             {children}
             <div className="fixed bottom-0">
                 <HamburgerButton callback={toggleOpen}></HamburgerButton>

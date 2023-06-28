@@ -25,3 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+/* 妥協 */
+div#postWrapper {
+	width: -webkit-fill-available;
+	width: -moz-available;
+}
