@@ -33,11 +33,15 @@ export const metadata = {
 // </app直下のlayout>
 // 前述のとおり、下位階層のlayoutは、上位階層のlayoutにchildrenとして展開されます。
 
+import PostList from "./PostList";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="jp">
             <body className="flex">
-                <Sidebar />
+                <Sidebar>
+                    <PostList></PostList>
+                </Sidebar>
                 {children}
             </body>
         </html>

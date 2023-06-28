@@ -10,6 +10,9 @@ interface Post {
     description?: string;
 }
 
+/**
+ * @returns {object[]} - mdディレクトリ以下のファイルのリストを返す
+ */
 const fetchPostList = () => {
     const postsDirectory = path.join(process.cwd(), "md");
     const fileNames = fs.readdirSync(postsDirectory);

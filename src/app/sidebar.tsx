@@ -1,33 +1,29 @@
-import fetchPostList from "@/util/fetchPostList";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import HamburgerButton from "@/util/hamburgerButton";
 
-const Sidebar = () => {
+const blogTitle = "真・フランス料理紹介ブログ";
+
+const Sidebar = ({ children }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleOpen = () => {
+        setIsOpen(!isOpen);
+        console.log(isOpen);
+    };
+
     return (
-        <div className="w-80 p-5 h-screen bg-gray-900 text-gray-300">
+        <div className="w-80 p-5 h-screen bg-gray-900 text-gray-300 relative">
             <div className="pb-5">
                 <Link href={"/"} className="text-xl font-semibold mb-5">
-                    真・フランス料理紹介ブログ
+                    {blogTitle}
                 </Link>
             </div>
-            <PostList></PostList>
-            <HamburgerButton></HamburgerButton>
-        </div>
-    );
-};
-
-const PostList = () => {
-    const posts = fetchPostList();
-
-    const postItems = posts.map((post) => (
-        <li key={post.slug}>
-            <Link href={`/post/${post.slug}`}>{post?.title || post?.slug}</Link>
-        </li>
-    ));
-
-    return (
-        <div>
-            <ul>{postItems}</ul>
+            {children}
+            <div className="fixed bottom-0">
+                <HamburgerButton callback={toggleOpen}></HamburgerButton>
+            </div>
         </div>
     );
 };
