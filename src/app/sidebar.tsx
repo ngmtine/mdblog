@@ -2,6 +2,7 @@ import fs from "fs";
 // const fsPromises = fs.promises;
 import path from "path";
 import matter from "gray-matter";
+import Link from "next/link";
 
 const Sidebar = () => {
     return (
@@ -14,26 +15,40 @@ const Sidebar = () => {
 
 const PostList = async () => {
     const postsDirectory = path.join(process.cwd(), "md");
-    const fileNameList = fs.readdirSync(postsDirectory);
-    // const fileNameList = await fsPromises.readdir(postsDirectory); // 非同期版
+    const fileNames = fs.readdirSync(postsDirectory);
+    // const fileNames = await fsPromises.readdir(postsDirectory); // 非同期版
 
     const container: HTMLDivElement[] = [];
 
-    const fileDataList = [];
-    fileNameList.forEach((fileName) => {
+    // posts初期化
+    const posts = [];
+    fileNames.forEach((fileName) => {
         const filePath = path.join(postsDirectory, fileName);
         const fileContents = fs.readFileSync(filePath, "utf8");
+
+        // メタデータ取得
+        const slug = fileName.replace(".md", "");
+        // const { metaData } = matter(fileContents);
         const { data } = matter(fileContents);
-        fileDataList.push({ fileName: fileName, ...data });
-    });
-    fileDataList.sort((x, y) => x?.date - y?.date);
 
-    fileDataList.forEach((fileData) => {
-        const elm = <div>{fileData?.fileName}</div>;
-        container.push(elm);
+        // postsに追加
+        posts.push({ fileName, slug, ...data });
     });
 
-    return <div>{container}</div>;
+    // 日付でソート
+    posts.sort((x, y) => x?.date - y?.date);
+
+    return (
+        <div>
+            <ul>
+                {posts.map((post) => (
+                    <li key={post.slug}>
+                        <Link href={`/posts/${post.slug}`}>{post?.title || post?.slug}</Link>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 };
 
 export default Sidebar;
