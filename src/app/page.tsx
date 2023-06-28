@@ -1,7 +1,21 @@
+import BlogPost from "./post/[slug]/page";
+import fetchPostList from "@/util/fetchPostList";
+
 export default function Home() {
+    const posts = fetchPostList().slice(0, 5);
+
+    const postItems = posts.map((post) => {
+        return (
+            <div key={post.slug}>
+                <BlogPost params={{ ...post }} />
+            </div>
+        );
+    });
+
     return (
         <main>
-            <div>hello! it's main div!</div>
+            <div>hello! it's main div!!</div>
+            <div>{postItems}</div>
         </main>
     );
 }
