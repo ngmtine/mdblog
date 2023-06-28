@@ -17,7 +17,7 @@ const BlogPost: React.FC = ({ params }) => {
     return (
         <div>
             <h1 className="text-xl">{data.title}</h1>
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ReactMarkdown className="prose prose-invert">{content}</ReactMarkdown>
         </div>
     );
 };
