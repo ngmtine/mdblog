@@ -52,8 +52,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <div id="postWrapper" className="h-screen overflow-y-scroll">
                         {children}
                     </div>
-                    <Background />
                 </div>
+                <Background />
             </body>
         </html>
     );

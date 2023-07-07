@@ -2,11 +2,17 @@
 
 import styled from "styled-components";
 
+const randomTop = (() => {
+    const min = -30;
+    const max = 70;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+})();
+
 const DynamicBackground = styled.svg.attrs({
     xmlns: "http://www.w3.org/2000/svg",
 })`
     position: fixed;
-    top: 0;
+    top: ${randomTop}vh;
     left: 0;
     width: 100vw;
     height: 100vh;
