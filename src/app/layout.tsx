@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./header";
 import Sidebar from "./sidebar";
 import PostList from "./PostList";
+import Background from "@/util/background";
 
 // metadataについて
 // Pages Routerでは、ページのタイトルやmetaタグ情報はnext/headのHeadコンポーネントで設定していました。
@@ -43,8 +44,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="jp">
             <body className="container mx-auto bg-gray-800 text-gray-300">
+                {/* <Background /> */}
                 <Header />
-                <div className="flex">
+                <div className="flex bg-div">
                     <Sidebar>
                         <PostList></PostList>
                     </Sidebar>
