@@ -44,15 +44,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="jp">
             <body className="container mx-auto bg-gray-800 text-gray-300">
-                {/* <Background /> */}
                 <Header />
-                <div className="flex bg-div">
+                <div className="flex">
                     <Sidebar>
                         <PostList></PostList>
                     </Sidebar>
                     <div id="postWrapper" className="h-screen overflow-y-scroll">
                         {children}
                     </div>
+                    <Background />
                 </div>
             </body>
         </html>
