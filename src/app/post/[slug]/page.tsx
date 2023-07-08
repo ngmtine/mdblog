@@ -15,11 +15,11 @@ const PostPage: React.FC = ({ params }) => {
     const { data, content } = matter(fileContents);
 
     return (
-        <div>
+        <article>
             <h1 className="text-4xl font-extrabold">{data.title}</h1>
             <hr className="my-2"></hr>
             <ReactMarkdown className="prose prose-invert">{content}</ReactMarkdown>
-        </div>
+        </article>
     );
 };
 
