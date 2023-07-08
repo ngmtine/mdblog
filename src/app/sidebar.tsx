@@ -7,11 +7,11 @@ import ColorSchemeToggleButton from "@/util/colorSchemeToggleButton";
 import SvgIcon from "@/util/svgIcon";
 
 const Sidebar = ({ children }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggleOpen = () => {
-        setIsOpen(!isOpen);
-        console.log(isOpen);
-    };
+    // const [isOpen, setIsOpen] = useState(false);
+    // const toggleOpen = () => {
+    //     setIsOpen(!isOpen);
+    //     console.log(isOpen);
+    // };
 
     // children: PostList
     return (
@@ -22,7 +22,7 @@ const Sidebar = ({ children }) => {
                 <div className="flex items-center justify-center mt-3">
                     <ColorSchemeToggleButton />
                 </div>
-                <SvgIcon />
+                <SvgIcon dictKey="twitter" />
             </div>
         </div>
     );
