@@ -46,7 +46,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     const scheme = await getCurrentScheme();
     return (
         <html lang="jp" className={scheme === "dark" ? "dark" : ""}>
-            <body className="container mx-auto dark:bg-iceberg dark:text-gray-300">
+            <body className="container mx-auto bg-iceberg-light dark:bg-iceberg-dark text-gray-900 dark:text-gray-300">
                 <Header />
                 <div className="flex">
                     <Sidebar>

@@ -19,9 +19,9 @@ const PostPage: React.FC = ({ params }) => {
     return (
         <article>
             <h1 className="text-4xl font-extrabold">{title}</h1>
-            <hr></hr>
+            <hr className="bg-gray-300 dark:bg-gray-900"></hr>
             <div className="text-right mt-[-3px]">{dateStr}</div>
-            <ReactMarkdown className="prose prose-invert">{content}</ReactMarkdown>
+            <ReactMarkdown className="prose dark:prose-invert">{content}</ReactMarkdown>
             <div className="my-40"></div>
         </article>
     );

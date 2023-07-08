@@ -4,7 +4,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                iceberg: "#161821",
+                "iceberg-dark": "#161821",
+                "iceberg-light": "#e8e9ec",
             },
             typography: {
                 // proseクラス指定で付与されるデフォルトスタイルのリセット
@@ -15,6 +16,18 @@ module.exports = {
                             color: "none",
                         },
                         h2: {
+                            color: "none",
+                        },
+                        h3: {
+                            color: "none",
+                        },
+                        h4: {
+                            color: "none",
+                        },
+                        h5: {
+                            color: "none",
+                        },
+                        h6: {
                             color: "none",
                         },
                     },
