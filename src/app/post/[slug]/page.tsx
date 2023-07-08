@@ -19,6 +19,7 @@ const PostPage: React.FC = ({ params }) => {
             <h1 className="text-4xl font-extrabold">{data.title}</h1>
             <hr className="my-2"></hr>
             <ReactMarkdown className="prose prose-invert">{content}</ReactMarkdown>
+            <div className="my-40"></div>
         </article>
     );
 };
