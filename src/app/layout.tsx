@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Sidebar>
                         <PostList></PostList>
                     </Sidebar>
-                    <div id="postWrapper" className="h-screen overflow-y-scroll">
+                    <div id="postWrapper" className="h-screen overflow-y-scroll w-full">
                         {children}
                     </div>
                 </div>

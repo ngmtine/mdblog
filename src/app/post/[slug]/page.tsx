@@ -20,7 +20,7 @@ const PostPage: React.FC = ({ params }) => {
         <article>
             <h1 className="text-4xl font-extrabold">{title}</h1>
             <hr></hr>
-            <div className="text-right">{dateStr}</div>
+            <div className="text-right mt-[-3px]">{dateStr}</div>
             <ReactMarkdown className="prose prose-invert">{content}</ReactMarkdown>
             <div className="my-40"></div>
         </article>
