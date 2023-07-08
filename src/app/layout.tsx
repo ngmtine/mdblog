@@ -43,7 +43,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="jp">
-            <body className="container mx-auto bg-gray-800 text-gray-300">
+            <body className="container mx-auto bg-inherit text-gray-300">
                 <Header />
                 <div className="flex">
                     <Sidebar>
