@@ -18,7 +18,7 @@ const Sidebar = ({ children }) => {
             <div className="fixed bottom-0">
                 {/* <HamburgerButton callback={toggleOpen}></HamburgerButton> */}
                 <div className="flex items-center justify-center mt-3">
-                    <ColorSchemeToggleButton></ColorSchemeToggleButton>
+                    <ColorSchemeToggleButton />
                 </div>
             </div>
         </div>
