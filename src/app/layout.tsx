@@ -5,6 +5,8 @@ import Sidebar from "./sidebar";
 import PostList from "./PostList";
 import Background from "@/util/background";
 
+import { getCurrentScheme } from "@/util/colorScheme";
+
 // metadataについて
 // Pages Routerでは、ページのタイトルやmetaタグ情報はnext/headのHeadコンポーネントで設定していました。
 // App Routerでは、metadataオブジェクトをexportすることで設定します。page.jsxもしくはlayout.jsxでexportできます。
@@ -40,10 +42,11 @@ export const metadata = {
 // 前述のとおり、下位階層のlayoutは、上位階層のlayoutにchildrenとして展開されます。
 
 // children: Home
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+    const scheme = await getCurrentScheme();
     return (
-        <html lang="jp">
-            <body className="container mx-auto bg-iceberg text-gray-300">
+        <html lang="jp" className={scheme === "dark" ? "dark" : ""}>
+            <body className="container mx-auto dark:bg-iceberg dark:text-gray-300">
                 <Header />
                 <div className="flex">
                     <Sidebar>
