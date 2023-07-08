@@ -6,6 +6,20 @@ module.exports = {
             colors: {
                 iceberg: "#161821",
             },
+            typography: {
+                // proseクラス指定で付与されるデフォルトスタイルのリセット
+                DEFAULT: {
+                    css: {
+                        maxWidth: "none",
+                        h1: {
+                            color: "none",
+                        },
+                        h2: {
+                            color: "none",
+                        },
+                    },
+                },
+            },
         },
     },
     plugins: [require("@tailwindcss/typography")],

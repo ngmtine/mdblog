@@ -16,7 +16,8 @@ const PostPage: React.FC = ({ params }) => {
 
     return (
         <div>
-            <h1 className="text-xl">{data.title}</h1>
+            <h1 className="text-4xl font-extrabold">{data.title}</h1>
+            <hr className="my-2"></hr>
             <ReactMarkdown className="prose prose-invert">{content}</ReactMarkdown>
         </div>
     );
