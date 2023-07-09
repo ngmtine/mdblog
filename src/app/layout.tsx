@@ -57,7 +57,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                             <PostList></PostList>
                         </Sidebar>
                     </div>
-                    <div className={`fixed bottom-0 flex` + ` ${sidebarState === "open" ? "hidden" : ""}`}>
+                    <div className={`fixed bottom-0 flex` + ` ${sidebarState === "open" ? "md:hidden" : ""}`}>
                         <HamburgerButton />
                     </div>
                     <div id="postWrapper" className="h-screen overflow-y-scroll w-full">
