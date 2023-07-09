@@ -4,7 +4,7 @@ import React, { useState } from "react";
 // import HamburgerButton from "@/util/hamburgerButton";
 import ColorSchemeToggleButton from "@/util/colorSchemeToggleButton";
 
-import SvgIcon from "@/util/svgIcon";
+import SvgIconTwitter from "@/util/svgIconTwitter";
 
 const Sidebar = ({ children }) => {
     // const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +22,7 @@ const Sidebar = ({ children }) => {
                 <div className="flex items-center justify-center mt-3">
                     <ColorSchemeToggleButton />
                 </div>
-                <SvgIcon dictKey="twitter" />
+                <SvgIconTwitter />
             </div>
         </div>
     );
