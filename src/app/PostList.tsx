@@ -1,10 +1,8 @@
 import fetchPostList from "@/util/fetchPostList";
 import Link from "next/link";
 
-/**
- * @returns {HTMLDivElement} - サイドバーに表示する、最新5件のulを含んだdivを返す
- */
-const PostList = () => {
+const PostList = (): JSX.Element => {
+    // サイドバーに表示する、最新5件のulを含んだdivを返す
     const posts = fetchPostList();
 
     const RootPage = posts.map((post) => (
