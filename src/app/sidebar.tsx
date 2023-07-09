@@ -21,8 +21,8 @@ const Sidebar = ({ children }) => {
                 {/* <HamburgerButton callback={toggleOpen}></HamburgerButton> */}
                 <div className="flex items-center justify-center mt-3">
                     <ColorSchemeToggleButton />
+                    <SvgIconTwitter />
                 </div>
-                <SvgIconTwitter />
             </div>
         </div>
     );

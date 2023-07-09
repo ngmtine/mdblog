@@ -26,10 +26,14 @@ body {
     rgb(var(--background-start-rgb));
 } */
 
-svg:hover {
+svg#twitter:hover {
     fill: #859fc8;
 }
 
-/* html.dark svg:hover {
-	fill: #859fc8
-} */
+svg#moon:hover {
+    fill: #3d415d;
+}
+
+html.dark svg#moon:hover {
+    fill: #e3de76;
+}
