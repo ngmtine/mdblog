@@ -25,3 +25,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+svg:hover {
+    fill: #859fc8;
+}
+
+/* html.dark svg:hover {
+	fill: #859fc8
+} */
