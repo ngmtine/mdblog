@@ -2,11 +2,9 @@ import { getCookie, setCookie } from "cookies-next";
 
 export const getCurrentScheme = async () => {
     if (typeof window === "undefined") {
-        return import("next/headers").then(({ cookies }) => {
-            return cookies().has("scheme") ? cookies().get("scheme")?.value : "light";
-        });
+        const { cookies } = await import("next/headers");
+        return cookies().has("scheme") ? cookies().get("scheme")?.value : "light";
     }
-
     return getCookie("scheme", { path: "/" });
 };
 

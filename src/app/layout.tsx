@@ -6,6 +6,8 @@ import PostList from "./PostList";
 import Background from "@/util/background";
 
 import { getCurrentScheme } from "@/util/colorScheme";
+import { getCurrentSidebarState } from "@/util/hamburger";
+import HamburgerButton from "@/util/hamburgerButton";
 
 // metadataについて
 // Pages Routerでは、ページのタイトルやmetaタグ情報はnext/headのHeadコンポーネントで設定していました。
@@ -43,15 +45,21 @@ export const metadata = {
 
 // children: Home
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-    const scheme = await getCurrentScheme();
+    const colorScheme = await getCurrentScheme();
+    const sidebarState = await getCurrentSidebarState();
     return (
-        <html lang="jp" className={scheme === "dark" ? "dark" : ""}>
+        <html lang="jp" className={colorScheme === "dark" ? "dark" : ""}>
             <body className="container mx-auto bg-iceberg-light dark:bg-iceberg-dark text-gray-900 dark:text-gray-300">
                 <Header />
                 <div className="flex">
-                    <Sidebar>
-                        <PostList></PostList>
-                    </Sidebar>
+                    <div className={sidebarState === "close" ? "hidden" : ""}>
+                        <Sidebar>
+                            <PostList></PostList>
+                        </Sidebar>
+                    </div>
+                    <div className={`fixed bottom-0 flex` + ` ${sidebarState === "open" ? "hidden" : ""}`}>
+                        <HamburgerButton />
+                    </div>
                     <div id="postWrapper" className="h-screen overflow-y-scroll w-full">
                         {children}
                     </div>

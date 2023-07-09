@@ -8,7 +8,6 @@ const d = "M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75
 const ColorSchemeToggleButton = () => {
     const router = useRouter();
     const toggle = async () => {
-        console.log("Toggling dark mode...");
         await toggleScheme();
         router.refresh();
     };
