@@ -14,8 +14,8 @@ const style = {
 const Background = () => {
     const cx = `${getRandInt()}%`;
     const cy = `${getRandInt({ min: 10, max: 30 })}%`;
-    const rx = `${getRandInt({ min: 500, max: 600 })}px`;
-    const ry = `${getRandInt({ min: 70, max: 100 })}px`;
+    const rx = `${getRandInt({ min: 700, max: 900 })}px`;
+    const ry = `${getRandInt({ min: 120, max: 150 })}px`;
     const rotate = `rotate(${getRandInt({ min: -30, max: 30 })})`;
 
     return (
