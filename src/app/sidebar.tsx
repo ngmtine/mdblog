@@ -1,19 +1,37 @@
-import HamburgerButton from "@/util/hamburgerButton";
-import ColorSchemeToggleButton from "@/util/colorSchemeToggleButton";
-import TwitterIcon from "@/util/twitterIcon";
+"use client";
+
+import { useState, useEffect } from "react";
 
 const Sidebar = ({ children }) => {
-    // children: PostList
+    if (typeof window === "undefined") throw new Error();
+
+    const [windowSize, setWindowSize] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        };
+        window.addEventListener("resize", handleResize);
+
+        // コンポーネントのアンマウント時にイベントリスナーをクリーンアップします
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    const displayClass = windowSize.width < 768 ? "hidden" : "block";
+
     return (
-        <div id="leftSideBar" className="w-64 p-4 h-screen overflow-y-scroll overflow-x-hidden pt-20 hidden md:block">
+        <div className={`w-64 p-4 h-screen overflow-y-scroll overflow-x-hidden pt-20 block ${displayClass}`}>
+            <p>ウィンドウの幅: {windowSize.width}px</p>
+            <p>ウィンドウの高さ: {windowSize.height}px</p>
             {children}
-            <div className="fixed bottom-0 flex">
-                <div className="flex items-center justify-center mt-3">
-                    <ColorSchemeToggleButton />
-                    <TwitterIcon />
-                    <HamburgerButton />
-                </div>
-            </div>
         </div>
     );
 };

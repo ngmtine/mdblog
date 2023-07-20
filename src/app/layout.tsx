@@ -8,7 +8,6 @@ import Background from "@/util/background";
 import { getCurrentScheme } from "@/util/colorScheme";
 import { getCurrentSidebarState } from "@/util/hamburger";
 import HamburgerButton from "@/util/hamburgerButton";
-import GetCurrentWindowSize from "@/util/getCurrentWindowSize";
 
 import ColorSchemeToggleButton from "@/util/colorSchemeToggleButton";
 import TwitterIcon from "@/util/twitterIcon";
@@ -56,17 +55,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <body className="container mx-auto bg-iceberg-light dark:bg-iceberg-dark text-gray-900 dark:text-gray-300">
                 <Header />
                 <div className="flex">
-                    <GetCurrentWindowSize>
+                    <Sidebar>
                         <PostList />
                         <ColorSchemeToggleButton />
                         <TwitterIcon />
                         <HamburgerButton />
-                    </GetCurrentWindowSize>
-                    {/* <div className={sidebarState === "close" ? "hidden" : ""}>
-                        <Sidebar>
-                            <PostList></PostList>
-                        </Sidebar>
-                    </div> */}
+                    </Sidebar>
                     <div className={`fixed bottom-0 flex` + ` ${sidebarState === "open" ? "md:hidden" : ""}`}>
                         <HamburgerButton />
                     </div>
