@@ -1,8 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 
-const Sidebar = ({ children }) => {
+interface Props {
+    children: ReactNode;
+}
+
+const Sidebar = ({ children }: Props) => {
     if (typeof window === "undefined") throw new Error();
 
     // useStateを用いて、windowSizeという状態を管理しています。このwindowSizeはブラウザのウィンドウのサイズを格納します。初期値は現在のウィンドウサイズ（window.innerWidthとwindow.innerHeight）です。
