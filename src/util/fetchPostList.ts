@@ -32,7 +32,7 @@ const fetchPostList = () => {
     });
 
     // 日付でソート
-    posts.sort((x, y) => x?.date - y?.date);
+    posts.sort((x, y) => Number(x?.date) - Number(y?.date));
 
     return posts;
 };

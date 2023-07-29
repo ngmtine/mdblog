@@ -1,11 +1,20 @@
-import React from "react";
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 
-const PostPage: React.FC = ({ params }) => {
+type PostPageProps = {
+    params: {
+        fileName: string;
+        slug: string;
+        title?: string;
+        date?: Date;
+        description?: string;
+    };
+};
+
+const PostPage = ({ params }: PostPageProps) => {
     const { slug } = params;
 
     // ファイル読み込み
