@@ -37,3 +37,13 @@ svg#moon:hover {
 html.dark svg#moon:hover {
     fill: #e3de76;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(115, 115, 135);
+    border-radius: calc(2.5px);
+}
