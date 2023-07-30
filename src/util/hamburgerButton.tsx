@@ -1,15 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { toggleSidebar } from "./hamburger";
+import { useState } from "react";
+// import { toggleSidebar } from "./hamburger";
 
-const HamburgerButton = () => {
-    const router = useRouter();
-    const callback = async () => {
-        await toggleSidebar();
-        router.refresh();
-    };
-
+const HamburgerButton = ({ callback }) => {
     return (
         <div>
             <button onClick={callback}>button</button>

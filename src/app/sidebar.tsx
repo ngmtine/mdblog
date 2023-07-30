@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, ReactNode } from "react";
+import HamburgerButton from "@/util/hamburgerButton";
 
 interface Props {
     children: ReactNode;
@@ -9,8 +10,12 @@ interface Props {
 const Sidebar = ({ children }: Props) => {
     if (typeof window === "undefined") throw new Error();
 
-    // useStateを用いて、windowSizeという状態を管理しています。このwindowSizeはブラウザのウィンドウのサイズを格納します。初期値は現在のウィンドウサイズ（window.innerWidthとwindow.innerHeight）です。
     const [windowSize, setWindowSize] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
+
+    const [prevWindowSize, setPrevWindowSize] = useState({
         width: window.innerWidth,
         height: window.innerHeight,
     });
@@ -23,12 +28,29 @@ const Sidebar = ({ children }: Props) => {
     // useEffectの第二引数にあたる配列は、"依存配列"と呼ばれます。ここに指定した値が変更されたときだけ、副作用関数が再実行されます。この配列が空（[]）の場合、副作用関数はコンポーネントの初回レンダリング時にのみ実行されます。上記のコードでは、ウィンドウサイズが変更されるたびにウィンドウサイズを取得する必要があるので、依存配列は空にしています。
 
     useEffect(() => {
+        const toggleSidebarStateWithResize = () => {
+            const threshold = 768;
+            const isWindowExpanding = prevWindowSize.width < threshold && threshold <= windowSize.width;
+            const isWindowShrinking = prevWindowSize.width > threshold && threshold >= windowSize.width;
+
+            if (isWindowExpanding) setDisplayClass("block");
+            if (isWindowShrinking) setDisplayClass("hidden");
+        };
+
         const handleResize = () => {
+            setPrevWindowSize({
+                width: windowSize.width,
+                height: windowSize.height,
+            });
+
             setWindowSize({
                 width: window.innerWidth,
                 height: window.innerHeight,
             });
+
+            toggleSidebarStateWithResize();
         };
+
         window.addEventListener("resize", handleResize);
 
         // コンポーネントのアンマウント時にイベントリスナーをクリーンアップします
@@ -36,15 +58,28 @@ const Sidebar = ({ children }: Props) => {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, []);
 
-    const displayClass = windowSize.width < 768 ? "hidden" : "block";
+        // prevWindowSizeが変更されるとき、windowSizeも必ず変更されているため、prevWindowSizeは監視する必要はなく、その警告の抑制
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [windowSize]);
+
+    const [isClicked, setIsClickedButton] = useState(true);
+
+    const toggleSidebarStateWithClick = () => {
+        const isNarrow = window.innerWidth < 768;
+
+        if (isNarrow && isClicked) setDisplayClass("block");
+        if (!isNarrow && isClicked) setDisplayClass("hidden");
+
+        setIsClickedButton(!isClicked);
+    };
+
+    const [displayClass, setDisplayClass] = useState("block");
 
     return (
         <div className={`w-64 p-4 h-screen overflow-y-scroll overflow-x-hidden pt-20 block ${displayClass}`}>
-            <p>ウィンドウの幅: {windowSize.width}px</p>
-            <p>ウィンドウの高さ: {windowSize.height}px</p>
             {children}
+            <HamburgerButton callback={toggleSidebarStateWithClick} />
         </div>
     );
 };
