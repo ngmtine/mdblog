@@ -5,9 +5,9 @@ import { useState } from "react";
 
 const HamburgerButton = ({ callback }) => {
     return (
-        <div>
+        <>
             <button onClick={callback}>button</button>
-        </div>
+        </>
     );
 };
 

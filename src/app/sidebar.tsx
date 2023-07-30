@@ -55,7 +55,9 @@ const Sidebar = ({ children }: Props) => {
         const isNarrow = window.innerWidth < 768;
 
         if (isNarrow && isSidebarHidden) setDisplayClass("block");
+        if (isNarrow && !isSidebarHidden) setDisplayClass("hidden");
         if (!isNarrow && isSidebarHidden) setDisplayClass("hidden");
+        if (!isNarrow && !isSidebarHidden) setDisplayClass("block");
 
         setIsSidebarHidden(!isSidebarHidden);
     };
@@ -74,10 +76,13 @@ const Sidebar = ({ children }: Props) => {
     }, [windowSize]);
 
     return (
-        <div className={`w-64 p-4 h-screen overflow-y-scroll overflow-x-hidden pt-20 block ${displayClass}`}>
-            {children}
+        <>
+            <div className={`w-64 p-4 h-screen overflow-y-scroll overflow-x-hidden pt-20 block ${displayClass}`}>
+                {children}
+                <HamburgerButton callback={toggleSidebarStateWithClick} />
+            </div>
             <HamburgerButton callback={toggleSidebarStateWithClick} />
-        </div>
+        </>
     );
 };
 
