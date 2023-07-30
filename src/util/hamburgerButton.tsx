@@ -1,4 +1,8 @@
-const HamburgerButton = ({ callback }) => {
+type HamburgerButtonProps = {
+    callback: () => void;
+};
+
+const HamburgerButton = ({ callback }: HamburgerButtonProps) => {
     return (
         <>
             <button onClick={callback}>button</button>
