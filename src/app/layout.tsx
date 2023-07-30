@@ -6,8 +6,6 @@ import PostList from "./PostList";
 import Background from "@/util/background";
 
 import { getCurrentScheme } from "@/util/colorScheme";
-import { getCurrentSidebarState } from "@/util/hamburger";
-import HamburgerButton from "@/util/hamburgerButton";
 
 import ColorSchemeToggleButton from "@/util/colorSchemeToggleButton";
 import TwitterIcon from "@/util/twitterIcon";
@@ -49,7 +47,6 @@ export const metadata = {
 // children: Home
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     const colorScheme = await getCurrentScheme();
-    const sidebarState = await getCurrentSidebarState();
     return (
         <html lang="jp" className={colorScheme === "dark" ? "dark" : ""}>
             <body className="container mx-auto bg-iceberg-light dark:bg-iceberg-dark text-gray-900 dark:text-gray-300">
@@ -59,9 +56,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                         <PostList />
                         <ColorSchemeToggleButton />
                         <TwitterIcon />
-                        {/* <HamburgerButton /> */}
                     </Sidebar>
-                    <div className={`fixed bottom-0 flex` + ` ${sidebarState === "open" ? "md:hidden" : ""}`}>{/* <HamburgerButton /> */}</div>
                     <div id="postWrapper" className="h-screen overflow-y-scroll w-full">
                         {children}
                     </div>
