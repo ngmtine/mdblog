@@ -9,11 +9,13 @@ const d =
 
 const TwitterIcon = () => {
     return (
-        <a href="https://twitter.com/ngmtine" target="_blank">
-            <svg id="twitter" style={inlineStyle} xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 60 60" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <path d={d}></path>
-            </svg>
-        </a>
+        <div style={inlineStyle}>
+            <a href="https://twitter.com/ngmtine" target="_blank">
+                <svg id="twitter" xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 60 60" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <path d={d}></path>
+                </svg>
+            </a>
+        </div>
     );
 };
 
