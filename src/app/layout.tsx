@@ -7,8 +7,8 @@ import Background from "@/util/background";
 
 import { getCurrentScheme } from "@/util/colorScheme";
 
-import ColorSchemeToggleButton from "@/util/colorSchemeToggleButton";
-import TwitterIcon from "@/util/twitterIcon";
+import SvgMoonToggle from "@/util/svgMoonToggle";
+import SvgTwitterLink from "@/util/svgTwitterLink";
 
 // metadataについて
 // Pages Routerでは、ページのタイトルやmetaタグ情報はnext/headのHeadコンポーネントで設定していました。
@@ -54,8 +54,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <div className="flex">
                     <Sidebar>
                         <PostList />
-                        <ColorSchemeToggleButton />
-                        <TwitterIcon />
+                        <SvgMoonToggle />
+                        <SvgTwitterLink />
                     </Sidebar>
                     <div id="postWrapper" className="h-screen overflow-y-scroll w-full">
                         {children}

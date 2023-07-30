@@ -1,4 +1,4 @@
-type HamburgerButtonProps = {
+type SvgHamburgerButtonProps = {
     callback: () => void;
 };
 
@@ -6,7 +6,7 @@ const inlineStyle = {
     display: "inline-block",
 };
 
-const HamburgerButton = ({ callback }: HamburgerButtonProps) => {
+const SvgHamburgerButton = ({ callback }: SvgHamburgerButtonProps) => {
     return (
         <div>
             <button onClick={callback}>
@@ -18,4 +18,4 @@ const HamburgerButton = ({ callback }: HamburgerButtonProps) => {
     );
 };
 
-export default HamburgerButton;
+export default SvgHamburgerButton;

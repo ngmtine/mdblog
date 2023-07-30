@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, ReactNode } from "react";
-import HamburgerButton from "@/util/hamburgerButton";
+import SvgHamburgerButton from "@/util/svgHamburgerButton";
 
 interface Props {
     children: ReactNode;
@@ -78,7 +78,7 @@ const Sidebar = ({ children }: Props) => {
     return (
         <>
             <div className="absolute ml-3 bottom-3">
-                <HamburgerButton callback={toggleSidebarStateWithClick} />
+                <SvgHamburgerButton callback={toggleSidebarStateWithClick} />
             </div>
             <div className={`w-64 p-4 h-screen overflow-y-scroll overflow-x-hidden pt-20 block ${displayClass}`}>{children}</div>
         </>
