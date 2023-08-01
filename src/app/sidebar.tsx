@@ -79,7 +79,7 @@ const Sidebar = ({ children }: Props) => {
 
     return (
         <>
-            <div className="absolute ml-3 bottom-3">
+            <div className="fixed ml-3 bottom-3">
                 <SvgHamburgerButton callback={toggleSidebarStateWithClick} />
             </div>
             <div className={`w-64 p-4 h-screen overflow-y-scroll overflow-x-hidden pt-20 block ${displayClass}`}>{children}</div>
