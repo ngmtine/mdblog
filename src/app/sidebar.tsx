@@ -28,7 +28,7 @@ const Sidebar = ({ children }: Props) => {
     const [isSidebarHidden, setIsSidebarHidden] = useState(true);
 
     // サイドバーに付与するtailwindクラス
-    const isNarrow = window.innerWidth < 768;
+    const isNarrow = window.innerWidth < threshold;
     const [displayClass, setDisplayClass] = useState(isNarrow ? "hidden" : "block");
 
     // リサイズ時に呼ばれるコールバック関数 条件に応じてsetDisplayClassを呼ぶ
@@ -54,7 +54,7 @@ const Sidebar = ({ children }: Props) => {
 
     // クリック時に呼ばれるコールバック関数 条件に応じてsetDisplayClassを呼ぶ
     const toggleSidebarStateWithClick = () => {
-        const isNarrow = window.innerWidth < 768;
+        const isNarrow = window.innerWidth < threshold;
 
         if (isNarrow && isSidebarHidden) setDisplayClass("block");
         if (isNarrow && !isSidebarHidden) setDisplayClass("hidden");
