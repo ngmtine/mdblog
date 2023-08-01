@@ -10,6 +10,8 @@ interface Props {
 const Sidebar = ({ children }: Props) => {
     if (typeof window === "undefined") throw new Error();
 
+    const threshold = 768;
+
     // 現在のウィンドウサイズ
     const [windowSize, setWindowSize] = useState({
         width: window.innerWidth,
@@ -26,7 +28,8 @@ const Sidebar = ({ children }: Props) => {
     const [isSidebarHidden, setIsSidebarHidden] = useState(true);
 
     // サイドバーに付与するtailwindクラス
-    const [displayClass, setDisplayClass] = useState("block");
+    const isNarrow = window.innerWidth < 768;
+    const [displayClass, setDisplayClass] = useState(isNarrow ? "hidden" : "block");
 
     // リサイズ時に呼ばれるコールバック関数 条件に応じてsetDisplayClassを呼ぶ
     const toggleSidebarStateWithResize = () => {
@@ -40,7 +43,6 @@ const Sidebar = ({ children }: Props) => {
             height: window.innerHeight,
         });
 
-        const threshold = 768;
         const isWindowExpanding = prevWindowSize.width < threshold && threshold <= windowSize.width;
         const isWindowShrinking = prevWindowSize.width > threshold && threshold >= windowSize.width;
 
