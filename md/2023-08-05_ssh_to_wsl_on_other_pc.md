@@ -11,7 +11,7 @@ genre: "パソコン"
 接続先端末の wsl 上で sshd を起動しておく
 
 ```sh
-vi /etc/ssh/sshd_config
+sudo vi /etc/ssh/sshd_config
 sudo service ssh start
 ```
 
