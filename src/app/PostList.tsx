@@ -7,7 +7,7 @@ const PostList = (): JSX.Element => {
 
     const RootPage = posts.map((post) => (
         <li key={post.slug}>
-            <Link href={`/post/${post.slug}`}>{post?.title || post?.slug}</Link>
+            <Link href={`/post/${post.slug}`}>{post?.title ? `・ ${post.title}` : post?.slug}</Link>
         </li>
     ));
 
