@@ -1,7 +1,7 @@
 import PostPage from "./post/[slug]/page";
 import fetchPostList from "@/util/fetchPostList";
 
-const posts = fetchPostList().slice(0, 5);
+const posts = fetchPostList().slice(0, 5).reverse();
 
 const RootPage = posts.map((post) => {
     return (
