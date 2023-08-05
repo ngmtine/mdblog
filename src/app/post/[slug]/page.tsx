@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
 type PostPageProps = {
     params: {
@@ -33,7 +34,9 @@ const PostPage = ({ params }: PostPageProps) => {
             </Link>
             <hr className="h-[2px] dark:h-[1px] bg-gray-900 dark:bg-gray-300"></hr>
             <div className="text-right mt-[-3px]">{dateStr}</div>
-            <ReactMarkdown className="prose dark:prose-invert">{content}</ReactMarkdown>
+            <ReactMarkdown className="prose dark:prose-invert" rehypePlugins={[rehypeRaw]}>
+                {content}
+            </ReactMarkdown>
             <div className="my-40"></div>
         </article>
     );
