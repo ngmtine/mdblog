@@ -45,12 +45,19 @@ const Sidebar = ({ children }: Props) => {
         const isWindowExpanding = prevWindowSize.width < threshold && threshold <= windowSize.width;
         const isWindowShrinking = prevWindowSize.width > threshold && threshold >= windowSize.width;
 
-        if (isWindowExpanding) setDisplayClass("block");
-        if (isWindowShrinking) setDisplayClass("hidden");
+        if (isWindowExpanding) {
+            console.log("toggleSidebarStateWithResize: isWindowExpanding");
+            setDisplayClass("block");
+        }
+        if (isWindowShrinking) {
+            console.log("toggleSidebarStateWithResize: isWindowShrinking");
+            setDisplayClass("hidden");
+        }
     };
 
     // クリック時に呼ばれるコールバック関数 条件に応じてsetDisplayClassを呼ぶ
     const toggleSidebarStateWithClick = () => {
+        console.log("toggleSidebarStateWithClick");
         if (window.innerWidth < threshold) {
             setDisplayClass(displayClass === "hidden" ? "block" : "hidden");
         } else {
