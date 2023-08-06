@@ -81,6 +81,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     </div>
                 </div>
                 <Background />
+                <Background />
             </body>
         </html>
     );
