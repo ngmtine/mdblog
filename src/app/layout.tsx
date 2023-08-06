@@ -73,6 +73,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <div className="flex">
                     <Sidebar>
                         <PostList />
+                        <div className="h-5"></div>
                         <SvgMoonToggle />
                         <SvgTwitterLink />
                     </Sidebar>
