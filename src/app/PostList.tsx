@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const PostList = (): JSX.Element => {
     // サイドバーに表示する、最新5件のulを含んだdivを返す
-    const posts = fetchPostList();
+    const posts = fetchPostList().reverse();
 
     const RootPage = posts.map((post) => (
         <li key={post.slug}>
