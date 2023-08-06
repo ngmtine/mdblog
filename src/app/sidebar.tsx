@@ -11,7 +11,7 @@ const Sidebar = ({ children }: Props) => {
     if (typeof window === "undefined") throw new Error();
 
     const threshold = 768;
-    const sidebarRef = useRef(null);
+    const sidebarRef = useRef<HTMLDivElement | null>(null);
 
     // 現在のウィンドウサイズ
     const [windowSize, setWindowSize] = useState({
