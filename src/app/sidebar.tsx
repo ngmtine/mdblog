@@ -25,10 +25,11 @@ const Sidebar = ({ children }: Props) => {
         height: window.innerHeight,
     });
 
-    // 画面幅が閾値以下ならばtrue
-    const isNarrow = window.innerWidth < threshold;
+    // サイドバーの表示状態を表すブール値
+    const [isSidebarHidden, setIsSidebarHidden] = useState(true);
 
     // サイドバーに付与するtailwindクラス
+    const isNarrow = window.innerWidth < threshold;
     const [displayClass, setDisplayClass] = useState(isNarrow ? "hidden" : "block");
 
     // リサイズ時に呼ばれるコールバック関数 条件に応じてsetDisplayClassを呼ぶ
@@ -48,15 +49,20 @@ const Sidebar = ({ children }: Props) => {
 
         if (isWindowExpanding) setDisplayClass("block");
         if (isWindowShrinking) setDisplayClass("hidden");
+
+        setIsSidebarHidden(true);
     };
 
     // クリック時に呼ばれるコールバック関数 条件に応じてsetDisplayClassを呼ぶ
     const toggleSidebarStateWithClick = () => {
-        if (window.innerWidth < threshold) {
-            setDisplayClass(displayClass === "hidden" ? "block" : "hidden");
-        } else {
-            setDisplayClass("block");
-        }
+        const isNarrow = window.innerWidth < threshold;
+
+        if (isNarrow && isSidebarHidden) setDisplayClass("block");
+        if (isNarrow && !isSidebarHidden) setDisplayClass("hidden");
+        if (!isNarrow && isSidebarHidden) setDisplayClass("hidden");
+        if (!isNarrow && !isSidebarHidden) setDisplayClass("block");
+
+        setIsSidebarHidden(!isSidebarHidden);
     };
 
     // クリックされたエレメントがサイドバーの外部であれば、サイドバーを隠す
@@ -73,6 +79,7 @@ const Sidebar = ({ children }: Props) => {
         window.addEventListener("resize", toggleSidebarStateWithResize);
         document.addEventListener("click", handleDocumentClick);
 
+        // useEffectのクリーンアップ関数（return文で指定した関数）は、コンポーネントがアンマウントされる際（つまり画面から消える際）にイベントリスナーを削除する
         return () => {
             window.removeEventListener("resize", toggleSidebarStateWithResize);
             document.removeEventListener("click", handleDocumentClick);
