@@ -1,6 +1,7 @@
 {
     "extends": ["eslint:recommended", "next/core-web-vitals", "plugin:import/recommended", "plugin:import/typescript"],
     "plugins": ["react-refresh", "import"],
+    "globals": { "React": true, "JSX": true },
     "rules": {
         "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
         "import/order": [

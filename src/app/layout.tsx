@@ -1,3 +1,5 @@
+import React from "react";
+
 import Background from "@/util/background";
 import { getCurrentScheme } from "@/util/colorScheme";
 import SvgMoonToggle from "@/util/svgMoonToggle";
