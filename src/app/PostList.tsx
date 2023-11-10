@@ -1,5 +1,6 @@
-import fetchPostList from "@/util/fetchPostList";
 import Link from "next/link";
+
+import fetchPostList from "@/util/fetchPostList";
 
 const PostList = (): JSX.Element => {
     // サイドバーに表示する、最新5件のulを含んだdivを返す

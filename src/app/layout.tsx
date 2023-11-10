@@ -1,14 +1,13 @@
-import "./globals.css";
-
-import Header from "./header";
-import Sidebar from "./sidebar";
-import PostList from "./PostList";
 import Background from "@/util/background";
-
 import { getCurrentScheme } from "@/util/colorScheme";
-
 import SvgMoonToggle from "@/util/svgMoonToggle";
 import SvgTwitterLink from "@/util/svgTwitterLink";
+
+import Header from "./header";
+import PostList from "./PostList";
+import Sidebar from "./sidebar";
+
+import "./globals.css";
 
 // metadataについて
 // Pages Routerでは、ページのタイトルやmetaタグ情報はnext/headのHeadコンポーネントで設定していました。

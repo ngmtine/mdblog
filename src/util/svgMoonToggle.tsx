@@ -1,7 +1,8 @@
 "use client";
 
-import { toggleScheme } from "./colorScheme";
 import { useRouter } from "next/navigation";
+
+import { toggleScheme } from "./colorScheme";
 
 const inlineStyle = {
     display: "inline-block",

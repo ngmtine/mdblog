@@ -1,5 +1,6 @@
-import PostPage from "./post/[slug]/page";
 import fetchPostList from "@/util/fetchPostList";
+
+import PostPage from "./post/[slug]/page";
 
 const posts = fetchPostList().slice(0, 5).reverse();
 
