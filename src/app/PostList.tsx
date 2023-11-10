@@ -1,8 +1,10 @@
+import React from "react";
+
 import Link from "next/link";
 
 import fetchPostList from "@/util/fetchPostList";
 
-const PostList = (): JSX.Element => {
+const PostList = (): React.JSX.Element => {
     // サイドバーに表示する、最新5件のulを含んだdivを返す
     const posts = fetchPostList().reverse();
 

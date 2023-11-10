@@ -1,7 +1,7 @@
 {
     "extends": ["eslint:recommended", "next/core-web-vitals", "plugin:import/recommended", "plugin:import/typescript"],
     "plugins": ["react-refresh", "import"],
-    "globals": { "React": true, "JSX": true },
+    // "globals": { "React": true, "JSX": true }, // vercelがビルドエラー出すので無効化
     "rules": {
         "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
         "import/order": [
