@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Metadata } from "next";
+
 import Background from "@/util/background";
 import { getCurrentScheme } from "@/util/colorScheme";
 import SvgMoonToggle from "@/util/svgMoonToggle";
@@ -19,7 +21,7 @@ const siteName = "mdblog";
 const description = "お料理ブログです";
 const author = "ngmtine";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: siteName,
     description: description,
     openGraph: {
@@ -37,8 +39,6 @@ export const metadata = {
         site: author,
         creator: author,
     },
-    name: "viewport",
-    content: "width=device-width, initial-scale=1.0",
 };
 
 // 各ページに共通する部品は、layout.jsxの名前で、レイアウトとして定義することができます。appフォルダ内の各階層に配置可能です。
