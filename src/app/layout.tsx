@@ -65,7 +65,7 @@ export const metadata: Metadata = {
 // 前述のとおり、下位階層のlayoutは、上位階層のlayoutにchildrenとして展開されます。
 
 // children: Home
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+const RootLayout = async ({ children }: { children: React.ReactNode }) => {
     const colorScheme = await getCurrentScheme();
     return (
         <html lang="jp" className={colorScheme === "dark" ? "dark" : ""}>
@@ -87,7 +87,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             </body>
         </html>
     );
-}
+};
+
+export default RootLayout;
 
 // Server Componentは、サーバ側では利用できるReactのコンポーネントです。
 // しかし、Server Componentではclickやmousemoveのようなブラウザのイベントや、useStateやuseEffectといったReactのフックは利用できません。Server Componentが対応していない機能を使う場合、Client Componentを利用していくことになります。
