@@ -7,40 +7,18 @@
             "request": "launch",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}",
-            "sourceMaps": true,
             "sourceMapPathOverrides": {
                 "webpack://_N_E/*": "${webRoot}/*"
-            }
+            },
+            "resolveSourceMapLocations": ["${workspaceFolder}/**", "!**/node_modules/**"],
+            "skipFiles": ["<node_internals>/**", "**/webpack-internal://**"]
         },
         {
             "name": "Next.js server side (attach)",
             "type": "node",
             "request": "attach",
             "skipFiles": ["<node_internals>/**"],
-            "port": 9229
+            "port": 9230
         }
-        // {
-        //     "name": "Next.js: debug server-side",
-        //     "type": "node-terminal",
-        //     "request": "launch",
-        //     "command": "npm run dev"
-        // },
-        // {
-        //     "name": "Next.js: debug client-side",
-        //     "type": "chrome",
-        //     "request": "launch",
-        //     "url": "http://localhost:3000"
-        // },
-        // {
-        //     "name": "Next.js: debug full stack",
-        //     "type": "node-terminal",
-        //     "request": "launch",
-        //     "command": "npm run dev",
-        //     "serverReadyAction": {
-        //         "pattern": "started server on .+, url: (https?://.+)",
-        //         "uriFormat": "%s",
-        //         "action": "debugWithChrome"
-        //     }
-        // }
     ]
 }
