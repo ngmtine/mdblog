@@ -35,5 +35,11 @@
     },
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    // ファイルエクスプローラーでの非表示ディレクトリ
+    "files.exclude": {
+        ".next": true,
+        "node_modules": true
     }
 }
