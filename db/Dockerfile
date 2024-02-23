@@ -1,0 +1,8 @@
+FROM postgres:latest
+
+ENV POSTGRES_USER dockeruser
+ENV POSTGRES_PASSWORD dockerpass
+ENV POSTGRES_DB main
+
+EXPOSE 5432
+
