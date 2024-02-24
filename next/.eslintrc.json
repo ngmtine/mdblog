@@ -4,11 +4,14 @@
         "next/core-web-vitals",
         "plugin:import/recommended",
         "plugin:import/typescript",
+
+        "plugin:tailwindcss/recommended", // tailwind整形
         "prettier" // eslint-config-prettier 必ずextendsの最後に設置する
     ],
     "plugins": [
         "import", // import順を強制
-        "react-refresh" // reactのfast refresh機能が効率的に動作するためのコードパターンを強制
+        "react-refresh", // reactのfast refresh機能が効率的に動作するためのコードパターンを強制
+        "tailwindcss"
     ],
     "rules": {
         "@typescript-eslint/ban-ts-comment": "off", // @ts-ignore等の使用許可
