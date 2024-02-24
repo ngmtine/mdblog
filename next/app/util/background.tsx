@@ -20,8 +20,24 @@ const Background = () => {
 
     return (
         <svg xmlns="http://www.w3.org/2000/svg" style={style}>
-            <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill="rgba(0, 0, 255, 0.03)" filter="blur(2rem) drop-shadow(100px 100px 2px blue)" transform={rotate} />
-            <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill="rgba(0, 0, 255, 0.03)" filter="blur(2rem) drop-shadow(-100px -100px 2px red)" transform={rotate} />
+            <ellipse
+                cx={cx}
+                cy={cy}
+                rx={rx}
+                ry={ry}
+                fill="rgba(0, 0, 255, 0.03)"
+                filter="blur(2rem) drop-shadow(100px 100px 2px blue)"
+                transform={rotate}
+            />
+            <ellipse
+                cx={cx}
+                cy={cy}
+                rx={rx}
+                ry={ry}
+                fill="rgba(0, 0, 255, 0.03)"
+                filter="blur(2rem) drop-shadow(-100px -100px 2px red)"
+                transform={rotate}
+            />
         </svg>
     );
 };

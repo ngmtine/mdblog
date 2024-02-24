@@ -5,11 +5,11 @@ export const MainContents = async () => {
     // const posts = await prisma.posts.findMany();
     // return <div>{posts.map((i) => i.title)}</div>;
     const content = () => {
-        let out = [];
+        let ret = [];
         for (const i of range(100)) {
-            out.push(<div>test content!！{i}</div>);
+            ret.push(<div>test content!！{i}</div>);
         }
-        return out;
+        return ret;
     };
 
     return <div className="bg-emerald-100">{content()}</div>;
