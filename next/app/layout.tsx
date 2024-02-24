@@ -3,12 +3,8 @@ import React from "react";
 import { Metadata } from "next";
 
 import Background from "@/app/util/background";
-import { getCurrentScheme } from "@/app/util/colorScheme";
-import SvgMoonToggle from "@/app/util/svgMoonToggle";
-import SvgTwitterLink from "@/app/util/svgTwitterLink";
 
 import Header from "./header";
-import PostList from "./PostList";
 import Sidebar from "./sidebar";
 
 import "./globals.css";
@@ -66,22 +62,12 @@ export const metadata: Metadata = {
 
 // children: Home
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
-    const colorScheme = await getCurrentScheme();
     return (
-        <html lang="jp" className={colorScheme === "dark" ? "dark" : ""}>
-            <body className="container mx-auto bg-iceberg-light dark:bg-iceberg-dark text-gray-900 dark:text-gray-300">
+        <html lang="jp">
+            <body>
                 <Header />
-                <div className="flex">
-                    <Sidebar>
-                        <PostList />
-                        <div className="h-5"></div>
-                        <SvgMoonToggle />
-                        <SvgTwitterLink />
-                    </Sidebar>
-                    <div id="postWrapper" className="h-screen overflow-y-scroll w-full">
-                        {children}
-                    </div>
-                </div>
+                <Sidebar />
+                <div id="mainContents">{children}</div>
                 <Background />
                 <Background />
             </body>

@@ -1,18 +1,7 @@
-import PostPage from "@/app/post/[slug]/page";
 import fetchPostList from "@/app/util/fetchPostList";
 
-const posts = fetchPostList().slice(0, 5).reverse();
-
-const RootPage = posts.map((post) => {
-    return (
-        <div key={post.slug}>
-            <PostPage params={{ ...post }} />
-        </div>
-    );
-});
-
 const Home = () => {
-    return <div className="p-5 pt-20">{RootPage}</div>;
+    return <div>メインコンテンツです！</div>;
 };
 
 export default Home;
