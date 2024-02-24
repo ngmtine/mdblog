@@ -1,7 +1,11 @@
-import fetchPostList from "@/app/util/fetchPostList";
+import { MainContents } from "./MainContents";
 
 const Home = () => {
-    return <div>メインコンテンツです！</div>;
+    return (
+        <div>
+            <MainContents />
+        </div>
+    );
 };
 
 export default Home;
