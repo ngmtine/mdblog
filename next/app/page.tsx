@@ -2,23 +2,23 @@ import React from "react";
 
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
-import { SidebarButton } from "./SidebarButton";
 
 type Props = {
     children: React.ReactNode;
     searchParams: {
-        [key: string]: any;
+        [key: string]: string;
     };
 };
 
 const Home = ({ children, searchParams }: Props) => {
     return (
         <>
-            {/* <Header /> */}
-            <SidebarButton isOpen={searchParams.sidebar === ""} />
-            <Sidebar isOpen={searchParams.sidebar === ""} />
-            <div id="mainContents" className="pt-14">
-                {children}
+            <Header searchParams={searchParams} />
+            <div className="container">
+                <Sidebar isOpen={searchParams.sidebar === ""} />
+                <div id="mainContents" className="pt-14">
+                    {children}
+                </div>
             </div>
         </>
     );
