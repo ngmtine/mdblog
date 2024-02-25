@@ -14,7 +14,7 @@ export const SidebarButton = ({ isOpen }: Props) => {
 
     const handleSidebarToggle = () => {
         console.log("SidebarButton: handleSidebarToggle");
-        router.push("?sidebar", { scroll: false });
+        router.replace("?sidebar", { scroll: false });
     };
 
     return (
@@ -23,14 +23,16 @@ export const SidebarButton = ({ isOpen }: Props) => {
                 id="sidebarButton"
                 type="checkbox"
                 checked={isOpen}
-                className="drawer-toggle"
+                className="fixed appearance-none" // チェックボックス非表示
                 onChange={() => {}}
             />
-            <div className="drawer-content">
+            <div //
+            // className="drawer-content"
+            >
                 <label //
                     htmlFor="sidebarButton"
                     onClick={handleSidebarToggle}
-                    className="btn btn-primary drawer-button"
+                    className="btn btn-primary"
                 >
                     Open drawer
                 </label>

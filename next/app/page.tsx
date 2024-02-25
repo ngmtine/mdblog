@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 import { SidebarButton } from "./SidebarButton";
 
@@ -13,9 +14,9 @@ type Props = {
 const Home = ({ children, searchParams }: Props) => {
     return (
         <>
-            {/* <Header /> */}
+            <Header />
             <SidebarButton isOpen={searchParams.sidebar === ""} />
-            <Sidebar />
+            <Sidebar isOpen={searchParams.sidebar === ""} />
             <div id="mainContents" className="pt-14">
                 {children}
             </div>
