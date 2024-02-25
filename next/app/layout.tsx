@@ -44,7 +44,7 @@ const RootLayout = async ({ children }: Props) => {
     return (
         <html lang="jp" suppressHydrationWarning>
             <body //
-                className="min-h-screen bg-iceberg-light text-gray-900 dark:bg-iceberg-dark dark:text-gray-300"
+                className="min-h-screen bg-iceberg-light text-gray-900 opacity-90 dark:bg-iceberg-dark dark:text-gray-300"
             >
                 <ThemeProvider>
                     {children}

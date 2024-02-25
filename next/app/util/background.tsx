@@ -8,8 +8,8 @@ const style = {
     left: 0,
     width: "100vw",
     height: "100vh",
-    zIndex: 100, // 常に最上部にすることで、背景色に潰されないように
-    pointerEvents: "none", // その代わりクリックイベントは無効化
+    zIndex: -1,
+    pointerEvents: "none",
 } as const;
 
 const Background = () => {
