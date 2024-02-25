@@ -7,7 +7,7 @@ export const MainContents = async () => {
     const content = () => {
         let ret = [];
         for (const i of range(100)) {
-            ret.push(<div>test content!！{i}</div>);
+            ret.push(<div key={i}>test content!！{i}</div>);
         }
         return ret;
     };
