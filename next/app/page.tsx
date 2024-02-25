@@ -14,7 +14,7 @@ type Props = {
 const Home = ({ children, searchParams }: Props) => {
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <SidebarButton isOpen={searchParams.sidebar === ""} />
             <Sidebar isOpen={searchParams.sidebar === ""} />
             <div id="mainContents" className="pt-14">

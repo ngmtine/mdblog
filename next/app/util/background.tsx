@@ -8,7 +8,7 @@ const style = {
     left: 0,
     width: "100vw",
     height: "100vh",
-    zIndex: -1,
+    pointerEvents: "none",
 } as const;
 
 const Background = () => {

@@ -2,6 +2,7 @@ import React from "react";
 
 import { Metadata } from "next";
 
+import { ThemeProvider } from "./ThemeProvider";
 import Background from "./util/background";
 
 import "./globals.css";
@@ -41,13 +42,15 @@ type Props = {
 
 const RootLayout = async ({ children }: Props) => {
     return (
-        <html lang="jp">
+        <html lang="jp" suppressHydrationWarning>
             <body //
-                className="container min-h-screen bg-iceberg-light text-gray-900"
+                className="min-h-screen bg-iceberg-light text-gray-900 dark:bg-iceberg-dark dark:text-gray-300"
             >
-                {children}
-                <Background />
-                <Background />
+                <ThemeProvider>
+                    {children}
+                    <Background />
+                    <Background />
+                </ThemeProvider>
             </body>
         </html>
     );

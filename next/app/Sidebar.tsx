@@ -5,6 +5,8 @@ import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useClickAway } from "react-use";
 
+import { SvgMoonToggle } from "./util/SvgMoonToggle";
+
 type Props = {
     isOpen: boolean;
 };
@@ -44,6 +46,7 @@ export const Sidebar = ({ isOpen }: Props) => {
                     <a>Sidebar Item 2</a>
                 </li>
             </ul>
+            <SvgMoonToggle />
         </div>
     );
 };
