@@ -12,10 +12,16 @@ type Props = {
 
 export const Header = ({ searchParams }: Props) => {
     return (
-        <div id="header" className="navbar fixed z-10 flex h-14 w-screen backdrop-blur-sm">
+        <div
+            id="header"
+            className="navbar fixed z-10 flex h-14 w-screen backdrop-blur-sm"
+        >
             <SidebarButton isOpen={searchParams.sidebar === ""} />
             <div className="btn btn-ghost ml-10 text-xl">
-                <Link href={"/"} scroll={false}>
+                <Link
+                    href={"/"}
+                    scroll={false}
+                >
                     {blogTitle}
                 </Link>
             </div>

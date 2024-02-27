@@ -18,7 +18,11 @@ export const SvgMoonToggle = () => {
 
     return (
         <div style={{ display: "inline-block" }}>
-            <button type="button" className="" onClick={handleToggle}>
+            <button
+                type="button"
+                className=""
+                onClick={handleToggle}
+            >
                 <svg
                     id="moon"
                     xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +33,11 @@ export const SvgMoonToggle = () => {
                     strokeWidth="1.2"
                     stroke="currentColor"
                 >
-                    <path strokeLinecap="round" strokeLinejoin="round" d={d} />
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d={d}
+                    />
                 </svg>
             </button>
         </div>

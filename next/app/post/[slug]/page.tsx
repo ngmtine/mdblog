@@ -30,12 +30,18 @@ const PostPage = ({ params }: PostPageProps) => {
 
     return (
         <article>
-            <Link href={`/post/${slug}`} className="text-4xl font-extrabold text-gray-900 dark:text-gray-300 ">
+            <Link
+                href={`/post/${slug}`}
+                className="text-4xl font-extrabold text-gray-900 dark:text-gray-300 "
+            >
                 {title}
             </Link>
             <hr className="h-[2px] bg-gray-900 dark:h-[1px] dark:bg-gray-300"></hr>
             <div className="mt-[-3px] text-right">{dateStr}</div>
-            <ReactMarkdown className="prose dark:prose-invert" rehypePlugins={[rehypeRaw]}>
+            <ReactMarkdown
+                className="prose dark:prose-invert"
+                rehypePlugins={[rehypeRaw]}
+            >
                 {content}
             </ReactMarkdown>
             <div className="my-40"></div>

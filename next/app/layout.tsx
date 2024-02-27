@@ -42,10 +42,11 @@ type Props = {
 
 const RootLayout = async ({ children }: Props) => {
     return (
-        <html lang="jp" suppressHydrationWarning>
-            <body //
-                className="min-h-screen bg-iceberg-light text-gray-900 opacity-90 dark:bg-iceberg-dark dark:text-gray-300"
-            >
+        <html
+            lang="jp"
+            suppressHydrationWarning
+        >
+            <body className="min-h-screen bg-iceberg-light text-gray-900 opacity-90 dark:bg-iceberg-dark dark:text-gray-300">
                 <ThemeProvider>
                     {children}
                     <Background />

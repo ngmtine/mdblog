@@ -20,7 +20,10 @@ const Background = () => {
     const rotate = `rotate(${getRandInt({ min: -30, max: 30 })})`;
 
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" style={style}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style={style}
+        >
             <ellipse
                 cx={cx}
                 cy={cy}

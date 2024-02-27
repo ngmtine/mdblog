@@ -10,7 +10,10 @@ const d =
 const SvgTwitterLink = () => {
     return (
         <div style={inlineStyle}>
-            <a href="https://twitter.com/ngmtine" target="_blank">
+            <a
+                href="https://twitter.com/ngmtine"
+                target="_blank"
+            >
                 <svg
                     id="twitter"
                     xmlns="http://www.w3.org/2000/svg"
