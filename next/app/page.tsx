@@ -14,7 +14,7 @@ const Home = ({ searchParams }: Props) => {
     return (
         <>
             <Header searchParams={searchParams} />
-            <div className="container">
+            <div className="container mx-auto">
                 <Sidebar isOpen={searchParams.sidebar === ""} />
                 <div className="pt-14">
                     <MainContents />
