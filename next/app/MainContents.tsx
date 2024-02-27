@@ -1,16 +1,22 @@
-// import prisma from "@/app/util/prisma";
-import { range } from "@/app/util/range";
+import prisma from "@/app/util/prisma";
+
+import { Post } from "./Post";
 
 export const MainContents = async () => {
-    // const posts = await prisma.posts.findMany();
-    // return <div>{posts.map((i) => i.title)}</div>;
-    const content = () => {
-        let ret = [];
-        for (const i of range(100)) {
-            ret.push(<div key={i}>test content!！{i}</div>);
-        }
-        return ret;
-    };
-
-    return <div className="bg-emerald-100">{content()}</div>;
+    const posts = await prisma.posts.findMany();
+    return (
+        <div id="mainContents">
+            {posts.map((post, index) => (
+                <>
+                    <Post
+                        key={index}
+                        title={post.title}
+                        date={String(post.create_date) ?? ""}
+                        content={post.content}
+                    />
+                    <div className="my-40" />
+                </>
+            ))}
+        </div>
+    );
 };
