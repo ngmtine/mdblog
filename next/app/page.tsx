@@ -4,18 +4,12 @@ import { Header } from "./Header";
 import { MainContents } from "./MainContents";
 import { Sidebar } from "./Sidebar";
 
-type Props = {
-    searchParams: {
-        [key: string]: string;
-    };
-};
-
-const Home = ({ searchParams }: Props) => {
+const Home = () => {
     return (
         <>
-            <Header searchParams={searchParams} />
+            <Header />
             <div className="container mx-auto">
-                <Sidebar isOpen={searchParams.sidebar === ""} />
+                <Sidebar />
                 <div className="pt-14">
                     <MainContents />
                 </div>
@@ -48,6 +42,19 @@ export const Button = () => {
 ```
 
 ただし、クエリパラメータの状態に応じてコンポーネントを更新することはできないっぽい？
-その場合、親コンポーネントでpropsとして渡すと更新されるっぽい
+その場合、以下のように親コンポーネントからpropsとして渡すと更新されるっぽい
+
+```ts
+type Props = {
+    searchParams: {
+        [key: string]: string;
+    };
+};
+
+const Home = ({ searchParams }: Props) => {
+    return (
+        <Header searchParams={searchParams}/>
+    )
+```
 
 */
