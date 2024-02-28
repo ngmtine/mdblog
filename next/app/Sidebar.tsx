@@ -40,6 +40,19 @@ export const Sidebar = ({ isOpen }: Props) => {
 
         // クリーンアップ関数
         return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    useEffect(() => {
+        const handleResize = () => setIsOpenDynamic(isOpen);
+
+        // イベントリスナーの設定
+        window.addEventListener("resize", handleResize);
+
+        // 初期状態のチェック
+        handleResize();
+
+        // クリーンアップ関数
+        return () => window.removeEventListener("resize", handleResize);
     }, [isOpen]);
 
     // サイドバー開閉ハンドラ（要素外クリックで発火）
