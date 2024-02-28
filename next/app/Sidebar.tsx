@@ -7,53 +7,47 @@ import { useClickAway } from "react-use";
 
 import { SvgMoonToggle } from "./util/SvgMoonToggle";
 
+const checkIsWide = () => {
+    // memo: windowオブジェクトはuseEfect外では使用しない
+    // https://dev-k.hatenablog.com/entry/how-to-access-the-window-object-in-nextjs-dev-k
+    // ただし以下のように関数化してる場合は大丈夫っぽい
+    const isWide = window.innerWidth >= 1024;
+    console.log(`Sidebar: {isWide: ${isWide}}`);
+    return isWide;
+};
+
 type Props = {
     isOpen: boolean;
 };
 
 export const Sidebar = ({ isOpen }: Props) => {
-    console.log(`Sidebar: {isOpen: ${isOpen}}`);
-
     const router = useRouter();
-
-    // urlクエリパラメータで取得されるisOpenに対して、ウィンドウ幅に応じて可変のisOpenDynamicを保持
-    const [isOpenDynamic, setIsOpenDynamic] = useState(isOpen);
 
     // useClickAwayの判定のためにサイドバーの参照を保持
     const ref = useRef(null);
 
+    // urlクエリパラメータで取得されるisOpenに対して、ウィンドウ幅に応じて可変のisOpenDynamicを保持
+    const [isOpenDynamic, setIsOpenDynamic] = useState<boolean>();
+
+    // isOpenDynamicの初期値
     useEffect(() => {
-        // ウィンドウ幅に基づいてサイドバーの状態を更新する関数
+        const isWide = checkIsWide();
+        setIsOpenDynamic(isOpen ?? isWide);
+    }, [isOpen]);
+
+    // ウィンドウリサイズに応じてsetIsOpenDynamicを実行
+    useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 1024) {
-                setIsOpenDynamic(true);
-            } else {
-                setIsOpenDynamic(isOpen);
-            }
+            const isWide = checkIsWide();
+            isWide ? setIsOpenDynamic(true) : setIsOpenDynamic(false);
         };
 
         // イベントリスナーの設定
         window.addEventListener("resize", handleResize);
 
-        // 初期状態のチェック
-        handleResize();
-
         // クリーンアップ関数
         return () => window.removeEventListener("resize", handleResize);
     }, []);
-
-    useEffect(() => {
-        const handleResize = () => setIsOpenDynamic(isOpen);
-
-        // イベントリスナーの設定
-        window.addEventListener("resize", handleResize);
-
-        // 初期状態のチェック
-        handleResize();
-
-        // クリーンアップ関数
-        return () => window.removeEventListener("resize", handleResize);
-    }, [isOpen]);
 
     // サイドバー開閉ハンドラ（要素外クリックで発火）
     const handleSidebarToggle = () => {
