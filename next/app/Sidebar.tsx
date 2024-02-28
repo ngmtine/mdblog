@@ -7,11 +7,13 @@ import { useClickAway } from "react-use";
 
 import { SvgMoonToggle } from "./util/SvgMoonToggle";
 
+const threshold = 768;
+
 const checkIsWide = () => {
     // memo: windowオブジェクトはuseEfect外では使用しない
     // https://dev-k.hatenablog.com/entry/how-to-access-the-window-object-in-nextjs-dev-k
     // ただし以下のように関数化してる場合は大丈夫っぽい
-    const isWide = window.innerWidth >= 1024;
+    const isWide = window.innerWidth >= threshold;
     console.log(`Sidebar: {isWide: ${isWide}}`);
     return isWide;
 };
@@ -39,7 +41,13 @@ export const Sidebar = ({ isOpen }: Props) => {
     useEffect(() => {
         const handleResize = () => {
             const isWide = checkIsWide();
-            isWide ? setIsOpenDynamic(true) : setIsOpenDynamic(false);
+            if (isWide && isOpen) {
+                setIsOpenDynamic(true);
+                router.replace("/?sidebar", { scroll: false });
+            } else {
+                router.replace("/", { scroll: false });
+                setIsOpenDynamic(false);
+            }
         };
 
         // イベントリスナーの設定
@@ -47,7 +55,7 @@ export const Sidebar = ({ isOpen }: Props) => {
 
         // クリーンアップ関数
         return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    }, [router, isOpen]);
 
     // サイドバー開閉ハンドラ（要素外クリックで発火）
     const handleSidebarToggle = () => {
