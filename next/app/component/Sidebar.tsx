@@ -1,6 +1,11 @@
+import { ArticleList } from "./ArticleList";
 import { SidebarContents } from "./SidebarContents";
 
 // サイドバーのラッパー（コンポジションパターン）
 export const Sidebar = () => {
-    return <SidebarContents />;
+    return (
+        <SidebarContents>
+            <ArticleList />
+        </SidebarContents>
+    );
 };

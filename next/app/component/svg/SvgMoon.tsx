@@ -3,8 +3,8 @@ export const SvgMoon = () => {
         <svg
             id="moon"
             xmlns="http://www.w3.org/2000/svg"
-            width="2.3rem"
-            height="2.3rem"
+            width="2.25rem"
+            height="2.25rem"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.8"

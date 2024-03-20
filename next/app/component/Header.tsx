@@ -19,13 +19,3 @@ export const Header = () => {
         </div>
     );
 };
-
-/*
-
-Tailwind CSS でデフォルトで設定されている、幅、高さ、余白などの Spacing 単位は、1 = 0.25rem = 4px です
-
----
-
-page.js以外でurlクエリパラメータを取得するにはpropsで受け取ればいいっぽい？
-
-*/

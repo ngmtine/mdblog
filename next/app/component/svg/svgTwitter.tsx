@@ -3,8 +3,8 @@ export const SvgTwitter = () => {
         <svg
             id="twitter"
             xmlns="http://www.w3.org/2000/svg"
-            width="2.5rem"
-            height="2.5rem"
+            width="2.4rem"
+            height="2.4rem"
             viewBox="0 0 60 60"
             fill="none"
             stroke="currentColor"
