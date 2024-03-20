@@ -5,7 +5,10 @@ import { Post } from "./Post";
 export const MainContents = async () => {
     const posts = await prisma.posts.findMany();
     return (
-        <div id="mainContents">
+        <div
+            id="MainContents"
+            className="pb-40"
+        >
             {posts.map((post, index) => (
                 <>
                     <Post

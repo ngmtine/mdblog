@@ -1,5 +1,6 @@
 import React from "react";
 
+import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 
@@ -16,15 +17,13 @@ export const Post = async ({ title, date, content }: Props) => {
 
     return (
         <article id={title}>
-            {/* <Link
-                href={`/post/${slug}`}
+            <Link
+                href={`/post/${title}`}
                 className="text-4xl font-extrabold text-gray-900 dark:text-gray-300 "
             >
                 {title}
-            </Link> */}
-
-            <h1 className="text-4xl font-extrabold text-gray-900 dark:text-gray-300">{title}</h1>
-            <hr className="h-[2px] bg-gray-900 dark:h-[1px] dark:bg-gray-300"></hr>
+            </Link>
+            <hr className="h-[2px] bg-gray-900 dark:h-[1px] dark:bg-gray-300" />
             <div className="mt-[-3px] text-right">{dateStr}</div>
             <ReactMarkdown
                 className="prose dark:prose-invert"

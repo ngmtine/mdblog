@@ -14,6 +14,8 @@ const config: Config = {
             colors: {
                 "iceberg-dark": "#161821",
                 "iceberg-light": "#e8e9ec",
+                // "iceberg-dark-opacity": "rgba(23, 25, 34, 0.5)",
+                // "iceberg-light-opacity": "rgba(212, 213, 217, 0.5)",
             },
             typography: {
                 // proseクラス指定で付与されるデフォルトスタイルのリセット

@@ -1,16 +1,19 @@
 import React from "react";
 
+import { Sidebar } from "@/app/component/Sidebar";
+
+import { ToggleSidebarButton } from "./component/ToggleSidebarButton";
 import { Header } from "./Header";
 import { MainContents } from "./MainContents";
-import { Sidebar } from "./Sidebar";
 
 const Home = () => {
     return (
         <>
             <Header />
-            <div className="container mx-auto">
-                <Sidebar />
-                <div className="pt-14">
+            <Sidebar />
+            <ToggleSidebarButton />
+            <div className="container mx-auto px-5 lg:pl-80">
+                <div className="pt-16">
                     <MainContents />
                 </div>
             </div>
