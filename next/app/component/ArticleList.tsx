@@ -10,12 +10,13 @@ export const ArticleList = async () => {
     return (
         <ul className="menu min-h-full">
             {posts.map((post, index) => (
-                <div
+                <Link
                     key={index}
                     className="btn btn-ghost max-w-[fit-content] text-left"
+                    href={`/post/${post.title}`}
                 >
-                    <Link href={`/post/${post.title}`}>{post.title}</Link>
-                </div>
+                    {post.title}
+                </Link>
             ))}
         </ul>
     );

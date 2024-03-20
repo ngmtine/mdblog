@@ -20,13 +20,33 @@ export const SidebarContents = ({ children }: Props) => {
         const handleResize = () => {
             if (checkIsWide()) setIsSidebarOpen(false);
         };
-
-        // イベントリスナーの設定
         window.addEventListener("resize", handleResize);
-
-        // クリーンアップ関数
         return () => window.removeEventListener("resize", handleResize);
     }, [setIsSidebarOpen]);
+
+    // サイドバー内のリンククリックしたらサイドバー閉じる
+    useEffect(() => {
+        const handleClick = (event: any) => {
+            if (event.target.tagName === "A" || event.target.id === "moon") {
+                setIsSidebarOpen(false);
+            }
+        };
+        document.addEventListener("click", handleClick);
+        return () => document.removeEventListener("click", handleClick);
+    }, [setIsSidebarOpen]);
+
+    // サイドバーの外側をクリックしたらサイドバー閉じる
+    useEffect(() => {
+        const handleClickOutside = (event: any) => {
+            const sidebarElement = document.getElementById("Sidebar");
+
+            if (sidebarElement && isSidebarOpen && !sidebarElement.contains(event.target)) {
+                setIsSidebarOpen(false);
+            }
+        };
+        document.addEventListener("click", handleClickOutside);
+        return () => document.removeEventListener("click", handleClickOutside);
+    }, [isSidebarOpen, setIsSidebarOpen]);
 
     return (
         <div
