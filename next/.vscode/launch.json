@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Next.js client side (launch)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}",
+            "sourceMapPathOverrides": {
+                "webpack://_N_E/*": "${webRoot}/*"
+            },
+            "resolveSourceMapLocations": ["${workspaceFolder}/**", "!**/node_modules/**"],
+            "skipFiles": ["<node_internals>/**", "**/webpack-internal://**"]
+        },
+        {
+            "name": "Next.js server side (attach)",
+            "type": "node",
+            "request": "attach",
+            "skipFiles": ["<node_internals>/**"],
+            "port": 9230
+        }
+    ]
+}

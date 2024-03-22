@@ -1,0 +1,47 @@
+{
+    "name": "mdblog",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "_dev": "next dev",
+        "dev": "NODE_OPTIONS='--inspect' next dev",
+        "build": "next build",
+        "start": "next start",
+        "__eslint": "next lint",
+        "eslint": "eslint . --fix --config ./.eslintrc.json",
+        "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,html,css,json}' '!node_modules/**' '!.next/**'",
+        "postinstall": "prisma generate"
+    },
+    "dependencies": {
+        "@prisma/client": "^5.11.0",
+        "cookies-next": "^4.1.1",
+        "gray-matter": "^4.0.3",
+        "jotai": "^2.7.1",
+        "next": "14.1.0",
+        "next-themes": "^0.2.1",
+        "react": "^18",
+        "react-dom": "^18",
+        "react-markdown": "^9.0.1",
+        "react-use": "^17.5.0",
+        "rehype-raw": "^7.0.0"
+    },
+    "devDependencies": {
+        "@tailwindcss/typography": "^0.5.10",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "autoprefixer": "^10.0.1",
+        "daisyui": "^4.7.2",
+        "eslint": "^8",
+        "eslint-config-next": "14.1.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-react-refresh": "^0.4.5",
+        "eslint-plugin-tailwindcss": "^3.14.3",
+        "postcss": "^8",
+        "prettier": "^3.2.5",
+        "prisma": "^5.11.0",
+        "tailwindcss": "^3.3.0",
+        "typescript": "^5"
+    }
+}
