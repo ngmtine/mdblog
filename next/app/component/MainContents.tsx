@@ -1,9 +1,15 @@
+import { unstable_cache } from "next/cache";
+
 import prisma from "@/app/util/prisma";
 
 import { Post } from "./Post";
 
 export const MainContents = async () => {
-    const posts = await prisma.posts.findMany();
+    // prismaでのデータフェッチをキャッシュ
+    const posts = await unstable_cache(async () => {
+        return await prisma.posts.findMany();
+    })();
+
     posts.reverse();
 
     return (
