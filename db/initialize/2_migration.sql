@@ -6,7 +6,7 @@ VALUES (
     NULL, -- update_date (更新日は不明なのでNULL)
     TRUE, -- published (公開状態、必要に応じてTRUEかFALSE)
     'md', -- filetype (マークダウンファイルなので'md')
-    '本体は next.js (app router),\nスタイリングは tailwind,\n記事自体は markdown で記述し、それを react-markdown と gray-matter つかってコンポーネント化してます\n\nホスト先は vercel です\ngithub のリポジトリ指定するだけで一瞬でデプロイされかなり体験がいい\n\nというわけで名に負けないようなお料理ブログにしていくぞという気持ちです\nかかってこい　よろしくお願いします' -- content (本文)
+    E'本体は next.js (app router),\nスタイリングは tailwind,\n記事自体は markdown で記述し、それを react-markdown と gray-matter つかってコンポーネント化してます\n\nホスト先は vercel です\ngithub のリポジトリ指定するだけで一瞬でデプロイされかなり体験がいい\n\nというわけで名に負けないようなお料理ブログにしていくぞという気持ちです\nかかってこい　よろしくお願いします' -- content (本文)
 );
 
 INSERT INTO mdblog.posts (title, genre, create_date, update_date, published, filetype, content)
