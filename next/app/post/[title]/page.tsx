@@ -27,3 +27,5 @@ const PostPage = async ({ params }: Props) => {
 };
 
 export default PostPage;
+
+export const dynamic = "force-static";
