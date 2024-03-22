@@ -9,7 +9,8 @@
         "start": "next start",
         "__eslint": "next lint",
         "eslint": "eslint . --fix --config ./.eslintrc.json",
-        "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,html,css,json}' '!node_modules/**' '!.next/**'"
+        "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,html,css,json}' '!node_modules/**' '!.next/**'",
+        "postinstall": "prisma generate"
     },
     "dependencies": {
         "@prisma/client": "^5.11.0",
