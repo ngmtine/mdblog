@@ -2,28 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    overflow-y: hidden;
-}
-
-html,
-body {
-    overflow-x: hidden;
-    height: 100vh;
-}
-
-svg#twitter:hover {
-    fill: #859fc8;
-}
-
-svg#moon:hover {
-    fill: #3d415d;
-}
-
-html.dark svg#moon:hover {
-    fill: #e3de76;
-}
-
 ::-webkit-scrollbar {
     width: 5px;
     height: 5px;

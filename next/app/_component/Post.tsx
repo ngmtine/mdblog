@@ -21,16 +21,16 @@ export const Post = async ({ post }: Props) => {
             {/* タイトル部 */}
             <Link
                 href={`/post/${title}`}
-                className="text-4xl font-extrabold text-gray-900 dark:text-gray-300 "
+                className="text-4xl font-extrabold"
             >
                 {title}
             </Link>
-            <hr className="h-[2px] bg-gray-900 dark:h-[1px] dark:bg-gray-300" />
+            <div className="border-b border-gray-900 dark:border-gray-300" />
             <div className="mt-[-3px] text-right">{dateStr}</div>
 
             {/* 本文 */}
             <ReactMarkdown
-                className="light:text-gray-900 prose text-gray-900 dark:prose-invert dark:text-gray-300"
+                className="prose text-gray-900 dark:prose-invert dark:text-gray-300"
                 rehypePlugins={[rehypeRaw]}
             >
                 {content}

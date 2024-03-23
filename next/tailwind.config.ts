@@ -34,6 +34,12 @@ const config: Config = {
                         h6: {
                             color: "none",
                         },
+                        p: {
+                            color: "inherit",
+                        },
+                        a: {
+                            color: "inherit",
+                        },
                     },
                 },
             },

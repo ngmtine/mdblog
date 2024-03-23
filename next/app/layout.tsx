@@ -18,8 +18,9 @@ const RootLayout = async ({ children }: Props) => {
         <html
             lang="jp"
             suppressHydrationWarning
+            className="overflow-y-hidden"
         >
-            <body className="min-h-screen bg-iceberg-light text-gray-900 opacity-90 dark:bg-iceberg-dark dark:text-gray-300">
+            <body className="h-screen min-h-screen overflow-x-hidden bg-iceberg-light text-gray-900 opacity-90 dark:bg-iceberg-dark dark:text-gray-300">
                 <ThemeProvider>
                     <Header />
                     <Sidebar />

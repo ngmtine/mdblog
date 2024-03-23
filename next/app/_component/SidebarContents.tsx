@@ -51,9 +51,7 @@ export const SidebarContents = ({ children }: Props) => {
     return (
         <div
             id="Sidebar"
-            className={`light:bg-iceberg-light lg:light:bg-iceberg-light fixed left-0 top-0 z-10 h-full w-80 -translate-x-full p-4 text-gray-900 transition-transform 
-            duration-300 ease-in-out dark:bg-iceberg-dark dark:text-gray-300 lg:translate-x-0
-            lg:dark:bg-transparent ${isSidebarOpen ? "translate-x-0 bg-iceberg-light" : "-translate-x-full "}`}
+            className={`light:bg-iceberg-light lg:light:bg-iceberg-light fixed left-0 top-0 z-10 h-full w-80 -translate-x-full p-4 transition-transform duration-300 ease-in-out dark:bg-iceberg-dark lg:translate-x-0 lg:dark:bg-transparent ${isSidebarOpen ? "translate-x-0 bg-iceberg-light" : "-translate-x-full "}`}
         >
             {/* ヘッダー幅だけ余白つくる */}
             <div className="mt-10" />

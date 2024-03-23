@@ -2,6 +2,7 @@ export const SvgMoon = () => {
     return (
         <svg
             id="moon"
+            className="hover:[fill:#3d415d] dark:hover:[fill:#e3de76]"
             xmlns="http://www.w3.org/2000/svg"
             width="2.25rem"
             height="2.25rem"
