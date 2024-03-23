@@ -10,7 +10,11 @@ export const MainContents = async () => {
         return await prisma.posts.findMany();
     })();
 
-    posts.reverse();
+    posts.sort((i, j) => {
+        if (!i.create_date) return 1;
+        if (!j.create_date) return -1;
+        return new Date(j.create_date).getTime() - new Date(i.create_date).getTime();
+    });
 
     return (
         <div
