@@ -23,6 +23,7 @@ export const ArticleList = async () => {
                     key={index}
                     className="btn btn-ghost max-w-[fit-content] text-left"
                     href={`/post/${post.title}`}
+                    scroll={true}
                 >
                     {post.title}
                 </Link>
