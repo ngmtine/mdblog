@@ -17,8 +17,10 @@ export const ToggleDarkmodeButton = () => {
 
     return (
         <button
+            id="ToggleDarkmodeButton"
             type="button"
             onClick={handleToggle}
+            aria-label="toggle darkmode button"
         >
             <SvgMoon />
         </button>
