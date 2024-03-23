@@ -12,14 +12,14 @@ type Props = {
 
 const PostPage = async ({ params }: Props) => {
     const { title } = params;
-    const decodedSlug = decodeURIComponent(title);
+    const decodedTitle = decodeURIComponent(title);
 
     // prismaでのデータフェッチをキャッシュ
     const posts = await unstable_cache(async () => {
         return await prisma.posts.findMany();
     })();
 
-    const post = posts.find((i) => i.title === decodedSlug);
+    const post = posts.find((i) => i.title === decodedTitle);
 
     if (!post) return notFound();
 
