@@ -1,7 +1,7 @@
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 
-import { Post } from "@/app/component/Post";
+import { Post } from "@/app/_component/Post";
 import prisma from "@/app/util/prisma";
 
 type Props = {

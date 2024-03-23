@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Sidebar } from "@/app/component/Sidebar";
+import { Sidebar } from "@/app/_component/Sidebar";
 
-import { Header } from "./component/Header";
-import { ToggleSidebarButton } from "./component/ToggleSidebarButton";
+import Background from "./_component/background";
+import { Header } from "./_component/Header";
+import { ToggleSidebarButton } from "./_component/ToggleSidebarButton";
 import { ThemeProvider } from "./ThemeProvider";
-import Background from "./util/background";
 
 import "./globals.css";
 
