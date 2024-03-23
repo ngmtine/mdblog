@@ -22,6 +22,7 @@ export const Post = async ({ post }: Props) => {
             <Link
                 href={`/post/${title}`}
                 className="text-4xl font-extrabold"
+                aria-label={post.title}
             >
                 {title}
             </Link>
