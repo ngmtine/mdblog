@@ -19,14 +19,15 @@ export const ArticleList = async () => {
     return (
         <ul className="menu min-h-full">
             {posts.map((post, index) => (
-                <Link
-                    key={index}
-                    className="btn btn-ghost max-w-[fit-content] text-left"
-                    href={`/post/${post.title}`}
-                    scroll={true}
-                >
-                    {post.title}
-                </Link>
+                <li key={index}>
+                    <Link
+                        className="btn btn-ghost max-w-[fit-content] text-left"
+                        href={`/post/${post.title}`}
+                        scroll={true}
+                    >
+                        {post.title}
+                    </Link>
+                </li>
             ))}
         </ul>
     );

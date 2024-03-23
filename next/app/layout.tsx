@@ -43,7 +43,7 @@ type Props = {
 const RootLayout = async ({ children }: Props) => {
     return (
         <html
-            lang="jp"
+            lang="ja"
             suppressHydrationWarning
             className="overflow-y-hidden"
         >
