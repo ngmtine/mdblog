@@ -4,18 +4,12 @@ import daisyui from "daisyui";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-    content: [
-        "./app/pages/**/*.{js,ts,jsx,tsx,mdx}",
-        "./app/components/**/*.{js,ts,jsx,tsx,mdx}",
-        "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    ],
+    content: ["./app/**/*.{js,ts,jsx,tsx,mdx}"],
     theme: {
         extend: {
             colors: {
                 "iceberg-dark": "#161821",
                 "iceberg-light": "#e8e9ec",
-                // "iceberg-dark-opacity": "rgba(23, 25, 34, 0.5)",
-                // "iceberg-light-opacity": "rgba(212, 213, 217, 0.5)",
             },
             typography: {
                 // proseクラス指定で付与されるデフォルトスタイルのリセット
