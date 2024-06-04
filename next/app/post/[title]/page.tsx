@@ -15,10 +15,11 @@ const PostPage = async ({ params }: Props) => {
     const decodedTitle = decodeURIComponent(title);
 
     // prismaでのデータフェッチをキャッシュ
-    const posts = await unstable_cache(async () => {
-        return await prisma.posts.findMany();
-    })();
-
+    const posts = await unstable_cache(
+        async () => await prisma.posts.findMany(),
+        ["posts"],
+        { revalidate: 60 }, // 1分毎にキャッシュ更新
+    )();
     const post = posts.find((i) => i.title === decodedTitle);
 
     if (!post) return notFound();
