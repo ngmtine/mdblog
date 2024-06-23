@@ -74,4 +74,8 @@ page.js以外でurlクエリパラメータを取得するにはpropsで受け�
 
 ---
 
-hoge
+todo
+画像をsupabaseに引っ越し
+ogpに画像表示（画像が無い記事はデフォルト画像表示）
+biome+eslintに移行
+prismaだるいのでやめたい

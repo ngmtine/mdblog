@@ -1,6 +1,7 @@
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 
+import { MetaTags } from "@/app/_component/MetaTags";
 import { Post } from "@/app/_component/Post";
 import prisma from "@/app/util/prisma";
 
@@ -23,8 +24,20 @@ const PostPage = async ({ params }: Props) => {
     const post = posts.find((i) => i.title === decodedTitle);
 
     if (!post) return notFound();
+    
+    const description = post.content.slice(0, 100) // 記事冒頭100字
+    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/post/${encodeURIComponent(title)}`;
 
-    return <Post post={post} />;
+    return (
+        <MetaTags
+            title={title}
+            description={description}
+            url={url}
+            image={"undefined.jpg"}
+        >
+            <Post post={post} />
+        </MetaTags>
+    );
 };
 
 export default PostPage;
