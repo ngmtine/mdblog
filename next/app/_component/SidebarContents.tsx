@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, ReactNode } from "react";
+import { type ReactNode, useEffect } from "react";
 
 import { useAtom } from "jotai";
 
-import { sidebarState } from "./sidebarAtom";
 import { ToggleDarkmodeButton } from "./ToggleDarkmodeButton";
 import { TwitterLink } from "./TwitterLink";
+import { sidebarState } from "./sidebarAtom";
 
 type Props = {
     children: ReactNode; // 記事一覧
@@ -62,10 +62,7 @@ export const SidebarContents = ({ children }: Props) => {
             {children}
 
             {/* ボタンとか */}
-            <div
-                id="buttonArea"
-                className="fixed bottom-0 mb-1 ml-10 lg:ml-0"
-            >
+            <div id="buttonArea" className="fixed bottom-0 mb-1 ml-10 lg:ml-0">
                 <div className="ml-1 inline-block">
                     <ToggleDarkmodeButton />
                 </div>

@@ -1,6 +1,5 @@
 import React from "react";
 
-import { posts } from "@prisma/client";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -19,21 +18,14 @@ export const Post = async ({ post }: Props) => {
     return (
         <article id={title}>
             {/* タイトル部 */}
-            <Link
-                href={`/post/${title}`}
-                className="text-4xl font-extrabold"
-                aria-label={post.title}
-            >
+            <Link href={`/post/${title}`} className="text-4xl font-extrabold" aria-label={post.title}>
                 {title}
             </Link>
             <div className="border-b border-gray-900 dark:border-gray-300" />
             <div className="mt-[-3px] text-right">{dateStr}</div>
 
             {/* 本文 */}
-            <ReactMarkdown
-                className="prose text-gray-900 dark:prose-invert dark:text-gray-300"
-                rehypePlugins={[rehypeRaw]}
-            >
+            <ReactMarkdown className="prose text-gray-900 dark:prose-invert dark:text-gray-300" rehypePlugins={[rehypeRaw]}>
                 {content}
             </ReactMarkdown>
 

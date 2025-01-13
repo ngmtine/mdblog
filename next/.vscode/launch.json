@@ -10,7 +10,10 @@
             "sourceMapPathOverrides": {
                 "webpack://_N_E/*": "${webRoot}/*"
             },
-            "resolveSourceMapLocations": ["${workspaceFolder}/**", "!**/node_modules/**"],
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "!**/node_modules/**"
+            ],
             "skipFiles": ["<node_internals>/**", "**/webpack-internal://**"]
         },
         {
@@ -19,6 +22,15 @@
             "request": "attach",
             "skipFiles": ["<node_internals>/**"],
             "port": 9230
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Next.js client & server",
+            "configurations": [
+                "Next.js client side (launch)",
+                "Next.js server side (attach)"
+            ]
         }
     ]
 }

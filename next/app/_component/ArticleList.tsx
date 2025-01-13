@@ -1,27 +1,32 @@
-import { unstable_cache } from "next/cache";
 import Link from "next/link";
+import type { Post as PostType } from "../types";
+import { executeQuery } from "../util/executeQuery";
 
-import prisma from "@/app/util/prisma";
+const getPostsQuery = `
+SELECT
+    id, title, create_date, content
+FROM
+    mdblog.posts
+WHERE
+    published = true
+ORDER BY
+    create_date DESC
+;`;
 
 // サイドバーに表示する記事一覧コンポーネント
 export const ArticleList = async () => {
-    // prismaでのデータフェッチをキャッシュ
-    const posts = await unstable_cache(async () => {
-        return await prisma.posts.findMany();
-    })();
+    const posts = await executeQuery<PostType>(getPostsQuery);
 
-    posts.sort((i, j) => {
-        if (!i.create_date) return 1;
-        if (!j.create_date) return -1;
-        return new Date(j.create_date).getTime() - new Date(i.create_date).getTime();
-    });
+    if (!posts || !posts.length) {
+        return <div>No articles found</div>;
+    }
 
     return (
         <ul className="menu min-h-full">
-            {posts.map((post, index) => (
-                <li key={index}>
-                    <Link
-                        className="btn btn-ghost max-w-[fit-content] text-left"
+            {posts.map((post) => (
+                <li key={post.id}>
+                    <Link //
+                        className="btn btn-ghost max-w-[] text-left"
                         href={`/post/${post.title}`}
                         scroll={true}
                         aria-label={post.title}
@@ -33,3 +38,5 @@ export const ArticleList = async () => {
         </ul>
     );
 };
+
+export const dynamic = "force-static";
