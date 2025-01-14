@@ -11,7 +11,8 @@ CREATE TABLE mdblog.posts (
     update_date DATE,
     published BOOLEAN NOT NULL,
     filetype VARCHAR(20) CHECK (filetype IN ('md', 'html', 'text')),
-    content TEXT NOT NULL
+    content TEXT NOT NULL,
+    summary TEXT
 );
 
 CREATE OR REPLACE FUNCTION set_dates()

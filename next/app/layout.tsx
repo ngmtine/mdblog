@@ -34,22 +34,25 @@ interface Props {
     children: ReactNode;
 }
 
-const RootLayout = ({ children }: Readonly<Props>) => {
+const Layout = ({ children }: Readonly<Props>) => {
     return (
         <html
             lang="ja" //
             suppressHydrationWarning // FIXME: ThemeProvider使用によるエラーの抑制
+            className="overflow-y-hidden"
         >
-            <body className="antialiased">
+            <body className="h-screen min-h-screen overflow-x-hidden bg-iceberg-light text-gray-900 opacity-90 dark:bg-iceberg-dark dark:text-gray-300 antialiased">
                 <ThemeProvider>
                     <Header />
+                    <div className="pt-10" /> {/* 上部余白 */}
                     {children}
-                    <Moyatto />
-                    <Moyatto />
+                    <div className="pb-20" /> {/* 下部余白 */}
                 </ThemeProvider>
+                <Moyatto />
+                <Moyatto />
             </body>
         </html>
     );
 };
 
-export default RootLayout;
+export default Layout;
