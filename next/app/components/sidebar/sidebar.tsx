@@ -1,24 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { ArticleList } from "./articleList";
+import type { ReactNode } from "react";
 import { SidebarContents } from "./sidebarContents";
 import { ToggleSidebarButton } from "./toggleSidebarButton";
 
-export const Sidebar = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+interface Props {
+    children: ReactNode;
+}
 
+export const Sidebar = ({ children }: Props) => {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
     return (
-        <>
+        <div id="sidebar">
             <ToggleSidebarButton handleClick={toggleSidebar} />
             <SidebarContents //
                 isSidebarOpen={isSidebarOpen}
                 onClose={() => setIsSidebarOpen(false)}
             >
-                <ArticleList />
+                {children}
             </SidebarContents>
-        </>
+        </div>
     );
 };

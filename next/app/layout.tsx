@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Header } from "./components/header";
 import { Moyatto } from "./components/moyatto";
-import { Sidebar } from "./components/sidebar/sidebar";
+import { SidebarRoot } from "./components/sidebar/sidebarRoot";
 import { ThemeProvider } from "./themeProvider";
 import "./globals.css";
 
@@ -45,10 +45,10 @@ const Layout = ({ children }: Readonly<Props>) => {
             <body className="h-screen min-h-screen overflow-x-hidden bg-iceberg-light text-gray-900 opacity-90 dark:bg-iceberg-dark dark:text-gray-300 antialiased">
                 <ThemeProvider>
                     <Header />
-                    <Sidebar />
-                    <div className="pt-10" /> {/* 上部余白 */}
+                    <SidebarRoot />
+                    <div id="upperMargin" className="pt-10" /> {/* 上部余白 */}
                     {children}
-                    <div className="pb-20" /> {/* 下部余白 */}
+                    <div id="lowerMargin" className="pb-20" /> {/* 下部余白 */}
                 </ThemeProvider>
                 <Moyatto />
                 <Moyatto />
