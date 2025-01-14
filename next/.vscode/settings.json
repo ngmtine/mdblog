@@ -20,7 +20,8 @@
         "rehype",
         "tailwindcss",
         "unnamedplus",
-        "vimrc"
+        "vimrc",
+        "turbopack"
     ],
     "files.exclude": {
         ".next": true,
