@@ -38,9 +38,6 @@ export const Article = async ({ post }: Props) => {
             >
                 {content}
             </Markdown>
-
-            {/* 下部余白 */}
-            <div className="pb-40" />
         </article>
     );
 };

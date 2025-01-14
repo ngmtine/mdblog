@@ -29,7 +29,7 @@ export const ArticleList = async () => {
             {posts.map((post) => (
                 <li key={post.id}>
                     <Link //
-                        className="btn btn-ghost max-w-[] text-left"
+                        className="btn btn-ghost max-w-[min(100%,-webkit-fill-available)] inline-flex justify-start text-left"
                         href={`/post/${post.title}`}
                         scroll={true}
                         aria-label={post.title}

@@ -47,7 +47,8 @@ const Layout = ({ children }: Readonly<Props>) => {
                     <Header />
                     <SidebarRoot />
                     <div id="upperMargin" className="pt-10" /> {/* 上部余白 */}
-                    {children}
+                    {/* {children} */}
+                    <div className="container mx-auto lg:pl-80">{children}</div>
                     <div id="lowerMargin" className="pb-20" /> {/* 下部余白 */}
                 </ThemeProvider>
                 <Moyatto />
