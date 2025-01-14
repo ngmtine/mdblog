@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { Header } from "./components/header";
 import { ThemeProvider } from "./themeProvider";
 import "./globals.css";
 
@@ -34,9 +35,15 @@ interface Props {
 
 const RootLayout = ({ children }: Readonly<Props>) => {
     return (
-        <html lang="ja">
-            <body className={"antialiased"}>
-                <ThemeProvider>{children}</ThemeProvider>
+        <html
+            lang="ja" //
+            suppressHydrationWarning // FIXME: ThemeProvider使用によるエラーの抑制
+        >
+            <body className="antialiased">
+                <ThemeProvider>
+                    <Header />
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );
