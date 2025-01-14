@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Header } from "./components/header";
+import { Moyatto } from "./components/moyatto";
 import { ThemeProvider } from "./themeProvider";
 import "./globals.css";
 
@@ -43,6 +44,8 @@ const RootLayout = ({ children }: Readonly<Props>) => {
                 <ThemeProvider>
                     <Header />
                     {children}
+                    <Moyatto />
+                    <Moyatto />
                 </ThemeProvider>
             </body>
         </html>
