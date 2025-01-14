@@ -16,12 +16,15 @@ export const Article = async ({ post }: Props) => {
     const dateStr = dateInstance?.toISOString().slice(0, 10) ?? "";
 
     return (
-        <article id={title}>
+        <article //
+            id={title}
+            className="m-4 py-4 px-6 border border-gray-900 dark:border-gray-300 rounded-lg"
+        >
             {/* タイトル */}
             <Link //
                 href={`/post/${encodeURIComponent(title)}`}
                 className="text-4xl font-extrabold"
-                aria-label={post.title}
+                aria-label={title}
             >
                 {title}
             </Link>

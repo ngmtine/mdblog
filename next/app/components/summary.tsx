@@ -22,7 +22,8 @@ export const Summary = ({ post }: Props) => {
             {/* タイトル */}
             <Link //
                 href={`/post/${encodeURIComponent(title)}`}
-                className="text-2xl font-semibold mb-2"
+                className="text-4xl font-extrabold mb-2"
+                aria-label={title}
             >
                 {title}
             </Link>
