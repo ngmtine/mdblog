@@ -19,6 +19,7 @@ export const Article = ({ post }: Props) => {
         <article //
             id={title}
             className="m-4 py-4 px-6 border border-gray-900 dark:border-gray-300 rounded-lg"
+            data-id={post.id}
         >
             {/* タイトル */}
             <Link //

@@ -18,6 +18,7 @@ export const Summary = ({ post }: Props) => {
         <article //
             id={title}
             className="m-4 py-4 px-6 border border-gray-900 dark:border-gray-300 rounded-lg"
+            data-id={post.id}
         >
             {/* タイトル */}
             <Link //
@@ -42,9 +43,9 @@ export const Summary = ({ post }: Props) => {
             {post.summary && (
                 <Link //
                     href={`/post/${encodeURIComponent(title)}`}
-                    className="mt-2 inline-block text-blue-500 hover:underline"
+                    className="inline-block font-bold hover:underline"
                 >
-                    続きを読む
+                    ... 続きを読む
                 </Link>
             )}
         </article>
