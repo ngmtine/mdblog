@@ -17,9 +17,9 @@ LIMIT 1
 ;`;
 
 interface Props {
-    params: {
+    params: Promise<{
         title: string;
-    };
+    }>;
 }
 
 const Page = async ({ params }: Props) => {
