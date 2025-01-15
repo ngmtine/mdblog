@@ -24,7 +24,7 @@ interface Props {
 
 const Page = async ({ params }: Props) => {
     try {
-        const { title } = params;
+        const { title } = await params;
         const decodedTitle = decodeURIComponent(title);
 
         const posts = await executeQuery<PostType>(queryStr, [decodedTitle]);
