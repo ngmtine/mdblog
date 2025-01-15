@@ -17,12 +17,12 @@ export const Summary = ({ post }: Props) => {
     return (
         <article //
             id={title}
-            className="m-4 py-4 px-6 border border-gray-900 dark:border-gray-300 rounded-lg"
+            className="m-4 mt-0 py-4 px-6 border border-gray-900 dark:border-gray-300 rounded-lg"
         >
             {/* タイトル */}
             <Link //
                 href={`/post/${encodeURIComponent(title)}`}
-                className="text-4xl font-extrabold mb-2"
+                className="text-4xl font-extrabold"
                 aria-label={title}
             >
                 {title}

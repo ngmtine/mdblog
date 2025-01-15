@@ -5,6 +5,7 @@ import { Moyatto } from "./components/moyatto";
 import { SidebarRoot } from "./components/sidebar/sidebarRoot";
 import { ThemeProvider } from "./themeProvider";
 import "./globals.css";
+import "./scrollbar.css";
 
 const siteName = "mdblog";
 const description = "お料理ブログです";
@@ -37,8 +38,8 @@ interface Props {
 
 const Layout = ({ children }: Readonly<Props>) => {
     return (
-        <html
-            lang="ja" //
+        <html //
+            lang="ja"
             suppressHydrationWarning // FIXME: ThemeProvider使用によるエラーの抑制
             className="overflow-y-hidden"
         >
@@ -46,12 +47,8 @@ const Layout = ({ children }: Readonly<Props>) => {
                 <ThemeProvider>
                     <Header />
                     <SidebarRoot />
-                    <div id="upperMargin" className="pt-10" /> {/* 上部余白 */}
-                    {/* {children} */}
-                    <div className="container mx-auto lg:pl-80">{children}</div>
-                    <div id="lowerMargin" className="pb-20" /> {/* 下部余白 */}
+                    <main className="mx-auto max-w-screen-3xl mt-0 mb-20 lg:mt-4 lg:ml-80">{children}</main>
                 </ThemeProvider>
-                <Moyatto />
                 <Moyatto />
             </body>
         </html>

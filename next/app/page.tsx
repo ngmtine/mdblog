@@ -22,14 +22,12 @@ const Home = async () => {
     }
 
     return (
-        <main>
-            <div className="space-y-6">
-                {/* 記事概要 */}
-                {posts.map((post) => (
-                    <Summary key={post.id} post={post} />
-                ))}
-            </div>
-        </main>
+        <>
+            {/* 記事概要 */}
+            {posts.map((post) => (
+                <Summary key={post.id} post={post} />
+            ))}
+        </>
     );
 };
 

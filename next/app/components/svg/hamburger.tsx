@@ -1,7 +1,7 @@
 export const Hamburger = () => (
     <svg
         id="hamburger"
-        className="inline-block text-gray-900 backdrop-blur-sm dark:text-gray-300"
+        className="inline-block text-gray-900 dark:text-gray-300"
         xmlns="http://www.w3.org/2000/svg"
         width="2rem"
         height="2rem"

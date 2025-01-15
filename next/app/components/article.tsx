@@ -9,7 +9,7 @@ interface Props {
 }
 
 // 記事全文
-export const Article = async ({ post }: Props) => {
+export const Article = ({ post }: Props) => {
     const { title, create_date, content } = post;
 
     const dateInstance = new Date(String(create_date));
@@ -18,7 +18,7 @@ export const Article = async ({ post }: Props) => {
     return (
         <article //
             id={title}
-            className="m-4 py-4 px-6 border border-gray-900 dark:border-gray-300 rounded-lg"
+            className="m-4 mt-0 py-4 px-6 border border-gray-900 dark:border-gray-300 rounded-lg"
         >
             {/* タイトル */}
             <Link //

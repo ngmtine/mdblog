@@ -7,8 +7,6 @@ export default {
     theme: {
         extend: {
             colors: {
-                background: "var(--background)",
-                foreground: "var(--foreground)",
                 "iceberg-dark": "#161821",
                 "iceberg-light": "#e8e9ec",
             },
@@ -27,6 +25,9 @@ export default {
                         a: { color: "inherit" },
                     },
                 },
+            },
+            screens: {
+                "3xl": "1800px",
             },
         },
     },

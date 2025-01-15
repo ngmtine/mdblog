@@ -7,7 +7,7 @@ export const Moon = () => (
         height="2.25rem"
         viewBox="0 0 24 24"
         fill="none"
-        strokeWidth="1.8"
+        strokeWidth="0.9"
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"

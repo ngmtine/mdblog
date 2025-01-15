@@ -54,17 +54,13 @@ export const Sidebar = ({ children }: Props) => {
         <div id="sidebar">
             <ToggleSidebarButton handleClick={toggleSidebar} />
             <div
-                id="sidebarContents"
-                className={`fixed left-0 top-0 z-10 h-full w-80 bg-iceberg-light p-4 transition-transform duration-300 ease-in-out dark:bg-iceberg-dark ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
+                className={`fixed left-0 top-0 h-full w-80 p-4 pt-[50px] border-r border-gray-900 dark:border-gray-300 z-10 transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-iceberg-light dark:bg-iceberg-dark lg:bg-transparent lg:dark:bg-transparent`}
             >
-                {/* ヘッダー幅だけ余白つくる */}
-                <div className="mt-10" />
-
                 {/* 記事リスト */}
                 {children}
 
                 {/* ボタンとか */}
-                <div id="buttonArea" className="fixed bottom-0 mb-1 ml-10 lg:ml-0">
+                <div id="sidebarButtonArea" className="fixed bottom-0 mb-1 ml-10 lg:ml-0">
                     <div className="ml-1 inline-block">
                         <ToggleDarkmodeButton />
                     </div>
@@ -77,12 +73,11 @@ export const Sidebar = ({ children }: Props) => {
     );
 };
 
+// FIXME: windowオブジェクトはuseEfect外では使用しない
+// https://dev-k.hatenablog.com/entry/how-to-access-the-window-object-in-nextjs-dev-k
+// ただしこのように関数化してる場合は大丈夫っぽい
+// というのはv14の話、v15はそのうち検証する
 const checkIsWide = () => {
-    // FIXME: windowオブジェクトはuseEfect外では使用しない
-    // https://dev-k.hatenablog.com/entry/how-to-access-the-window-object-in-nextjs-dev-k
-    // ただしこのように関数化してる場合は大丈夫っぽい
-    // というのはv14の話、v15はそのうち検証する
     const threshold = 1024; // Tailwind の `lg` に相当
-    console.log(window);
     return window.innerWidth >= threshold;
 };

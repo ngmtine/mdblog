@@ -23,10 +23,10 @@ interface Props {
 }
 
 const Page = async ({ params }: Props) => {
-    const { title } = await params;
-    const decodedTitle = decodeURIComponent(title);
-
     try {
+        const { title } = params;
+        const decodedTitle = decodeURIComponent(title);
+
         const posts = await executeQuery<PostType>(queryStr, [decodedTitle]);
 
         if (!posts || posts.length === 0) return notFound();

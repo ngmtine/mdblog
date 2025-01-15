@@ -3,9 +3,9 @@ import { Sidebar } from "./sidebar";
 
 // サイドバーのラッパー（コンポジションパターン）
 export const SidebarRoot = () => (
-    <div id="sidebarRoot">
+    <aside id="sidebarRoot">
         <Sidebar>
             <ArticleList />
         </Sidebar>
-    </div>
+    </aside>
 );

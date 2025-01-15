@@ -8,7 +8,7 @@ export const Twitter = () => (
         viewBox="0 0 60 60"
         fill="none"
         stroke="currentColor"
-        strokeWidth="3.5"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
     >

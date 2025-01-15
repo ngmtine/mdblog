@@ -1,0 +1,26 @@
+/* スクロールバー全体 */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* スクロールバー背景 */
+::-webkit-scrollbar-track {
+    border-radius: 8px;
+}
+
+/* つまみ部分（ドラッグする部分） */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* ホバースタイル */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* 終端の正方形を削除 */
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
