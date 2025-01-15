@@ -18,7 +18,7 @@ export const Article = ({ post }: Props) => {
     return (
         <article //
             id={title}
-            className="m-4 mt-0 py-4 px-6 border border-gray-900 dark:border-gray-300 rounded-lg"
+            className="m-4 py-4 px-6 border border-gray-900 dark:border-gray-300 rounded-lg"
         >
             {/* タイトル */}
             <Link //

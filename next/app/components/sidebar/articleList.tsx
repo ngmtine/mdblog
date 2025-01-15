@@ -31,7 +31,6 @@ export const ArticleList = async () => {
                     <Link //
                         className="btn btn-ghost max-w-[min(100%,-webkit-fill-available)] inline-flex justify-start text-left"
                         href={`/post/${post.title}`}
-                        scroll={true}
                         aria-label={post.title}
                     >
                         {post.title}

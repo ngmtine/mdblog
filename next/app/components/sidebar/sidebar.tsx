@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { Title } from "~/app/components/title";
+import { checkIsWide } from "~/app/util/checkIsWide";
 import { ToggleDarkmodeButton } from "./toggleDarkmodeButton";
 import { ToggleSidebarButton } from "./toggleSidebarButton";
 import { TwitterLink } from "./twitterLink";
@@ -52,16 +54,17 @@ export const Sidebar = ({ children }: Props) => {
 
     return (
         <div id="sidebar">
-            <ToggleSidebarButton handleClick={toggleSidebar} />
             <div
-                className={`fixed left-0 top-0 h-full w-80 p-4 pt-[50px] border-r border-gray-900 dark:border-gray-300 z-10 transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-iceberg-light dark:bg-iceberg-dark lg:bg-transparent lg:dark:bg-transparent`}
+                className={`fixed left-0 top-0 h-full w-80 p-4 border-r border-gray-900 dark:border-gray-300 z-10 transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-iceberg-light dark:bg-iceberg-dark lg:bg-transparent lg:dark:bg-transparent`}
             >
+                <Title />
+
                 {/* 記事リスト */}
                 {children}
 
                 {/* ボタンとか */}
-                <div id="sidebarButtonArea" className="fixed bottom-0 mb-1 ml-10 lg:ml-0">
-                    <div className="ml-1 inline-block">
+                <div id="sidebarButtonArea" className="fixed bottom-0 mb-[0.2rem] ml-10 lg:ml-0">
+                    <div className="inline-block">
                         <ToggleDarkmodeButton />
                     </div>
                     <div className="ml-2 inline-block">
@@ -69,15 +72,7 @@ export const Sidebar = ({ children }: Props) => {
                     </div>
                 </div>
             </div>
+            <ToggleSidebarButton handleClick={toggleSidebar} />
         </div>
     );
-};
-
-// FIXME: windowオブジェクトはuseEfect外では使用しない
-// https://dev-k.hatenablog.com/entry/how-to-access-the-window-object-in-nextjs-dev-k
-// ただしこのように関数化してる場合は大丈夫っぽい
-// というのはv14の話、v15はそのうち検証する
-const checkIsWide = () => {
-    const threshold = 1024; // Tailwind の `lg` に相当
-    return window.innerWidth >= threshold;
 };

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Header } from "./components/header";
 import { Moyatto } from "./components/moyatto";
 import { SidebarRoot } from "./components/sidebar/sidebarRoot";
 import { ThemeProvider } from "./themeProvider";
@@ -45,9 +44,8 @@ const Layout = ({ children }: Readonly<Props>) => {
         >
             <body className="h-screen min-h-screen overflow-x-hidden bg-iceberg-light text-gray-900 opacity-90 dark:bg-iceberg-dark dark:text-gray-300 antialiased">
                 <ThemeProvider>
-                    <Header />
                     <SidebarRoot />
-                    <main className="mx-auto max-w-screen-3xl mt-0 mb-20 lg:mt-4 lg:ml-80">{children}</main>
+                    <main className="mx-auto max-w-screen-3xl mb-20 lg:ml-80 4xl:ml-auto">{children}</main>
                 </ThemeProvider>
                 <Moyatto />
             </body>
