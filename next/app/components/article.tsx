@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import { remarkImageTransform } from "~/app/util/remarkImageTransform";
 import type { Post } from "~/app/util/types";
 
 interface Props {
@@ -36,6 +37,7 @@ export const Article = ({ post }: Props) => {
             <Markdown //
                 className="prose text-gray-900 dark:prose-invert dark:text-gray-300"
                 rehypePlugins={[rehypeRaw]}
+                remarkPlugins={[remarkImageTransform]}
             >
                 {content}
             </Markdown>
