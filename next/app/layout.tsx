@@ -7,26 +7,27 @@ import { ThemeProvider } from "./themeProvider";
 import "./globals.css";
 import "./scrollbar.css";
 
-const siteName = "mdblog";
-const description = "お料理ブログです";
 const author = "ngmtine";
+const siteName = "ngmtine.com";
+const description = "お料理ブログです";
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
-    metadataBase: new URL("http://localhost:3000"),
+    metadataBase: new URL(baseUrl),
     title: siteName,
     description: description,
     openGraph: {
         title: siteName,
-        description: description,
-        url: "https://www.ngmtine.blog",
-        siteName: siteName,
+        description,
+        url: "https://www.ngmtine.com",
+        siteName,
         locale: "ja_JP",
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
         title: siteName,
-        description: description,
+        description,
         site: author,
         creator: author,
     },
