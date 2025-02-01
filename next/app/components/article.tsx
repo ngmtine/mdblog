@@ -5,6 +5,7 @@ import rehypeRaw from "rehype-raw";
 import { remarkImageTransform } from "~/app/util/remarkImageTransform";
 import type { Post } from "~/app/util/types";
 import { TwitterShareButton } from "./TwitterShareButton";
+import { HatebuShareButton } from "./hatebuShareButton";
 
 interface Props {
     post: Post;
@@ -46,6 +47,8 @@ export const Article = ({ post }: Props) => {
 
             {/* 共有ボタンエリア */}
             <div className="flex justify-end">
+                <HatebuShareButton url={url} />
+                <div className="mr-2" />
                 <TwitterShareButton url={url} text={post.title} />
             </div>
         </article>
