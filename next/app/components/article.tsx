@@ -49,7 +49,7 @@ export const Article = ({ post }: Props) => {
             <div className="flex justify-end">
                 <HatebuShareButton url={url} />
                 <div className="mr-2" />
-                <TwitterShareButton url={url} text={post.title} />
+                <TwitterShareButton url={url} />
             </div>
         </article>
     );
