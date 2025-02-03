@@ -6,6 +6,7 @@ import { remarkImageTransform } from "~/app/util/remarkImageTransform";
 import type { Post } from "~/app/util/types";
 import { TwitterShareButton } from "./TwitterShareButton";
 import { HatebuShareButton } from "./hatebuShareButton";
+import { LoadingImage } from "./loadingImage";
 
 interface Props {
     post: Post;
@@ -41,6 +42,9 @@ export const Article = ({ post }: Props) => {
                 className="prose text-gray-900 dark:prose-invert dark:text-gray-300"
                 rehypePlugins={[rehypeRaw]}
                 remarkPlugins={[remarkImageTransform]}
+                components={{
+                    img: LoadingImage,
+                }}
             >
                 {post.content}
             </Markdown>
