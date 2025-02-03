@@ -11,7 +11,7 @@ FROM
     mdblog.posts
 WHERE
     title = $1
-    AND published = true
+    ${process.env.NODE_ENV === "production" ? "AND published = true" : ""}
 LIMIT 1
 ;`;
 

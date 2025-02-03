@@ -7,8 +7,7 @@ SELECT
     id, title, create_date, content
 FROM
     mdblog.posts
-WHERE
-    published = true
+${process.env.NODE_ENV === "production" ? "WHERE published = true" : ""}
 ORDER BY
     create_date DESC
 ;`;
