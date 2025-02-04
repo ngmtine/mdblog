@@ -42,4 +42,3 @@ BEFORE UPDATE ON mdblog.posts
 FOR EACH ROW
 EXECUTE FUNCTION set_dates();
 
-

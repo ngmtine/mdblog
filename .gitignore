@@ -4,3 +4,4 @@ node_modules
 .env.local
 .vercel
 2_migration.sql
+db/data
