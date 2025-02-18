@@ -7,6 +7,7 @@ import type { Post } from "~/app/util/types";
 import { TwitterShareButton } from "./TwitterShareButton";
 import { HatebuShareButton } from "./hatebuShareButton";
 import { LoadingImage } from "./loadingImage";
+import { MarkdownLink } from "./markdownLink";
 
 interface Props {
     post: Post;
@@ -44,6 +45,7 @@ export const Article = ({ post }: Props) => {
                 remarkPlugins={[remarkImageTransform]}
                 components={{
                     img: LoadingImage,
+                    a: MarkdownLink,
                 }}
             >
                 {post.content}

@@ -5,6 +5,7 @@ import { Spinner } from "./spinner";
 
 interface Props extends React.ImgHTMLAttributes<HTMLImageElement> {}
 
+// markdown内の画像読み込み中にローディングアニメーションを表示するコンポーネント
 export const LoadingImage = ({ src, alt }: Props) => {
     const [isLoading, setIsLoading] = useState(true);
     const imgRef = useRef<HTMLImageElement>(null);
