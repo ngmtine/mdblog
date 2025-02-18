@@ -30,4 +30,7 @@ const Home = async () => {
     );
 };
 
+export const dynamic = "force-static"; // SSG: ビルド時静的生成
+export const revalidate = 60; // ISR: 60秒ごとに再生成
+
 export default Home;

@@ -39,5 +39,3 @@ export const ArticleList = async () => {
         </ul>
     );
 };
-
-export const dynamic = "force-static";

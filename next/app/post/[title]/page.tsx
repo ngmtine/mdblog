@@ -81,7 +81,7 @@ const Page = async ({ params }: Props) => {
     }
 };
 
-export default Page;
+export const dynamic = "force-static"; // SSG: ビルド時静的生成
+export const revalidate = 60; // ISR: 60秒ごとに再生成
 
-export const dynamic = "force-static";
-export const revalidate = 60; // ISR: キャッシュを60秒ごとに再生成可能
+export default Page;
