@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { encodeUrl } from "~/app/util/encodeUrl";
 import { executeQuery } from "~/app/util/executeQuery";
 import type { Post as PostType } from "~/app/util/types";
 
@@ -29,7 +30,7 @@ export const ArticleList = async () => {
                 <li key={post.id}>
                     <Link //
                         className="btn btn-ghost max-w-[min(100%,-webkit-fill-available)] inline-flex justify-start text-left"
-                        href={`/post/${post.title}`}
+                        href={`/post/${encodeUrl(post.title)}`}
                         aria-label={post.title}
                     >
                         {post.title}

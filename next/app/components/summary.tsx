@@ -3,6 +3,7 @@ import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { remarkImageTransform } from "~/app/util/remarkImageTransform";
 import type { Post } from "~/app/util/types";
+import { encodeUrl } from "../util/encodeUrl";
 
 interface Props {
     post: Post;
@@ -23,7 +24,7 @@ export const Summary = ({ post }: Props) => {
         >
             {/* タイトル */}
             <Link //
-                href={`/post/${encodeURIComponent(title)}`}
+                href={`/post/${encodeUrl(title)}`}
                 className="text-4xl font-extrabold"
                 aria-label={title}
             >
@@ -44,7 +45,7 @@ export const Summary = ({ post }: Props) => {
             {/* 続きを読む */}
             {post.summary && (
                 <Link //
-                    href={`/post/${encodeURIComponent(title)}`}
+                    href={`/post/${encodeUrl(title)}`}
                     className="inline-block font-bold hover:underline"
                 >
                     ... 続きを読む

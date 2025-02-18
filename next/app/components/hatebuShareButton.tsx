@@ -1,6 +1,7 @@
 "use client";
 
 import type { MouseEvent } from "react";
+import { encodeUrl } from "../util/encodeUrl";
 import { Hatebu } from "./svg/hatebu";
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
 }
 
 export const HatebuShareButton = ({ url }: Props) => {
-    const shareUrl = `https://b.hatena.ne.jp/entry/${encodeURIComponent(url)}`;
+    const shareUrl = `https://b.hatena.ne.jp/entry/${encodeUrl(url)}`;
 
     const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();

@@ -1,5 +1,6 @@
 import { ImageResponse } from "@vercel/og";
 import type { NextRequest } from "next/server";
+import { decodeUrl } from "~/app/util/encodeUrl";
 
 export const runtime = "edge";
 
@@ -8,7 +9,7 @@ const username = "ngmtine";
 export const GET = async (req: NextRequest) => {
     const { searchParams } = new URL(req.url);
     let title = searchParams.get("title") || "ナイスなタイトルが無いっす";
-    title = title.replaceAll("_", " "); // 好み 余計かも
+    title = decodeUrl(title);
 
     // 各種リソースのurlを取得
     const baseUrl = `${req.nextUrl.protocol}//${req.nextUrl.host}`;

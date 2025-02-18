@@ -4,6 +4,7 @@ import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { remarkImageTransform } from "~/app/util/remarkImageTransform";
 import type { Post } from "~/app/util/types";
+import { encodeUrl } from "../util/encodeUrl";
 import { TwitterShareButton } from "./TwitterShareButton";
 import { HatebuShareButton } from "./hatebuShareButton";
 import { LoadingImage } from "./loadingImage";
@@ -15,25 +16,27 @@ interface Props {
 
 // 記事全文
 export const Article = ({ post }: Props) => {
-    const dateInstance = new Date(String(post.create_date));
+    const { id, title, create_date, content } = post;
+
+    const dateInstance = new Date(String(create_date));
     const dateStr = dateInstance?.toISOString().slice(0, 10) ?? "";
 
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-    const url = `${baseUrl}/post/${encodeURIComponent(post.title)}`;
+    const url = `${baseUrl}/post/${encodeUrl(title)}`;
 
     return (
         <article //
-            id={post.title}
+            id={title}
             className="m-4 py-4 px-6 border border-gray-900 dark:border-gray-300 rounded-lg"
-            data-id={post.id}
+            data-id={id}
         >
             {/* タイトル */}
             <Link //
-                href={`/post/${encodeURIComponent(post.title)}`}
+                href={`/post/${encodeUrl(title)}`}
                 className="text-4xl font-extrabold"
-                aria-label={post.title}
+                aria-label={title}
             >
-                {post.title}
+                {title}
             </Link>
             <div className="border-b border-gray-900 dark:border-gray-300" />
             <div className="mt-[-3px] text-right">{dateStr}</div>
@@ -44,11 +47,11 @@ export const Article = ({ post }: Props) => {
                 rehypePlugins={[rehypeRaw]}
                 remarkPlugins={[remarkImageTransform]}
                 components={{
-                    img: LoadingImage,
-                    a: MarkdownLink,
+                    img: LoadingImage, // 読み込み中のローディングアニメーションのため
+                    a: MarkdownLink, // 別タブで開くため
                 }}
             >
-                {post.content}
+                {content}
             </Markdown>
 
             {/* 共有ボタンエリア */}

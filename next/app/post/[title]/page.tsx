@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Article } from "~/app/components/article";
+import { decodeUrl } from "~/app/util/encodeUrl";
 import { executeQuery } from "~/app/util/executeQuery";
 import type { Post as PostType } from "~/app/util/types";
 
@@ -18,7 +19,7 @@ LIMIT 1
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
     try {
         const { title } = await params;
-        const decodedTitle = decodeURIComponent(title);
+        const decodedTitle = decodeUrl(title);
         const posts = await executeQuery<PostType>(queryStr, [decodedTitle]);
 
         if (!posts || posts.length === 0) {
@@ -67,7 +68,7 @@ interface Props {
 const Page = async ({ params }: Props) => {
     try {
         const { title } = await params;
-        const decodedTitle = decodeURIComponent(title);
+        const decodedTitle = decodeUrl(title);
 
         const posts = await executeQuery<PostType>(queryStr, [decodedTitle]);
 
