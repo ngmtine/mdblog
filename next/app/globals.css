@@ -12,3 +12,19 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+    /* ライトモード */
+    .prose pre,
+    .prose p > code {
+        background-color: var(--fallback-bc, oklch(var(--bc) / 0.25));
+        color: #161821;
+    }
+
+    /* ダークモード */
+    .dark .prose pre,
+    .dark .prose p > code {
+        background-color: var(--tw-prose-pre-bg);
+        color: #e8e9ec;
+    }
+}
