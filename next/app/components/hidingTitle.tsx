@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { checkIsWide } from "~/app/util/checkIsWide";
+import { DEFAULT_THRESHOLD } from "./sidebar/useResponsiveSidebar";
 import { Title } from "./title";
 
 export const HidingTitle = () => {
@@ -10,7 +10,7 @@ export const HidingTitle = () => {
     // ウィンドウリサイズに応じて表示を切り替える
     useEffect(() => {
         const handleResize = () => {
-            checkIsWide() ? setAnimationClass("hidden") : setAnimationClass("");
+            window.innerWidth >= DEFAULT_THRESHOLD ? setAnimationClass("hidden") : setAnimationClass("");
         };
         handleResize();
         window.addEventListener("resize", handleResize);
