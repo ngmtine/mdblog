@@ -7,27 +7,6 @@
     "editor.unicodeHighlight.allowedCharacters": {
         "　": true
     },
-    "cSpell.words": [
-        "ngmtine",
-        "moyatto",
-        "honox",
-        "mdblog",
-        "dockeruser",
-        "dockerpass",
-        "darkmode",
-        "listenport",
-        "mdblog",
-        "netsh",
-        "Qiita",
-        "rehype",
-        "tailwindcss",
-        "unnamedplus",
-        "vimrc",
-        "turbopack",
-        "hatena",
-        "hatebu",
-        "notosans"
-    ],
     "files.exclude": {
         ".next": true,
         "node_modules": true

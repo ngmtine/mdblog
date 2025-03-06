@@ -1,0 +1,33 @@
+{
+    "version": "0.2",
+    "ignorePaths": [],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [],
+    "ignoreWords": [
+        "ngmtine",
+        "moyatto",
+        "honox",
+        "mdblog",
+        "dockeruser",
+        "dockerpass",
+        "darkmode",
+        "listenport",
+        "mdblog",
+        "netsh",
+        "Qiita",
+        "rehype",
+        "tailwindcss",
+        "unnamedplus",
+        "vimrc",
+        "turbopack",
+        "hatena",
+        "hatebu",
+        "notosans",
+        "supabase",
+        "myblog",
+        "psql",
+        "mdast"
+    ],
+    "import": []
+}
