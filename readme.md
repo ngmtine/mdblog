@@ -29,6 +29,9 @@ docker compose up
 
 ```
 psql -h localhost -p 5433 -d main -U dockeruser
+# または
+psql postgres://dockeruser:dockerpass@localhost:5433/main
+
 select * from mdblog.posts;
 ```
 
@@ -39,4 +42,5 @@ insert into mdblog.posts (title, genre, published, filetype, content)
 values ('謹賀新年', 'ポエム', true, 'md', E'賀正');
 ```
 
-db更新後にvercel上でredeployするとビルド走ってサイト更新
+db更新後に1分周期で自動更新される  
+もしくはvercel上でredeployするとビルド走って強制更新  

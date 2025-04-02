@@ -6,6 +6,6 @@ export const Title = () => (
         href="/"
         className="btn btn-ghost font-extrabold text-xl p-3"
     >
-        真・フランス料理紹介ブログ
+        {process.env.NEXT_PUBLIC_BLOG_NAME}
     </Link>
 );

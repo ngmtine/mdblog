@@ -7,10 +7,20 @@ import { ThemeProvider } from "./themeProvider";
 import "./globals.css";
 import "./scrollbar.css";
 
-const author = "ngmtine";
-const siteName = "ngmtine.com";
-const description = "お料理ブログです";
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+const author = process.env.NEXT_PUBLIC_AUTHOR;
+if (!author) throw new Error("author is undefined");
+
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME;
+if (!siteName) throw new Error("siteName is undefined");
+
+const description = process.env.NEXT_PUBLIC_DESCRIPTION;
+if (!description) throw new Error("description is undefined");
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+if (!baseUrl) throw new Error("baseUrl is undefined");
+
+const url = process.env.NEXT_PUBLIC_BASE_URL;
+if (!url) throw new Error("url is undefiend");
 
 export const metadata: Metadata = {
     metadataBase: new URL(baseUrl),
@@ -19,7 +29,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: siteName,
         description,
-        url: "https://www.ngmtine.com",
+        url,
         siteName,
         locale: "ja_JP",
         type: "website",

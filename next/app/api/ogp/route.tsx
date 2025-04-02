@@ -2,9 +2,7 @@ import { ImageResponse } from "@vercel/og";
 import type { NextRequest } from "next/server";
 import { decodeUrl } from "~/app/util/encodeUrl";
 
-export const runtime = "edge";
-
-const username = "ngmtine";
+const username = process.env.AUTHOR;
 
 export const GET = async (req: NextRequest) => {
     const { searchParams } = new URL(req.url);
@@ -81,3 +79,5 @@ export const GET = async (req: NextRequest) => {
         },
     );
 };
+
+export const runtime = "edge";
