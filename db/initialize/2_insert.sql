@@ -7,3 +7,21 @@ values
 うえに画像↑  
 ', 'さまりー！');
 
+-- テスト記事100件生成
+INSERT INTO mdblog.posts
+    (title, genre, published, filetype, content, summary)
+SELECT
+    'テスト投稿タイトル ' || i AS title, -- 連番付きのタイトル
+    CASE (i % 4) -- 4つのジャンルを循環させる
+        WHEN 0 THEN '技術'
+        WHEN 1 THEN '趣味'
+        WHEN 2 THEN '日記'
+        ELSE 'その他'
+    END AS genre,
+    (random() > 0.3) AS published, -- 約70%の確率で TRUE (公開)
+    'md' AS filetype, -- filetypeは常に 'md'
+    'これはテスト投稿 ' || i || ' の本文です。 Markdown形式で記述されています。\n\n## 見出し2\n\n* リスト項目1\n* リスト項目2\n\n本文が続きます。Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' AS content, -- 連番付きの適当な本文
+    'テスト投稿 ' || i || ' の簡単な概要です。' AS summary -- 連番付きの簡単な概要
+FROM generate_series(1, 100) AS i -- 1から100までの連番を生成
+;
+
