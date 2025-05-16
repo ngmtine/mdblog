@@ -20,7 +20,7 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 if (!baseUrl) throw new Error("baseUrl is undefined");
 
 const url = process.env.NEXT_PUBLIC_BASE_URL;
-if (!url) throw new Error("url is undefiend");
+if (!url) throw new Error("url is undefined");
 
 export const metadata: Metadata = {
     metadataBase: new URL(baseUrl),

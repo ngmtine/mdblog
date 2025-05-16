@@ -44,3 +44,10 @@ values ('謹賀新年', 'ポエム', true, 'md', E'賀正');
 
 db更新後に1分周期で自動更新される  
 もしくはvercel上でredeployするとビルド走って強制更新  
+
+# コンテナ再起動
+
+```sh
+docker compose down && sudo rm -rf db/data/ && docker compose build --no-cache && docker compose up
+```
+
