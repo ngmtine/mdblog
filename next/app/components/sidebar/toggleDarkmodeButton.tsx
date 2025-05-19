@@ -17,6 +17,7 @@ export const ToggleDarkmodeButton = () => {
     return (
         <button //
             id="toggleDarkmodeButton"
+            className="cursor-pointer"
             type="button"
             onClick={handleToggle}
             aria-label="toggle darkmode button"
