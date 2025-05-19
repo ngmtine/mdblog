@@ -1,4 +1,5 @@
 import typography from "@tailwindcss/typography";
+import daisyui from "daisyui";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -32,5 +33,5 @@ export default {
         },
     },
     darkMode: "class",
-    plugins: [typography],
+    plugins: [typography, daisyui],
 } satisfies Config;
