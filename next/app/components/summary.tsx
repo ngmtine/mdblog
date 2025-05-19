@@ -34,13 +34,14 @@ export const Summary = ({ post }: Props) => {
             <div className="mt-[-3px] text-right">{dateStr}</div>
 
             {/* 概要文 */}
-            <Markdown //
-                className="prose text-gray-900 dark:prose-invert dark:text-gray-300"
-                rehypePlugins={[rehypeRaw]}
-                remarkPlugins={[remarkImageTransform]}
-            >
-                {summary ? summary : content}
-            </Markdown>
+            <div className="prose text-gray-900 dark:prose-invert dark:text-gray-300">
+                <Markdown //
+                    rehypePlugins={[rehypeRaw]}
+                    remarkPlugins={[remarkImageTransform]}
+                >
+                    {summary ? summary : content}
+                </Markdown>
+            </div>
 
             {/* 続きを読む */}
             {post.summary && (

@@ -42,17 +42,18 @@ export const Article = ({ post }: Props) => {
             <div className="mt-[-3px] text-right">{dateStr}</div>
 
             {/* 本文 */}
-            <Markdown //
-                className="prose text-gray-900 dark:prose-invert dark:text-gray-300"
-                rehypePlugins={[rehypeRaw]}
-                remarkPlugins={[remarkImageTransform]}
-                components={{
-                    img: LoadingImage, // 読み込み中のローディングアニメーションのため
-                    a: MarkdownLink, // 別タブで開くため
-                }}
-            >
-                {content}
-            </Markdown>
+            <div className="prose text-gray-900 dark:prose-invert dark:text-gray-300">
+                <Markdown //
+                    rehypePlugins={[rehypeRaw]}
+                    remarkPlugins={[remarkImageTransform]}
+                    components={{
+                        img: LoadingImage, // 読み込み中のローディングアニメーションのため
+                        a: MarkdownLink, // 別タブで開くため
+                    }}
+                >
+                    {content}
+                </Markdown>
+            </div>
 
             {/* 共有ボタンエリア */}
             <div className="flex justify-end">
