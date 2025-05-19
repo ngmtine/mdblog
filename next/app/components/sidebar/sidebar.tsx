@@ -1,17 +1,19 @@
 "use client";
-import { useResponsiveSidebar } from "./useResponsiveSidebar";
 
 import type { ReactNode } from "react";
 import { Title } from "~/app/components/title";
+import { Border } from "../border";
 import { ToggleDarkmodeButton } from "./toggleDarkmodeButton";
 import { ToggleSidebarButton } from "./toggleSidebarButton";
 import { TwitterLink } from "./twitterLink";
+import { useResponsiveSidebar } from "./useResponsiveSidebar";
 
 interface Props {
-    children: ReactNode;
+    articleList: ReactNode;
+    genreList: ReactNode;
 }
 
-export const Sidebar = ({ children }: Props) => {
+export const Sidebar = ({ articleList, genreList }: Props) => {
     const { isSidebarOpen, toggleSidebar, sidebarRef } = useResponsiveSidebar();
 
     return (
@@ -21,8 +23,15 @@ export const Sidebar = ({ children }: Props) => {
             >
                 <Title />
 
-                {/* 記事リスト */}
-                {children}
+                {/* 記事リスト（最新5件）*/}
+                <div className="text-sm text-right">latest</div>
+                <Border />
+                {articleList}
+
+                {/* ジャンル */}
+                <div className="text-sm text-right">genre</div>
+                <Border />
+                {genreList}
 
                 {/* ボタンとか */}
                 <div id="sidebarButtonArea" className="fixed bottom-0 mb-[0.2rem] ml-10 lg:ml-0">
