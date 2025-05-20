@@ -16,6 +16,27 @@ WHERE
 LIMIT 1
 ;`;
 
+interface Props {
+    params: Promise<{ title: string }>;
+}
+
+const Page = async ({ params }: Props) => {
+    try {
+        const { title } = await params;
+        const decodedTitle = decodeUrl(title);
+
+        const posts = await executeQuery<PostType>(queryStr, [decodedTitle]);
+
+        if (!posts || posts.length === 0) return notFound();
+        const post = posts[0];
+
+        return <Article post={post} />;
+    } catch (error) {
+        console.error("Failed to fetch post data:", error);
+        return notFound();
+    }
+};
+
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
     try {
         const { title } = await params;
@@ -25,7 +46,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
         if (!posts || posts.length === 0) {
             return {
                 title: "記事が見つかりません",
-                description: "このページは存在しません。",
+                description: "このページは存在しません",
             };
         }
 
@@ -53,29 +74,6 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
                 images: [ogpUrl],
             },
         };
-    } catch (error) {
-        console.error("Failed to fetch post data:", error);
-        return notFound();
-    }
-};
-
-interface Props {
-    params: Promise<{
-        title: string;
-    }>;
-}
-
-const Page = async ({ params }: Props) => {
-    try {
-        const { title } = await params;
-        const decodedTitle = decodeUrl(title);
-
-        const posts = await executeQuery<PostType>(queryStr, [decodedTitle]);
-
-        if (!posts || posts.length === 0) return notFound();
-        const post = posts[0];
-
-        return <Article post={post} />;
     } catch (error) {
         console.error("Failed to fetch post data:", error);
         return notFound();
