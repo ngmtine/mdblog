@@ -12,10 +12,12 @@ interface FetchPostsResponse {
 interface ArticleLoaderProps {
     initialPosts: Post[];
     isLoadable: boolean;
+    queryParams?: Record<string, string | number | undefined>; // フィルタリング条件
 }
 
 export const ArticleLoader = (props: ArticleLoaderProps) => {
-    const { initialPosts, isLoadable } = props;
+    const { initialPosts, isLoadable, queryParams } = props;
+
     const [posts, setPosts] = useState<Post[]>(initialPosts);
     const [page, setPage] = useState(1); // 次に読み込むべきページ番号
     const [hasMore, setHasMore] = useState(isLoadable);
@@ -40,9 +42,18 @@ export const ArticleLoader = (props: ArticleLoaderProps) => {
 
     const fetchPosts = useCallback(
         async (pageNum: number) => {
+            const searchApiParams = new URLSearchParams();
+
+            if (queryParams) {
+                for (const [key, value] of Object.entries(queryParams)) {
+                    if (value === undefined) continue;
+                    searchApiParams.append(key, String(value));
+                }
+            }
+
             if (!hasMore) return;
             try {
-                const response = await fetch(`/api/posts?page=${pageNum}`);
+                const response = await fetch(`/api/posts?page=${pageNum}&${searchApiParams}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch posts");
                 }
@@ -57,7 +68,7 @@ export const ArticleLoader = (props: ArticleLoaderProps) => {
                 console.error("Error fetching posts:", error);
             }
         },
-        [hasMore],
+        [hasMore, queryParams],
     );
 
     useEffect(() => {

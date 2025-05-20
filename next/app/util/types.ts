@@ -10,3 +10,7 @@ export interface Post {
     summary: string | null;
     content: string;
 }
+
+export interface Genre {
+    name: string;
+}

@@ -1,11 +1,11 @@
 import Link from "next/link";
-import React from "react";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { remarkImageTransform } from "~/app/util/remarkImageTransform";
 import type { Post } from "~/app/util/types";
 import { encodeUrl } from "../util/encodeUrl";
 import { TwitterShareButton } from "./TwitterShareButton";
+import { Border } from "./border";
 import { HatebuShareButton } from "./hatebuShareButton";
 import { LoadingImage } from "./loadingImage";
 import { MarkdownLink } from "./markdownLink";
@@ -38,7 +38,7 @@ export const Article = ({ post }: Props) => {
             >
                 {title}
             </Link>
-            <div className="border-b border-gray-900 dark:border-gray-300" />
+            <Border />
             <div className="mt-[-3px] text-right">{dateStr}</div>
 
             {/* 本文 */}
