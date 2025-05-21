@@ -23,7 +23,7 @@ interface Props {
 const PostPage = async ({ params }: Props) => {
     try {
         const { title } = await params;
-        const decodedTitle = decodeUrl(title);
+        const decodedTitle = decodeUrl(title, false);
 
         const posts = await executeQuery<PostType>(getPostQuery, [decodedTitle]);
 

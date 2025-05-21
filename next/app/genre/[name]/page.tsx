@@ -26,7 +26,7 @@ interface Props {
 
 const GenrePage = async ({ params }: Props) => {
     const { name } = await params;
-    const decodedSearchName = decodeUrl(name);
+    const decodedSearchName = decodeUrl(name, false);
 
     // URLのデコード名から、DB上の正式なジャンル名取得
     const genreResult = await executeQuery<Genre>(getActualGenreNameQuery, [decodedSearchName]);
