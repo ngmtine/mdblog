@@ -5,7 +5,7 @@ import { decodeUrl } from "~/app/util/encodeUrl";
 import { executeQuery } from "~/app/util/executeQuery";
 import type { Post as PostType } from "~/app/util/types";
 
-const queryStr = `
+const getPostQuery = `
 SELECT
     id, title, content, create_date
 FROM
@@ -20,12 +20,12 @@ interface Props {
     params: Promise<{ title: string }>;
 }
 
-const Page = async ({ params }: Props) => {
+const PostPage = async ({ params }: Props) => {
     try {
         const { title } = await params;
         const decodedTitle = decodeUrl(title);
 
-        const posts = await executeQuery<PostType>(queryStr, [decodedTitle]);
+        const posts = await executeQuery<PostType>(getPostQuery, [decodedTitle]);
 
         if (!posts || posts.length === 0) return notFound();
         const post = posts[0];
@@ -41,7 +41,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
     try {
         const { title } = await params;
         const decodedTitle = decodeUrl(title);
-        const posts = await executeQuery<PostType>(queryStr, [decodedTitle]);
+        const posts = await executeQuery<PostType>(getPostQuery, [decodedTitle]);
 
         if (!posts || posts.length === 0) {
             return {
@@ -83,4 +83,4 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 export const dynamic = "force-static"; // SSG: ビルド時静的生成
 export const revalidate = 60; // ISR: 60秒ごとに再生成
 
-export default Page;
+export default PostPage;

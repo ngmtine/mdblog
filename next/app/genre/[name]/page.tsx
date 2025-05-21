@@ -24,7 +24,7 @@ interface Props {
     params: Promise<{ name: string }>;
 }
 
-const Page = async ({ params }: Props) => {
+const GenrePage = async ({ params }: Props) => {
     const { name } = await params;
     const decodedSearchName = decodeUrl(name);
 
@@ -122,4 +122,4 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 export const dynamic = "force-static"; // SSG: ビルド時静的生成
 export const revalidate = 60; // ISR: 60秒ごとに再生成
 
-export default Page;
+export default GenrePage;

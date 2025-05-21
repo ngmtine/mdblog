@@ -47,7 +47,7 @@ export const Article = ({ post }: Props) => {
                     rehypePlugins={[rehypeRaw]}
                     remarkPlugins={[remarkImageTransform]}
                     components={{
-                        img: LoadingImage, // 読み込み中のローディングアニメーションのため
+                        img: LoadingImage, // 画像読み込み中のローディングアニメーションのため
                         a: MarkdownLink, // 別タブで開くため
                     }}
                 >
