@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArticleLoader } from "~/app/components/articleLoader";
+import { decodeUrl } from "~/app/util/encodeUrl";
 import { executeQuery } from "~/app/util/executeQuery";
 import type { Post } from "~/app/util/types";
 
@@ -11,7 +12,7 @@ interface Props {
 }
 
 const GenrePage = async ({ params }: Props) => {
-    const { name } = await params;
+    const name = decodeUrl((await params).name);
 
     // 特定ジャンルの記事取得クエリ
     const getInitialPostsByActualGenreNameQuery = `
