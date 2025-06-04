@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Post } from "~/app/util/types";
+import { fetcher } from "../util/fetcher";
 import { Summary } from "./summary";
 
 interface FetchPostsResponse {
@@ -53,12 +54,7 @@ export const ArticleLoader = (props: ArticleLoaderProps) => {
 
             if (!hasMore) return;
             try {
-                const response = await fetch(`/api/posts?page=${pageNum}&${searchApiParams}`);
-                if (!response.ok) {
-                    throw new Error("Failed to fetch posts");
-                }
-                const data: FetchPostsResponse = await response.json();
-
+                const data = await fetcher<FetchPostsResponse>(`/api/posts?page=${pageNum}&${searchApiParams}`);
                 setPosts((prevPosts) => {
                     const newPosts = data.posts.filter((newPost) => !prevPosts.some((existingPost) => existingPost.id === newPost.id));
                     return [...prevPosts, ...newPosts];

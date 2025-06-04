@@ -26,19 +26,6 @@ export const Article = async ({ post }: Props) => {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     const url = `${baseUrl}/post/${encodeUrl(title)}`;
 
-    // いいね数取得
-    let likeCount = 0;
-    try {
-        const result = await executeQuery<{ like_count: number }>(`
-SELECT COUNT(*) AS "like_count"
-FROM mdblog.likes
-WHERE post_id = ${id}
-`);
-        likeCount = Number(result[0]?.like_count) || 0;
-    } catch (error) {
-        console.error("Failed to fetch initial like count for article:", error);
-    }
-
     return (
         <article //
             id={title}
@@ -76,7 +63,7 @@ WHERE post_id = ${id}
                 <div className="mr-2" />
                 <TwitterShareButton url={url} />
                 <div className="mr-2" />
-                <LikeButton postId={id} initialLikeCount={likeCount} />
+                <LikeButton postId={id} />
             </div>
         </article>
     );
