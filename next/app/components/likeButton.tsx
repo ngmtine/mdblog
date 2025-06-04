@@ -44,7 +44,7 @@ export const LikeButton = ({ postId }: Props) => {
             type="button"
             onClick={handleLike}
             aria-label="いいね！"
-            className="inline-flex items-center justify-center hover:text-red-500 transition-colors duration-150 ease-in-out group mt-0.5"
+            className="relative inline-flex items-center justify-center hover:text-red-500 transition-colors duration-150 ease-in-out group mt-0.5"
         >
             {/* ハートアイコン */}
             <Heart className="w-11 h-11 transition-transform duration-150 ease-in-out group-hover:scale-110 group-active:scale-95" />
