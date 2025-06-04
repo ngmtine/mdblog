@@ -40,14 +40,16 @@ export const LikeButton = ({ postId }: Props) => {
     };
 
     return (
-        <button
+        <button //
             type="button"
             onClick={handleLike}
-            className="inline-flex items-center gap-x-1.5 rounded-md bg-blue-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:opacity-75 disabled:cursor-not-allowed"
             aria-label="いいね！"
+            className="inline-flex items-center justify-center hover:text-red-500 transition-colors duration-150 ease-in-out group mt-0.5"
         >
-            <Heart className="h-5 w-5" />
-            <span>{likeCount}</span>
+            {/* ハートアイコン */}
+            <Heart className="w-11 h-11 transition-transform duration-150 ease-in-out group-hover:scale-110 group-active:scale-95" />
+            {/* いいね数 */}
+            <span className="absolute text-xs font-bold">{likeCount}</span>
         </button>
     );
 };

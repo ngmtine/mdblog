@@ -62,7 +62,7 @@ export const Article = async ({ post }: Props) => {
                 <HatebuShareButton url={url} />
                 <div className="mr-2" />
                 <TwitterShareButton url={url} />
-                <div className="mr-2" />
+                <div className="mr-1.5" />
                 <LikeButton postId={id} />
             </div>
         </article>
