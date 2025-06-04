@@ -2,7 +2,7 @@ import { ImageResponse } from "@vercel/og";
 import type { NextRequest } from "next/server";
 import { decodeUrl } from "~/app/util/encodeUrl";
 
-const username = process.env.AUTHOR;
+const username = process.env.NEXT_PUBLIC_AUTHOR;
 
 export const GET = async (req: NextRequest) => {
     const { searchParams } = new URL(req.url);
