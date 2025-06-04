@@ -27,15 +27,19 @@ export const LikeButton = ({ postId }: Props) => {
 
     // いいねボタン押下イベント
     const handleLike = async () => {
+        const previousLikeCount = likeCount ?? 0; // 現在のいいね数を保持（ロールバック用）
         try {
+            setLikeCount(Number(previousLikeCount) + 1); // バックエンドの応答を待たず、即座に画面のいいね数をインクリメント
+
             const data = await fetcher<{ likeCount: number }>("/api/likes", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ postId }),
             });
-            setLikeCount(data.likeCount);
+            setLikeCount(data.likeCount); // バックエンドから正確ないいね数が返ってきたら画面更新
         } catch (error) {
             console.error("Error submitting like:", error);
+            setLikeCount(previousLikeCount); // エラー時は元のいいね数にロールバック
         }
     };
 
