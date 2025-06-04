@@ -42,3 +42,11 @@ BEFORE UPDATE ON mdblog.posts
 FOR EACH ROW
 EXECUTE FUNCTION set_dates();
 
+-- いいね管理テーブル
+CREATE TABLE mdblog.likes (
+    id SERIAL PRIMARY KEY,
+    post_id INTEGER NOT NULL REFERENCES mdblog.posts(id) ON DELETE CASCADE,
+    liked_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    user_ip VARCHAR(45), -- 押した人のipアドレス
+    user_agent TEXT -- ブラウザのUA
+);

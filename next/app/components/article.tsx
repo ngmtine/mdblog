@@ -4,9 +4,11 @@ import rehypeRaw from "rehype-raw";
 import { remarkImageTransform } from "~/app/util/remarkImageTransform";
 import type { Post } from "~/app/util/types";
 import { encodeUrl } from "../util/encodeUrl";
+import { executeQuery } from "../util/executeQuery";
 import { TwitterShareButton } from "./TwitterShareButton";
 import { Border } from "./border";
 import { HatebuShareButton } from "./hatebuShareButton";
+import { LikeButton } from "./likeButton";
 import { LoadingImage } from "./loadingImage";
 import { MarkdownLink } from "./markdownLink";
 
@@ -15,7 +17,7 @@ interface Props {
 }
 
 // 記事全文
-export const Article = ({ post }: Props) => {
+export const Article = async ({ post }: Props) => {
     const { id, title, create_date, content } = post;
 
     const dateInstance = new Date(String(create_date));
@@ -23,6 +25,19 @@ export const Article = ({ post }: Props) => {
 
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     const url = `${baseUrl}/post/${encodeUrl(title)}`;
+
+    // いいね数取得
+    let likeCount = 0;
+    try {
+        const result = await executeQuery<{ like_count: number }>(`
+SELECT COUNT(*) AS "like_count"
+FROM mdblog.likes
+WHERE post_id = ${id}
+`);
+        likeCount = Number(result[0]?.like_count) || 0;
+    } catch (error) {
+        console.error("Failed to fetch initial like count for article:", error);
+    }
 
     return (
         <article //
@@ -60,6 +75,8 @@ export const Article = ({ post }: Props) => {
                 <HatebuShareButton url={url} />
                 <div className="mr-2" />
                 <TwitterShareButton url={url} />
+                <div className="mr-2" />
+                <LikeButton postId={id} initialLikeCount={likeCount} />
             </div>
         </article>
     );
