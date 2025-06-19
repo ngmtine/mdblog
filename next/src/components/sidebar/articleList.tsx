@@ -24,11 +24,11 @@ export const ArticleList = async () => {
     }
 
     return (
-        <ul id="articleList" className="menu">
+        <ul id="articleList" className="menu w-auto">
             {posts.map((post) => (
                 <li key={post.id}>
                     <Link //
-                        className="btn btn-ghost max-w-[min(100%,-webkit-fill-available)] inline-flex justify-start text-left"
+                        className="btn btn-ghost justify-start text-left"
                         href={`/post/${encodeUrl(post.title)}`}
                         aria-label={post.title}
                     >

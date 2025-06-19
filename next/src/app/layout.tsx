@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { HidingTitle } from "~/components/hidingTitle";
 import { Moyatto } from "~/components/moyatto";
 import { SidebarRoot } from "~/components/sidebar/sidebarRoot";
-import { ThemeProvider } from "./themeProvider";
+import { ThemeProvider } from "~/components/themeProvider";
 import "./globals.css";
 import "./scrollbar.css";
 
