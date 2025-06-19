@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { Title } from "~/app/components/title";
+import { Title } from "~/components/title";
 import { Border } from "../border";
 import { ToggleDarkmodeButton } from "./toggleDarkmodeButton";
 import { ToggleSidebarButton } from "./toggleSidebarButton";

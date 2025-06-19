@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { fetcher } from "../util/fetcher";
+import { fetcher } from "~/lib/fetcher";
 import { Heart } from "./heart";
 
 interface Props {

@@ -1,7 +1,13 @@
+# 開発用
+local.code-workspace
 node_modules
 .next
-.env
-.env.local
 .vercel
-2_migration.sql
 db/data
+
+# 環境変数
+.env.*
+!.env.example
+
+# その他
+2_migration.sql

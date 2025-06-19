@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import { remarkImageTransform } from "~/app/util/remarkImageTransform";
-import type { Post } from "~/app/util/types";
-import { encodeUrl } from "../util/encodeUrl";
+import { encodeUrl } from "~/lib/encodeUrl";
+import { remarkImageTransform } from "~/lib/remarkImageTransform";
+import type { Post } from "~/lib/types";
 
 interface Props {
     post: Post;

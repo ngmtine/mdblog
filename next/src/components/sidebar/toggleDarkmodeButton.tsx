@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { Moon } from "~/app/components/svg/moon";
+import { Moon } from "~/components/svg/moon";
 
 export const ToggleDarkmodeButton = () => {
     const { setTheme, theme } = useTheme();

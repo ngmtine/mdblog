@@ -1,6 +1,6 @@
-import { ArticleLoader } from "./components/articleLoader";
-import { executeQuery } from "./util/executeQuery";
-import type { Post } from "./util/types";
+import { ArticleLoader } from "~/components/articleLoader";
+import { executeQuery } from "~/lib/executeQuery";
+import type { Post } from "~/lib/types";
 
 const Home = async () => {
     // 最新10件の記事取得

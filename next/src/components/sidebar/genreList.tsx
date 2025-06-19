@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { executeQuery } from "~/app/util/executeQuery";
-import type { Genre } from "~/app/util/types";
-import { encodeUrl } from "../../util/encodeUrl";
+import { encodeUrl } from "~/lib/encodeUrl";
+import { executeQuery } from "~/lib/executeQuery";
+import type { Genre } from "~/lib/types";
 
 const getGenresQuery = `
 SELECT

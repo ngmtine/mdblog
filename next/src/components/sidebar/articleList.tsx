@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { encodeUrl } from "~/app/util/encodeUrl";
-import { executeQuery } from "~/app/util/executeQuery";
-import type { Post as PostType } from "~/app/util/types";
+import { encodeUrl } from "~/lib/encodeUrl";
+import { executeQuery } from "~/lib/executeQuery";
+import type { Post as PostType } from "~/lib/types";
 
 const getLatestPostsQuery = `
 SELECT

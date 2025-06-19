@@ -1,6 +1,6 @@
 import { ImageResponse } from "@vercel/og";
 import type { NextRequest } from "next/server";
-import { decodeUrl } from "~/app/util/encodeUrl";
+import { decodeUrl } from "~/lib/encodeUrl";
 
 const username = process.env.NEXT_PUBLIC_AUTHOR;
 

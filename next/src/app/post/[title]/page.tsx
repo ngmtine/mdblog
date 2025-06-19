@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Article } from "~/app/components/article";
-import { decodeUrl } from "~/app/util/encodeUrl";
-import { executeQuery } from "~/app/util/executeQuery";
-import type { Post as PostType } from "~/app/util/types";
+import { Article } from "~/components/article";
+import { decodeUrl } from "~/lib/encodeUrl";
+import { executeQuery } from "~/lib/executeQuery";
+import type { Post as PostType } from "~/lib/types";
 
 const getPostQuery = `
 SELECT

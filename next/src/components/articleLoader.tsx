@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { Post } from "~/app/util/types";
-import { fetcher } from "../util/fetcher";
+import { fetcher } from "~/lib/fetcher";
+import type { Post } from "~/lib/types";
 import { Summary } from "./summary";
 
 interface FetchPostsResponse {

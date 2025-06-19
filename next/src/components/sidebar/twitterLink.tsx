@@ -1,4 +1,4 @@
-import { Twitter } from "~/app/components/svg/twitter";
+import { Twitter } from "~/components/svg/twitter";
 
 const url = `https://twitter.com/${process.env.NEXT_PUBLIC_AUTHOR}`;
 

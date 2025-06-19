@@ -1,7 +1,7 @@
 "use client";
 
 import type { MouseEvent } from "react";
-import { encodeUrl } from "../util/encodeUrl";
+import { encodeUrl } from "~/lib/encodeUrl";
 import { Hatebu } from "./svg/hatebu";
 
 interface Props {

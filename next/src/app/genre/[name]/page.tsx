@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArticleLoader } from "~/app/components/articleLoader";
-import { decodeUrl } from "~/app/util/encodeUrl";
-import { executeQuery } from "~/app/util/executeQuery";
-import type { Post } from "~/app/util/types";
+import { ArticleLoader } from "~/components/articleLoader";
+import { decodeUrl } from "~/lib/encodeUrl";
+import { executeQuery } from "~/lib/executeQuery";
+import type { Post } from "~/lib/types";
 
 const POSTS_PER_PAGE = 10;
 

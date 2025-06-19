@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { executeQuery } from "~/app/util/executeQuery";
-import type { Post } from "~/app/util/types";
+import { executeQuery } from "~/lib/executeQuery";
+import type { Post } from "~/lib/types";
 
 const postsPerPage = 10;
 

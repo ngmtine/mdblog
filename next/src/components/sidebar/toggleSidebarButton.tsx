@@ -1,4 +1,4 @@
-import { Hamburger } from "~/app/components/svg/hamburger";
+import { Hamburger } from "~/components/svg/hamburger";
 
 interface Props {
     handleClick: () => void;
