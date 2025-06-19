@@ -1,7 +1,7 @@
 export const Hatebu = () => (
     <svg //
         id="hatebu"
-        className="hover:[fill:#00a4de]"
+        className="hover:fill-[#00a4de]"
         xmlns="http://www.w3.org/2000/svg"
         width="2.4rem"
         height="2.4rem"

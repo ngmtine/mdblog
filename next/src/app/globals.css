@@ -1,30 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
+@plugin "daisyui";
+@plugin "@tailwindcss/typography";
+
+/* tailwind.conifg.tsを継続して利用するための回避策はある */
+/* @config '../../tailwind.config.ts'; */
+
+/* バリアントを作成 （dark:bg-black のため） */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* https://tailwindcss.com/docs/theme#theme-variable-namespaces */
+@theme {
+    --color-iceberg-dark: #161821;
+    --color-iceberg-light: #e8e9ec;
+    --breakpoint-3xl: 1800px;
+    --breakpoint-4xl: 2460px;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer components {
-    /* ライトモード */
-    .prose pre,
-    .prose p > code {
-        background-color: var(--fallback-bc, oklch(var(--bc) / 0.25));
-        color: #161821;
-    }
-
-    /* ダークモード */
-    .dark .prose pre,
-    .dark .prose p > code {
-        background-color: var(--tw-prose-pre-bg);
-        color: #e8e9ec;
+/* typographyプラグインのスタイルをリセット */
+.prose {
+    max-width: none;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a {
+        color: inherit;
     }
 }

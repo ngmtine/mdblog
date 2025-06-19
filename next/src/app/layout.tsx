@@ -58,7 +58,7 @@ const Layout = ({ children }: Readonly<Props>) => {
                 <ThemeProvider>
                     <HidingTitle />
                     <SidebarRoot />
-                    <main className="mx-auto max-w-screen-3xl mb-20 lg:ml-80 4xl:ml-auto">{children}</main>
+                    <main className="mx-auto max-w-(--breakpoint-3xl) mb-20 lg:ml-80 4xl:ml-auto">{children}</main>
                 </ThemeProvider>
                 <Moyatto />
             </body>
