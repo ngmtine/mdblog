@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Spinner } from "./spinner";
+import { Spinner } from "~/components/spinner";
 
 interface Props extends React.ImgHTMLAttributes<HTMLImageElement> {}
 
