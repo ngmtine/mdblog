@@ -21,8 +21,8 @@ export const Sidebar = ({ articleList, genreList }: Props) => {
             <div
                 className={`
                     fixed left-0 top-0 h-full w-80 p-4 z-10
-                    border-r bg-base-100 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
-                    transition
+                    bg-iceberg-light dark:bg-iceberg-dark shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
+                    border-r transition
                     ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
                 `}
             >
@@ -40,10 +40,10 @@ export const Sidebar = ({ articleList, genreList }: Props) => {
 
                 {/* ボタンとか */}
                 <div id="sidebarButtonArea" className="fixed bottom-0 mb-[0.2rem] ml-10 lg:ml-0">
-                    <div className="inline-block">
+                    <div className="ml-3 mb-1 inline-block">
                         <ToggleDarkmodeButton />
                     </div>
-                    <div className="ml-2 inline-block">
+                    <div className="ml-4 inline-block translate-y-[2px]">
                         <TwitterLink />
                     </div>
                 </div>

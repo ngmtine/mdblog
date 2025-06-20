@@ -9,9 +9,15 @@
 /* https://tailwindcss.com/docs/theme#theme-variable-namespaces */
 @theme {
     --color-iceberg-dark: #161821;
-    --color-iceberg-light: #e8e9ec;
+    --color-iceberg-dark-code: #181828; /* コードブロック用 */
+    --color-iceberg-light: #fefeff;
+    --color-iceberg-light-code: #f3f6ff; /* コードブロック用 */
     --breakpoint-3xl: 1800px;
     --breakpoint-4xl: 2460px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* typographyプラグインのスタイルをリセット */
@@ -26,6 +32,11 @@
     p,
     a {
         color: inherit;
+    }
+    img {
+        margin-top: unset;
+        margin-bottom: unset;
+        max-width: 40rem;
     }
 }
 

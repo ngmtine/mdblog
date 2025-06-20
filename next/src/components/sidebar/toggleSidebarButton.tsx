@@ -12,6 +12,6 @@ export const ToggleSidebarButton = ({ handleClick }: Props) => (
         aria-label="toggle sidebar button"
         className="cursor-pointer"
     >
-        <RxHamburgerMenu className="h-10 w-10" />
+        <RxHamburgerMenu className="h-11 w-11" />
     </button>
 );

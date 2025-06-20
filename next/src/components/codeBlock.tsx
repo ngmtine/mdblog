@@ -14,38 +14,24 @@ export const CodeBlock = ({ className, children }: CodeBlockProps) => {
     const match = /language-(\w+)/.exec(className || "");
     const lang = match?.[1] ?? "";
 
-    // PreTagに渡すコンポーネントに追加propsを渡すコンポーネント
-    // biome-ignore lint: nursery/noNestedComponentDefinitions isDarkを参照するためにコンポーネント内定義
-    const PreWithTheme = (props: AnchorHTMLAttributes<HTMLPreElement>) => (
-        <CustomPre //
-            {...props}
-            isDark={isDark}
-        />
-    );
-
     return (
         <SyntaxHighlighter //
             style={isDark ? coldarkDark : coldarkCold}
             language={lang}
-            PreTag={PreWithTheme}
+            PreTag={CustomPre}
         >
             {String(children).replace(/\n$/, "")}
         </SyntaxHighlighter>
     );
 };
 
-// CustomPreに渡すPropsの型
-interface CustomPreProps extends AnchorHTMLAttributes<HTMLPreElement> {
-    isDark?: boolean;
-}
-
-const CustomPre = ({ isDark, ...props }: CustomPreProps) => {
+const CustomPre = ({ ...props }: AnchorHTMLAttributes<HTMLPreElement> ) => {
     return (
         <pre
             {...props}
             className="
-                border m-0 backdrop-blur-sm
-                bg-iceberg-light/50 dark:bg-iceberg-dark/50
+                border m-0
+                bg-iceberg-light-code! dark:bg-iceberg-dark-code!
             "
         />
     );

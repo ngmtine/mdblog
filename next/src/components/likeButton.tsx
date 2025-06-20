@@ -57,7 +57,7 @@ export const LikeButton = ({ postId }: Props) => {
             {/* ハートアイコン */}
             <GoHeart className="w-12 h-12 transition group-hover:scale-110 group-active:scale-95" />
             {/* いいね数 */}
-            <span className="absolute text-md font-bold">{likeCount}</span>
+            <span className="absolute top-[14px] text-md font-bold">{likeCount}</span>
         </button>
     );
 };
