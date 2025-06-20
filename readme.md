@@ -48,6 +48,6 @@ db更新後に1分周期で自動更新される
 # コンテナ再起動
 
 ```sh
-docker compose down && sudo rm -rf db/data/ && docker compose build --no-cache && docker compose up
+docker compose down --volumes && sudo rm -rf db/data/ && docker compose up --build
 ```
 
