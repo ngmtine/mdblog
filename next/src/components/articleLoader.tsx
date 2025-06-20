@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { fetcher } from "~/lib/fetcher";
 import type { Post } from "~/lib/types";
-import { Summary } from "./summary";
+import { Article } from "./article";
 
 interface FetchPostsResponse {
     posts: Post[];
@@ -86,10 +86,19 @@ export const ArticleLoader = (props: ArticleLoaderProps) => {
     return (
         <>
             {posts.map((post) => (
-                <Summary key={post.id} post={post} />
+                <Article //
+                    key={post.id}
+                    post={post}
+                    isSummary
+                />
             ))}
 
-            {hasMore && <div ref={loadMoreRef} className="flex justify-center items-center p-4" />}
+            {hasMore && (
+                <div //
+                    ref={loadMoreRef}
+                    className="flex justify-center items-center p-4"
+                />
+            )}
         </>
     );
 };
