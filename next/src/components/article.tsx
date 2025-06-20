@@ -7,7 +7,7 @@ import type { Post } from "~/lib/types";
 import { Border } from "./border";
 import { HatebuShareButton } from "./functionalIcons/hatebuShareButton";
 import { LikeButton } from "./functionalIcons/likeButton";
-import { TwitterShareButton } from "./functionalIcons/TwitterShareButton";
+import { TwitterShareButton } from "./functionalIcons/twitterShareButton";
 import { CodeBlock } from "./tagConverters/codeBlock";
 import { LoadingImage } from "./tagConverters/loadingImage";
 import { MarkdownLink } from "./tagConverters/markdownLink";
@@ -66,9 +66,9 @@ export const Article = async ({ post }: Props) => {
             {/* 共有ボタンエリア */}
             <div className="flex justify-end">
                 <HatebuShareButton url={url} />
-                <div className="mr-3" />
+                <div className="mr-4" />
                 <TwitterShareButton url={url} />
-                <div className="mr-1.5" />
+                <div className="mr-2.5" />
                 <LikeButton postId={id} />
             </div>
         </article>

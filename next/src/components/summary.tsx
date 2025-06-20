@@ -4,6 +4,7 @@ import rehypeRaw from "rehype-raw";
 import { encodeUrl } from "~/lib/encodeUrl";
 import { remarkImageTransform } from "~/lib/remarkImageTransform";
 import type { Post } from "~/lib/types";
+import { Border } from "./border";
 
 interface Props {
     post: Post;
@@ -33,11 +34,11 @@ export const Summary = ({ post }: Props) => {
             >
                 {title}
             </Link>
-            <div className="border-b border-gray-900 dark:border-gray-300" />
+            <Border />
             <div className="mt-[-3px] text-right">{dateStr}</div>
 
             {/* 概要文 */}
-            <div className="prose text-gray-900 dark:prose-invert dark:text-gray-300">
+            <div className="prose">
                 <Markdown //
                     rehypePlugins={[rehypeRaw]}
                     remarkPlugins={[remarkImageTransform]}

@@ -23,7 +23,7 @@ body {
 /* typographyプラグインのスタイルをリセット */
 .prose {
     max-width: none;
-    h1,
+    /* h1,
     h2,
     h3,
     h4,
@@ -32,7 +32,7 @@ body {
     p,
     a {
         color: inherit;
-    }
+    } */
     img {
         margin-top: unset;
         margin-bottom: unset;

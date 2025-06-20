@@ -18,7 +18,7 @@ export const CodeBlock = ({ className, children }: CodeBlockProps) => {
     // FIXME: つまり現状は ```コード``` と `単語` を判別できてない 他に良い判定方法は無い？
     const isCodeBlock = String(children)?.match("\n") !== null;
     if (!isCodeBlock) {
-        return <code>{children}</code>;
+        return <code className="bg-iceberg-light-code! dark:bg-iceberg-dark-code!">{children}</code>;
     }
 
     const match = /language-(\w+)/.exec(className || "");
