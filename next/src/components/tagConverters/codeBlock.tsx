@@ -4,6 +4,7 @@ import { useTheme } from "next-themes";
 import type { AnchorHTMLAttributes } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkCold, coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { CopyButton } from "~/components/functionalIcons/copyButton";
 
 type CodeBlockProps = AnchorHTMLAttributes<HTMLElement>;
 
@@ -23,15 +24,21 @@ export const CodeBlock = ({ className, children }: CodeBlockProps) => {
 
     const match = /language-(\w+)/.exec(className || "");
     const lang = match?.[1] ?? "";
+    const codeStr = String(children).replace(/\n$/, "");
 
     return (
-        <SyntaxHighlighter //
-            style={isDark ? coldarkDark : coldarkCold}
-            language={lang}
-            PreTag={CustomPre}
-        >
-            {String(children).replace(/\n$/, "")}
-        </SyntaxHighlighter>
+        <div className="relative">
+            <SyntaxHighlighter //
+                style={isDark ? coldarkDark : coldarkCold}
+                language={lang}
+                PreTag={CustomPre}
+            >
+                {codeStr}
+            </SyntaxHighlighter>
+            <div className="absolute top-1 right-2 p-2 rounded-lg">
+                <CopyButton text={codeStr} />
+            </div>
+        </div>
     );
 };
 
