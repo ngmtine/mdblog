@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import type { ImgHTMLAttributes } from "react";
 import { useEffect, useRef, useState } from "react";
-import { Spinner } from "~/components/spinner";
+import { Spinner } from "./spinner";
 
-interface Props extends ImgHTMLAttributes<HTMLImageElement> {}
+interface Props extends React.ImgHTMLAttributes<HTMLImageElement> {}
 
 // markdown内の画像読み込み中にローディングアニメーションを表示するコンポーネント
 export const LoadingImage = ({ src, alt }: Props) => {
@@ -20,9 +18,9 @@ export const LoadingImage = ({ src, alt }: Props) => {
     return (
         <>
             {isLoading && <Spinner />}
-            <Image //
-                src={String(src)}
-                alt={alt ?? ""}
+            <img //
+                src={src}
+                alt={alt}
                 ref={imgRef}
                 onLoad={() => setIsLoading(false)}
             />
