@@ -30,20 +30,24 @@ export const Article = ({ post }: Props) => {
         <article //
             id={title}
             className="
-                m-4 py-4 px-6 z-10 border rounded-lg
+                mx-2 my-4 px-2 py-4
+                lg:m-6 lg:px-6
+                border rounded-lg
                 bg-iceberg-light dark:bg-iceberg-dark
                 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
             "
             data-id={id}
         >
             {/* タイトル */}
-            <Link //
-                href={`/post/${encodeUrl(title)}`}
-                className="text-4xl font-extrabold"
-                aria-label={title}
-            >
-                {title}
-            </Link>
+            <div className="ml-2 lg:ml-0">
+                <Link //
+                    href={`/post/${encodeUrl(title)}`}
+                    className="text-4xl font-extrabold"
+                    aria-label={title}
+                >
+                    {title}
+                </Link>
+            </div>
             <Border />
             <div className="mt-[-3px] text-right">{dateStr}</div>
 
