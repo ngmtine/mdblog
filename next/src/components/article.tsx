@@ -17,7 +17,7 @@ interface Props {
 }
 
 // 記事全文
-export const Article = async ({ post }: Props) => {
+export const Article = ({ post }: Props) => {
     const { id, title, create_date, content } = post;
 
     const dateInstance = new Date(String(create_date));
