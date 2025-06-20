@@ -10,6 +10,7 @@ import { LikeButton } from "./likeButton";
 import { LoadingImage } from "./loadingImage";
 import { MarkdownLink } from "./markdownLink";
 import { TwitterShareButton } from "./TwitterShareButton";
+import { ThemedPre } from "./themedPre";
 
 interface Props {
     post: Post;
@@ -28,7 +29,7 @@ export const Article = async ({ post }: Props) => {
     return (
         <article //
             id={title}
-            className="m-4 py-4 px-6 border border-gray-900 dark:border-gray-300 rounded-lg"
+            className="m-4 py-4 px-6 border rounded-lg"
             data-id={id}
         >
             {/* タイトル */}
@@ -43,13 +44,16 @@ export const Article = async ({ post }: Props) => {
             <div className="mt-[-3px] text-right">{dateStr}</div>
 
             {/* 本文 */}
-            <div className="prose text-gray-900 dark:prose-invert dark:text-gray-300">
+            <div //
+                className="prose"
+            >
                 <Markdown //
                     rehypePlugins={[rehypeRaw]}
                     remarkPlugins={[remarkImageTransform]}
                     components={{
                         img: LoadingImage, // 画像読み込み中のローディングアニメーションのため
                         a: MarkdownLink, // 別タブで開くため
+                        pre: ThemedPre, // コードブロック修正
                     }}
                 >
                     {content}
