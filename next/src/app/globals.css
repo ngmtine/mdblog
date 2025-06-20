@@ -23,19 +23,10 @@ body {
 /* typographyプラグインのスタイルをリセット */
 .prose {
     max-width: none;
-    /* h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    a {
-        color: inherit;
-    } */
     img {
         margin-top: unset;
         margin-bottom: unset;
+        width: -webkit-fill-available;
         max-width: 40rem;
     }
 }
