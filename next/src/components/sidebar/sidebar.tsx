@@ -19,7 +19,12 @@ export const Sidebar = ({ articleList, genreList }: Props) => {
     return (
         <div ref={sidebarRef} id="sidebar">
             <div
-                className={`fixed left-0 top-0 h-full w-80 p-4 border-r border-gray-900 dark:border-gray-300 z-10 transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-iceberg-light dark:bg-iceberg-dark lg:bg-transparent lg:dark:bg-transparent`}
+                className={`
+                    fixed left-0 top-0 h-full w-80 p-4 z-10
+                    border-r bg-base-100 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
+                    transition
+                    ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+                `}
             >
                 <Title />
 

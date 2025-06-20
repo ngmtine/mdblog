@@ -29,7 +29,11 @@ export const Article = async ({ post }: Props) => {
     return (
         <article //
             id={title}
-            className="m-4 py-4 px-6 border rounded-lg"
+            className="
+                m-4 py-4 px-6 z-10 border rounded-lg
+                bg-base-100
+                shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
+            "
             data-id={id}
         >
             {/* タイトル */}

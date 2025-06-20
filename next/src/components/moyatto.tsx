@@ -10,6 +10,7 @@ const style: CSSProperties = {
     left: 0,
     width: "100vw",
     height: "100vh",
+    zIndex: -100,
     pointerEvents: "none",
 };
 

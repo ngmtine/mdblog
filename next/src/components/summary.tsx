@@ -19,7 +19,10 @@ export const Summary = ({ post }: Props) => {
     return (
         <article //
             id={title}
-            className="m-4 py-4 px-6 border border-gray-900 dark:border-gray-300 rounded-lg"
+            className="
+                m-4 py-4 px-6 z-10 border rounded-lg
+                bg-base-100
+                shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]"
             data-id={post.id}
         >
             {/* タイトル */}

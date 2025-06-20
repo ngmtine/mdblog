@@ -48,12 +48,16 @@ export const LikeButton = ({ postId }: Props) => {
             type="button"
             onClick={handleLike}
             aria-label="いいね！"
-            className="relative inline-flex items-center justify-center hover:text-red-500 transition-colors duration-150 ease-in-out group mt-0.5"
+            className="
+                relative inline-flex items-center justify-center
+                hover:text-red-500
+                transition group cursor-pointer
+            "
         >
             {/* ハートアイコン */}
-            <GoHeart className="w-11 h-11 transition-transform duration-150 ease-in-out group-hover:scale-110 group-active:scale-95" />
+            <GoHeart className="w-12 h-12 transition group-hover:scale-110 group-active:scale-95" />
             {/* いいね数 */}
-            <span className="absolute text-xs font-bold">{likeCount}</span>
+            <span className="absolute text-md font-bold">{likeCount}</span>
         </button>
     );
 };
