@@ -5,12 +5,12 @@ import { remarkImageTransform } from "~/lib/remarkImageTransform";
 import type { Post } from "~/lib/types";
 import { encodeUrl } from "../lib/encodeUrl";
 import { Border } from "./border";
+import { CodeBlock } from "./codeBlock";
 import { HatebuShareButton } from "./hatebuShareButton";
 import { LikeButton } from "./likeButton";
 import { LoadingImage } from "./loadingImage";
 import { MarkdownLink } from "./markdownLink";
 import { TwitterShareButton } from "./TwitterShareButton";
-import { ThemedPre } from "./themedPre";
 
 interface Props {
     post: Post;
@@ -52,8 +52,9 @@ export const Article = async ({ post }: Props) => {
                     remarkPlugins={[remarkImageTransform]}
                     components={{
                         img: LoadingImage, // 画像読み込み中のローディングアニメーションのため
-                        a: MarkdownLink, // 別タブで開くため
-                        pre: ThemedPre, // コードブロック修正
+                        a: MarkdownLink, // リンク別タブで開くため
+                        pre: ({ children }) => children, // preタグは何もせず子を返す（react-syntax-highlighterがcodeタグを処理するときにpreタグでラップするため）
+                        code: CodeBlock, // シンタックスハイライト
                     }}
                 >
                     {content}
