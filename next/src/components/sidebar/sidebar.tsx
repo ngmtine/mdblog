@@ -1,11 +1,11 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { Border } from "~/components/border";
+import { ToggleDarkmodeButton } from "~/components/functionalIcons/toggleDarkmodeButton";
+import { ToggleSidebarButton } from "~/components/functionalIcons/toggleSidebarButton";
+import { TwitterLinkButton } from "~/components/functionalIcons/twitterLinkButton";
 import { Title } from "~/components/title";
-import { Border } from "../border";
-import { ToggleDarkmodeButton } from "./toggleDarkmodeButton";
-import { ToggleSidebarButton } from "./toggleSidebarButton";
-import { TwitterLink } from "./twitterLink";
 import { useResponsiveSidebar } from "./useResponsiveSidebar";
 
 interface Props {
@@ -44,7 +44,7 @@ export const Sidebar = ({ articleList, genreList }: Props) => {
                         <ToggleDarkmodeButton />
                     </div>
                     <div className="ml-4 inline-block translate-y-[2px]">
-                        <TwitterLink />
+                        <TwitterLinkButton />
                     </div>
                 </div>
             </div>

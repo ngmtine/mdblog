@@ -1,16 +1,16 @@
 import Link from "next/link";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import { encodeUrl } from "~/lib/encodeUrl";
 import { remarkImageTransform } from "~/lib/remarkImageTransform";
 import type { Post } from "~/lib/types";
-import { encodeUrl } from "../lib/encodeUrl";
 import { Border } from "./border";
-import { CodeBlock } from "./codeBlock";
-import { HatebuShareButton } from "./hatebuShareButton";
-import { LikeButton } from "./likeButton";
-import { LoadingImage } from "./loadingImage";
-import { MarkdownLink } from "./markdownLink";
-import { TwitterShareButton } from "./TwitterShareButton";
+import { HatebuShareButton } from "./functionalIcons/hatebuShareButton";
+import { LikeButton } from "./functionalIcons/likeButton";
+import { TwitterShareButton } from "./functionalIcons/TwitterShareButton";
+import { CodeBlock } from "./tagConverters/codeBlock";
+import { LoadingImage } from "./tagConverters/loadingImage";
+import { MarkdownLink } from "./tagConverters/markdownLink";
 
 interface Props {
     post: Post;
