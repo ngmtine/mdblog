@@ -4,12 +4,12 @@ import rehypeRaw from "rehype-raw";
 import { remarkImageTransform } from "~/lib/remarkImageTransform";
 import type { Post } from "~/lib/types";
 import { encodeUrl } from "../lib/encodeUrl";
-import { TwitterShareButton } from "./TwitterShareButton";
 import { Border } from "./border";
 import { HatebuShareButton } from "./hatebuShareButton";
 import { LikeButton } from "./likeButton";
 import { LoadingImage } from "./loadingImage";
 import { MarkdownLink } from "./markdownLink";
+import { TwitterShareButton } from "./TwitterShareButton";
 
 interface Props {
     post: Post;
