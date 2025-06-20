@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { Border } from "~/components/border";
+import { GithubLinkButton } from "~/components/functionalIcons/githubLinkButton";
 import { ToggleDarkmodeButton } from "~/components/functionalIcons/toggleDarkmodeButton";
 import { ToggleSidebarButton } from "~/components/functionalIcons/toggleSidebarButton";
 import { TwitterLinkButton } from "~/components/functionalIcons/twitterLinkButton";
@@ -42,6 +43,9 @@ export const Sidebar = ({ articleList, genreList }: Props) => {
                 <div id="sidebarButtonArea" className="fixed bottom-0 mb-[0.2rem] ml-10 lg:ml-0">
                     <div className="ml-3 mb-1 inline-block">
                         <ToggleDarkmodeButton />
+                    </div>
+                    <div className="ml-4 inline-block translate-y-[2px]">
+                        <GithubLinkButton />
                     </div>
                     <div className="ml-4 inline-block translate-y-[2px]">
                         <TwitterLinkButton />
