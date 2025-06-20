@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { HidingTitle } from "~/components/hidingTitle";
 import { Moyatto } from "~/components/moyatto";
 import { SidebarRoot } from "~/components/sidebar/sidebarRoot";
 import { ThemeProvider } from "~/components/themeProvider";
 import "./globals.css";
 import "./scrollbar.css";
+import { Title } from "~/components/title";
 
 const author = process.env.NEXT_PUBLIC_AUTHOR;
 if (!author) throw new Error("author is undefined");
@@ -51,12 +51,15 @@ const Layout = ({ children }: Readonly<Props>) => {
     return (
         <html //
             lang="ja"
-            suppressHydrationWarning // FIXME: ThemeProvider使用によるエラーの抑制
+            suppressHydrationWarning // ThemeProvider使用によるエラーの抑制
             className="overflow-y-hidden"
         >
             <body className="h-screen min-h-screen overflow-x-hidden antialiased">
                 <ThemeProvider>
-                    <HidingTitle />
+                    {/* タイトルコンポーネントはスマホで表示、pcで非表示（pcはサイドバー常に表示されるため） */}
+                    <div className="visible lg:hidden pl-4 pt-4 mb-[20px]">
+                        <Title />
+                    </div>
                     <SidebarRoot />
                     <main className="mx-auto max-w-(--breakpoint-3xl) mb-20 lg:ml-80 4xl:ml-auto">{children}</main>
                 </ThemeProvider>

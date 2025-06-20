@@ -4,6 +4,9 @@ interface Props {
     handleClick: () => void;
 }
 
+/**
+ * サイドバー開閉ボタン
+ */
 export const ToggleSidebarButton = ({ handleClick }: Props) => (
     <button //
         id="toggleSidebarButton"

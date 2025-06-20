@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 
 export const DEFAULT_THRESHOLD = 1024; // tailwindのlgに相当
 
+/**
+ * サイドバー開閉機能を提供するカスタムフック
+ */
 export const useResponsiveSidebar = (threshold: number = DEFAULT_THRESHOLD) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);

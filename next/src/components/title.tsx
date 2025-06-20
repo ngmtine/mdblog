@@ -1,5 +1,8 @@
 import Link from "next/link";
 
+/**
+ * ブログタイトルボタン
+ */
 export const Title = () => (
     <Link //
         id="title"

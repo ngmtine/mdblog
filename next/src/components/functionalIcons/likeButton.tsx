@@ -63,6 +63,8 @@ export const LikeButton = ({ postId }: Props) => {
 };
 
 /*
+
 画面初期表示時のいいね数取得にラグがある
 propsとして初期いいねをサーバーコンポーネントであるArticleから貰えば回避出来ると思うけど一旦シンプルさ優先
+
 */

@@ -33,7 +33,7 @@ export const Sidebar = ({ articleList, genreList }: Props) => {
                 <Border />
                 {articleList}
 
-                {/* ジャンル */}
+                {/* ジャンル一覧 */}
                 <div className="text-sm text-right">genre</div>
                 <Border />
                 {genreList}
@@ -48,7 +48,13 @@ export const Sidebar = ({ articleList, genreList }: Props) => {
                     </div>
                 </div>
             </div>
-            <div className="fixed bottom-0 ml-3 z-50 inline-block translate-y-0 transition-transform duration-300 ease-in-out lg:translate-y-11 cursor-pointer">
+            <div
+                className="
+                    fixed inline-block
+                    bottom-0 ml-3 z-50
+                    transition translate-y-0 lg:translate-y-11
+                "
+            >
                 <ToggleSidebarButton handleClick={toggleSidebar} />
             </div>
         </div>

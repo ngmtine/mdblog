@@ -2,7 +2,9 @@ import { ArticleList } from "./articleList";
 import { GenreList } from "./genreList";
 import { Sidebar } from "./sidebar";
 
-// サイドバーのラッパー（コンポジションパターン）
+/**
+ * サイドバーのラッパーコンポーネント（コンポジションパターン）
+ */
 export const SidebarRoot = () => (
     <aside id="sidebarRoot">
         <Sidebar //

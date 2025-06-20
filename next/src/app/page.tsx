@@ -34,13 +34,11 @@ ${process.env.NODE_ENV === "production" ? "WHERE published = true" : ""}
     const isLoadable = initialPosts.length < postsCount[0].count && initialPosts.length >= 10;
 
     return (
-        <>
-            {/* 記事概要 */}
-            <ArticleLoader //
-                initialPosts={initialPosts}
-                isLoadable={isLoadable}
-            />
-        </>
+        // 記事一覧
+        <ArticleLoader //
+            initialPosts={initialPosts}
+            isLoadable={isLoadable}
+        />
     );
 };
 

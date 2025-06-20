@@ -16,6 +16,9 @@ interface ArticleLoaderProps {
     queryParams?: Record<string, string | number | undefined>; // フィルタリング条件
 }
 
+/**
+ * 記事一覧コンポーネント
+ */
 export const ArticleLoader = (props: ArticleLoaderProps) => {
     const { initialPosts, isLoadable, queryParams } = props;
 
