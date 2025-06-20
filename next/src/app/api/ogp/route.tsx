@@ -1,4 +1,5 @@
 import { ImageResponse } from "@vercel/og";
+import Image from "next/image";
 import type { NextRequest } from "next/server";
 import { decodeUrl } from "~/lib/encodeUrl";
 
@@ -54,7 +55,7 @@ export const GET = async (req: NextRequest) => {
                     alignItems: "center",
                 }}
             >
-                <img //
+                <Image //
                     src={iconUrl}
                     alt="user"
                     width="80"
