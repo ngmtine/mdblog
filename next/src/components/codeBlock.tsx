@@ -7,9 +7,19 @@ import { coldarkCold, coldarkDark } from "react-syntax-highlighter/dist/esm/styl
 
 type CodeBlockProps = AnchorHTMLAttributes<HTMLElement>;
 
+/**
+ * markdownのコードブロック描画用コンポーネント
+ */
 export const CodeBlock = ({ className, children }: CodeBlockProps) => {
     const { theme } = useTheme();
     const isDark = theme === "dark";
+
+    // 改行を含まないならpreタグで囲まない
+    // FIXME: つまり現状は ```コード``` と `単語` を判別できてない 他に良い判定方法は無い？
+    const isCodeBlock = String(children)?.match("\n") !== null;
+    if (!isCodeBlock) {
+        return <code>{children}</code>;
+    }
 
     const match = /language-(\w+)/.exec(className || "");
     const lang = match?.[1] ?? "";
@@ -25,7 +35,10 @@ export const CodeBlock = ({ className, children }: CodeBlockProps) => {
     );
 };
 
-const CustomPre = ({ ...props }: AnchorHTMLAttributes<HTMLPreElement> ) => {
+/**
+ * react-syntax-highlighterによって付与されるスタイルを上書きするためのコンポーネント
+ */
+const CustomPre = ({ ...props }: AnchorHTMLAttributes<HTMLPreElement>) => {
     return (
         <pre
             {...props}

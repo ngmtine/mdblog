@@ -48,9 +48,7 @@ export const Article = async ({ post }: Props) => {
             <div className="mt-[-3px] text-right">{dateStr}</div>
 
             {/* 本文 */}
-            <div //
-                className="prose"
-            >
+            <div className="prose">
                 <Markdown //
                     rehypePlugins={[rehypeRaw]}
                     remarkPlugins={[remarkImageTransform]}
