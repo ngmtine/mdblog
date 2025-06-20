@@ -1,27 +1,23 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { Moon } from "~/components/svg/moon";
+import { FaMoon } from "react-icons/fa";
 
 export const ToggleDarkmodeButton = () => {
-    const { setTheme, theme } = useTheme();
+    const { theme, setTheme } = useTheme();
 
     const handleToggle = () => {
-        if (theme === "light") {
-            setTheme("dark");
-        } else {
-            setTheme("light");
-        }
+        setTheme(theme === "dark" ? "light" : "dark");
     };
 
     return (
         <button //
-            id="toggleDarkmodeButton"
             type="button"
             onClick={handleToggle}
             aria-label="toggle darkmode button"
+            className="cursor-pointer"
         >
-            <Moon />
+            <FaMoon className="h-9 w-9" />
         </button>
     );
 };

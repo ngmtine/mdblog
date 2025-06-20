@@ -1,11 +1,15 @@
-import { Twitter } from "~/components/svg/twitter";
+import { FaTwitter } from "react-icons/fa";
 
 const url = `https://twitter.com/${process.env.NEXT_PUBLIC_AUTHOR}`;
 
 export const TwitterLink = () => {
     return (
-        <a id="twitterLink" href={url} target="_blank" rel="noreferrer">
-            <Twitter />
+        <a //
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+        >
+            <FaTwitter className="h-10 w-10" />
         </a>
     );
 };

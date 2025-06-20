@@ -1,8 +1,8 @@
 "use client";
 
 import type { MouseEvent } from "react";
+import { SiHatenabookmark } from "react-icons/si";
 import { encodeUrl } from "~/lib/encodeUrl";
-import { Hatebu } from "./svg/hatebu";
 
 interface Props {
     url: string;
@@ -25,7 +25,7 @@ export const HatebuShareButton = ({ url }: Props) => {
             className="inline-flex w-fit items-center"
             onClick={handleClick}
         >
-            <Hatebu />
+            <SiHatenabookmark className="h-10 w-10" />
         </a>
     );
 };

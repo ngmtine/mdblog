@@ -1,4 +1,4 @@
-import { Twitter } from "./svg/twitter";
+import { FaTwitter } from "react-icons/fa6";
 
 interface Props {
     url: string;
@@ -20,7 +20,7 @@ export const TwitterShareButton = ({ url, text = "", hashtags = [] }: Props) => 
             aria-label="Share on Twitter"
             className="inline-flex w-fit items-center"
         >
-            <Twitter />
+            <FaTwitter className="h-10 w-10" />
         </a>
     );
 };

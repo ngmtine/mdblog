@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { GoHeart } from "react-icons/go";
 import { fetcher } from "~/lib/fetcher";
-import { Heart } from "./heart";
 
 interface Props {
     postId: number;
@@ -51,7 +51,7 @@ export const LikeButton = ({ postId }: Props) => {
             className="relative inline-flex items-center justify-center hover:text-red-500 transition-colors duration-150 ease-in-out group mt-0.5"
         >
             {/* ハートアイコン */}
-            <Heart className="w-11 h-11 transition-transform duration-150 ease-in-out group-hover:scale-110 group-active:scale-95" />
+            <GoHeart className="w-11 h-11 transition-transform duration-150 ease-in-out group-hover:scale-110 group-active:scale-95" />
             {/* いいね数 */}
             <span className="absolute text-xs font-bold">{likeCount}</span>
         </button>

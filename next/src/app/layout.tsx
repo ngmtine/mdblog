@@ -54,7 +54,7 @@ const Layout = ({ children }: Readonly<Props>) => {
             suppressHydrationWarning // FIXME: ThemeProvider使用によるエラーの抑制
             className="overflow-y-hidden"
         >
-            <body className="h-screen min-h-screen overflow-x-hidden bg-iceberg-light text-gray-900 opacity-90 dark:bg-iceberg-dark dark:text-gray-300 antialiased">
+            <body className="h-screen min-h-screen overflow-x-hidden antialiased">
                 <ThemeProvider>
                     <HidingTitle />
                     <SidebarRoot />

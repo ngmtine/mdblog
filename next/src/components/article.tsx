@@ -59,7 +59,7 @@ export const Article = async ({ post }: Props) => {
             {/* 共有ボタンエリア */}
             <div className="flex justify-end">
                 <HatebuShareButton url={url} />
-                <div className="mr-2" />
+                <div className="mr-3" />
                 <TwitterShareButton url={url} />
                 <div className="mr-1.5" />
                 <LikeButton postId={id} />

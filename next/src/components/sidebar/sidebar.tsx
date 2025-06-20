@@ -43,7 +43,9 @@ export const Sidebar = ({ articleList, genreList }: Props) => {
                     </div>
                 </div>
             </div>
-            <ToggleSidebarButton handleClick={toggleSidebar} />
+            <div className="fixed bottom-0 ml-3 z-50 inline-block translate-y-0 transition-transform duration-300 ease-in-out lg:translate-y-11 cursor-pointer">
+                <ToggleSidebarButton handleClick={toggleSidebar} />
+            </div>
         </div>
     );
 };
