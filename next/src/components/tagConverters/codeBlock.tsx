@@ -32,25 +32,14 @@ export const CodeBlock = ({ className, children }: CodeBlockProps) => {
     }
 
     // コード文の言語（js, python, etc）
-    const match = /language-(?:(start|end):)?(\w+)(?::(start|end))?/.exec(className || "");
-    const lang = match?.[2] ?? ""; // js, python, etc...
-
-    // チャット形式判定
-    // const chatPosition: "start" | "end" | "" = (() => {
-    //     if (["start", "end"].includes(lang)) return lang;
-    //     return match?.[1] || match?.[3] || "";
-    // })() as "start" | "end" | "";
-    // const isStart = chatPosition === "start";
-    // const isEnd = chatPosition === "end";
+    const match = /language-(\w+)/.exec(className || "");
+    const lang = match?.[1] ?? "";
 
     // コード文
     const codeStr = String(children).replace(/\n$/, "");
 
     return (
-        <div
-            className="relative"
-            // style={{placeItems: "end"}}
-        >
+        <div className="relative">
             <SyntaxHighlighter //
                 style={mounted && isDark ? coldarkDark : coldarkCold}
                 language={lang}
@@ -75,7 +64,6 @@ const CustomPre = ({ ...props }: AnchorHTMLAttributes<HTMLPreElement>) => {
             className="
                 border m-0
                 bg-iceberg-light-code! dark:bg-iceberg-dark-code!
-                w-fit
             "
         />
     );
@@ -96,11 +84,5 @@ nextはssr時にクライアント側の情報（isDark）を検知すること�
 そのためハイドレーション時に、ssrしたhtmlとクライアントが生成する仮想domの間で不一致してエラー起こす
 これを回避するため、ハイドレーション完了してクライアント側で完全にマウントされてからスタイルを適用する
 こうすればハイドレーションエラーは起きず、モードに沿ったスタイルも適用される
-
-
-chat-startとchat-endについて
-https://daisyui.com/components/chat/
-要はaiとのチャットやり取りを表現するため
-ただ、今の構造だと吹き出しにならない そのうち直す
 
 */
