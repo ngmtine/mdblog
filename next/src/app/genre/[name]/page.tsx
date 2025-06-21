@@ -22,7 +22,7 @@ FROM
     mdblog.posts
 WHERE
     genre = $1
-${process.env.NODE_ENV === "production" ? "AND published = true" : ""}
+${process.env.INCLUDE_UNPUBLISHED !== "true" ? "AND published = true" : ""}
 ORDER BY
     create_date DESC
 LIMIT ${POSTS_PER_PAGE}
@@ -42,7 +42,7 @@ FROM
     mdblog.posts
 WHERE
     genre = $1
-${process.env.NODE_ENV === "production" ? "AND published = true" : ""}
+${process.env.INCLUDE_UNPUBLISHED !== "true" ? "AND published = true" : ""}
 ;`;
 
     const postsCountResult = await executeQuery<{ count: number }>(getPostsCountByActualGenreNameQuery, [name]);

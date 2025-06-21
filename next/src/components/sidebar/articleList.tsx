@@ -8,7 +8,7 @@ SELECT
     id, title, create_date, content
 FROM
     mdblog.posts
-${process.env.NODE_ENV === "production" ? "WHERE published = true" : ""}
+${process.env.INCLUDE_UNPUBLISHED !== "true" ? "WHERE published = true" : ""}
 ORDER BY
     create_date DESC
 LIMIT

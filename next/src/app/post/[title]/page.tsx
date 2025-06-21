@@ -12,7 +12,7 @@ FROM
     mdblog.posts
 WHERE
     title = $1
-    ${process.env.NODE_ENV === "production" ? "AND published = true" : ""}
+${process.env.INCLUDE_UNPUBLISHED !== "true" ? "AND published = true" : ""}
 LIMIT 1
 ;`;
 

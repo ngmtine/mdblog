@@ -26,7 +26,7 @@ FROM
         const conditions: string[] = [];
         const queryParams: (string | number)[] = [postsPerPage, offset];
 
-        if (process.env.NODE_ENV === "production") {
+        if (process.env.INCLUDE_UNPUBLISHED !== "true") {
             conditions.push("published = true");
         }
 
@@ -62,7 +62,7 @@ FROM
         const conditions: string[] = [];
         const queryParams: (string | number)[] = [];
 
-        if (process.env.NODE_ENV === "production") {
+        if (process.env.INCLUDE_UNPUBLISHED !== "true") {
             conditions.push("published = true");
         }
 

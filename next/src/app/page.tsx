@@ -9,7 +9,7 @@ SELECT
     id, title, summary, content, create_date
 FROM
     mdblog.posts
-${process.env.NODE_ENV === "production" ? "WHERE published = true" : ""}
+${process.env.INCLUDE_UNPUBLISHED !== "true" ? "WHERE published = true" : ""}
 ORDER BY
     create_date DESC
 LIMIT 10
@@ -26,7 +26,7 @@ SELECT
     COUNT(*)::integer
 FROM
     mdblog.posts
-${process.env.NODE_ENV === "production" ? "WHERE published = true" : ""}
+${process.env.INCLUDE_UNPUBLISHED !== "true" ? "WHERE published = true" : ""}
 ;`;
     const postsCount = await executeQuery<{ count: number }>(getPostsCountQuery);
 

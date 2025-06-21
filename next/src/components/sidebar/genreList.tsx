@@ -8,7 +8,7 @@ SELECT
     DISTINCT genre as name
 FROM
     mdblog.posts
-${process.env.NODE_ENV === "production" ? "WHERE published = true" : ""}
+${process.env.INCLUDE_UNPUBLISHED !== "true" ? "WHERE published = true" : ""}
 ORDER BY
     name ASC
 ;`;
