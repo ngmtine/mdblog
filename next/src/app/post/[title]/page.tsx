@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Article } from "~/components/article";
+import { PrevNextPostLink } from "~/components/prevNextPostLink";
 import { decodeUrl } from "~/lib/encodeUrl";
 import { executeQuery } from "~/lib/executeQuery";
 import type { Post as PostType } from "~/lib/types";
@@ -16,6 +17,34 @@ ${process.env.INCLUDE_UNPUBLISHED !== "true" ? "AND published = true" : ""}
 LIMIT 1
 ;`;
 
+// 前の記事を取得するクエリ
+const getPrevPostQuery = `
+SELECT
+    title
+FROM
+    mdblog.posts
+WHERE
+    create_date < (SELECT create_date FROM mdblog.posts WHERE title = $1)
+${process.env.INCLUDE_UNPUBLISHED !== "true" ? "AND published = true" : ""}
+ORDER BY
+    create_date DESC
+LIMIT 1
+;`;
+
+// 次の記事を取得するクエリ
+const getNextPostQuery = `
+SELECT
+    title
+FROM
+    mdblog.posts
+WHERE
+    create_date > (SELECT create_date FROM mdblog.posts WHERE title = $1)
+${process.env.INCLUDE_UNPUBLISHED !== "true" ? "AND published = true" : ""}
+ORDER BY
+    create_date ASC
+LIMIT 1
+;`;
+
 interface Props {
     params: Promise<{ title: string }>;
 }
@@ -25,12 +54,24 @@ const PostPage = async ({ params }: Props) => {
         const { title } = await params;
         const decodedTitle = decodeUrl(title);
 
-        const posts = await executeQuery<PostType>(getPostQuery, [decodedTitle]);
+        const [posts, prevPosts, nextPosts] = await Promise.all([
+            executeQuery<PostType>(getPostQuery, [decodedTitle]),
+            executeQuery<{ title: string }>(getPrevPostQuery, [decodedTitle]),
+            executeQuery<{ title: string }>(getNextPostQuery, [decodedTitle]),
+        ]);
 
         if (!posts || posts.length === 0) return notFound();
         const post = posts[0];
 
-        return <Article post={post} />;
+        const prevPost = prevPosts?.[0];
+        const nextPost = nextPosts?.[0];
+
+        return (
+            <>
+                <Article post={post} />
+                <PrevNextPostLink prevPost={prevPost} nextPost={nextPost} />
+            </>
+        );
     } catch (error) {
         console.error("Failed to fetch post data:", error);
         return notFound();
