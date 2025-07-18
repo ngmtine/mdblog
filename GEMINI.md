@@ -1,3 +1,5 @@
+typescriptでブログサイトを作成します
+
 # 要件定義
 
 ## 技術要件
@@ -38,3 +40,4 @@ client componentからserver componentをインポートすることは出来な
 /src/lib           クライアントとサーバー共通で使用するユーティリティ関数や型定義等
 /src/lib/client    ユーティリティ関数の中でも、クライアント側で実行されるもの（windowオブジェクトを使用しているものや、reactのカスタムフック等）
 /src/lib/server    ユーティリティ関数の中でも、サーバー側で実行されるもの（app routerのサーバーアクション等）
+
