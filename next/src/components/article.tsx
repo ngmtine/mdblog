@@ -9,7 +9,6 @@ import { HatebuShareButton } from "./functionalIcons/hatebuShareButton";
 import { LikeButton } from "./functionalIcons/likeButton";
 import { TwitterShareButton } from "./functionalIcons/twitterShareButton";
 import { CodeBlock } from "./tagConverters/codeBlock";
-import { LoadingImage } from "./tagConverters/loadingImage";
 import { MarkdownLink } from "./tagConverters/markdownLink";
 
 interface Props {
@@ -62,7 +61,6 @@ export const Article = ({ post, isSummary }: Props) => {
                     rehypePlugins={[rehypeRaw]}
                     remarkPlugins={[remarkImageTransform]}
                     components={{
-                        img: LoadingImage, // 画像読み込み中のローディングアニメーションのため
                         a: MarkdownLink, // リンク別タブで開くため
                         pre: ({ children }) => children, // preタグは何もせず子を返す（react-syntax-highlighterがcodeタグを処理するときにpreタグでラップするため）
                         code: CodeBlock, // シンタックスハイライト
