@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -9,6 +10,7 @@ import { HatebuShareButton } from "./functionalIcons/hatebuShareButton";
 import { LikeButton } from "./functionalIcons/likeButton";
 import { TwitterShareButton } from "./functionalIcons/twitterShareButton";
 import { CodeBlock } from "./tagConverters/codeBlock";
+import { MarkdownImage } from "./tagConverters/markdownImage";
 import { MarkdownLink } from "./tagConverters/markdownLink";
 
 interface Props {
@@ -64,6 +66,7 @@ export const Article = ({ post, isSummary }: Props) => {
                         a: MarkdownLink, // リンク別タブで開くため
                         pre: ({ children }) => children, // preタグは何もせず子を返す（react-syntax-highlighterがcodeタグを処理するときにpreタグでラップするため）
                         code: CodeBlock, // シンタックスハイライト
+                        img: MarkdownImage, // 画像キャッシュのため
                     }}
                 >
                     {content}
