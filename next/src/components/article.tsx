@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -34,19 +33,13 @@ export const Article = ({ post, isSummary }: Props) => {
         <article //
             id={post.title}
             data-id={post.id}
-            className="
-                mx-2 my-4 px-2 py-4
-                lg:m-6 lg:px-6
-                border rounded-lg
-                bg-iceberg-light dark:bg-iceberg-dark
-                shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
-            "
+            className="bg-iceberg-light dark:bg-iceberg-dark shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] lg:m-6 mx-2 my-4 px-2 lg:px-6 py-4 border rounded-lg"
         >
             {/* タイトル */}
             <div className="ml-2 lg:ml-0">
                 <Link //
                     href={`/post/${encodeUrl(post.title)}`}
-                    className="text-4xl font-extrabold"
+                    className="font-extrabold text-4xl"
                     aria-label={post.title}
                 >
                     {post.title}

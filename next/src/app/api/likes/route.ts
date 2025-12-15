@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { executeQuery } from "~/lib/executeQuery";
 
 // 特定の投稿のいいね数を取得
-export const GET = async (request: NextRequest) => {
+export const GET = async (request: NextRequest, _context: { params: Promise<{}> }) => {
     try {
         const { searchParams } = new URL(request.url);
         const postId = searchParams.get("postId");
@@ -36,17 +36,10 @@ where
 };
 
 // いいね付与＆いいね数取得
-export const POST = async (request: NextRequest & { ip: string }) => {
+export const POST = async (request: NextRequest, _context: { params: Promise<{}> }) => {
     try {
-        let userIp = request.ip; // vercel環境などでは自動的に取得されるらしい
-        if (!userIp) {
-            const forwardedFor = request.headers.get("x-forwarded-for");
-            if (forwardedFor) {
-                userIp = forwardedFor.split(",")[0].trim();
-            } else {
-                userIp = "unknown";
-            }
-        }
+        const forwardedFor = request.headers.get("x-forwarded-for");
+        const userIp = forwardedFor ? forwardedFor.split(",")[0].trim() : "unknown";
         const userAgent = request.headers.get("user-agent") ?? "unknown";
 
         const body = await request.json();
